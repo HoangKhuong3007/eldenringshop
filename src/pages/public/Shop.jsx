@@ -1,6 +1,6 @@
 import React from "react";
 // import styles
-import "../../styles/public/shop/shop.css";
+import "D:/ReactProject/isp392/src/styles/components/public/shop/shop.css";
 // import components
 import { Navbar } from "../../components/navbar/Navbar";
 export const Shop = () => {

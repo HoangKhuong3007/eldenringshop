@@ -1,7 +1,9 @@
-import React from 'react'
-
-export default function Dashnav() {
+import React from "react";
+//
+export const Dashnav = () => {
   return (
-    <div>Dashnav</div>
-  )
-}
+    <div className="dashnav-container">
+      <div className="header"></div>
+    </div>
+  );
+};

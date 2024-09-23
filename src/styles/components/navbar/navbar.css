@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  input {
+    border: none;
+    outline: none;
+    background: none;
+  }
+  
+  .navbar-container {
+    width: 100vw;
+    height: 100px;
+    border: 1px solid lime;
+    display: flex;
+    align-items: center;
+    padding: 20px 40px;
+    justify-content: space-between;
+  }
+  .navbar-container .navbar-logo h2 {
+    color: Red;
+  }
+  .navbar-container .navbar-link {
+    display: flex;
+    -moz-column-gap: 25px;
+         column-gap: 25px;
+  }
+  .navbar-container .navbar-auth {
+    display: flex;
+    -moz-column-gap: 25px;
+         column-gap: 25px;
+  }/*# sourceMappingURL=navbar.css.map */

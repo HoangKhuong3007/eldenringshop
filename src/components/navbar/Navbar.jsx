@@ -9,9 +9,8 @@ export const Navbar = () => {
         <h2>EldenRing</h2>
       </div>
       <div className="navbar-link">
-        <Link to="/shop">Shop</Link>
-        <Link>Review</Link>
-        <Link>About Us</Link>
+        <Link to="/shop">Shop</Link>        
+        <Link to="/aboutus">About Us</Link>
         <Link>Blog</Link>
       </div>
       <div className="navbar-auth">

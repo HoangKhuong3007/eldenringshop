@@ -13,4 +13,8 @@ input {
   border: none;
   outline: none;
   background: none;
-}/*# sourceMappingURL=global.css.map */
+}
+
+.shop-container {
+  width: 100vw;
+}/*# sourceMappingURL=shop.css.map */

@@ -6,7 +6,7 @@ export const Navbar = () => {
   return (
     <div className="navbar-container">
       <div className="navbar-logo">
-        <h2>RiseUp</h2>
+        <h2>EldenRing</h2>
       </div>
       <div className="navbar-link">
         <Link to="/shop">Shop</Link>

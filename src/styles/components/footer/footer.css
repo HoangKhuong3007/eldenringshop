@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+input {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+.footer-container {
+  width: 100vw;
+  height: 100px;
+  border: 1px solid lime;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}/*# sourceMappingURL=footer.css.map */

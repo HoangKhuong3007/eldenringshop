@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+input {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+.blog-container {
+  width: 100vw;
+}
+.blog-container h2 {
+  font-family: "Playfair Display", serif;
+}/*# sourceMappingURL=blog.css.map */

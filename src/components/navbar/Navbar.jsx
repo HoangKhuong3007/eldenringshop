@@ -1,22 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import styles
+// Import styles
 import "../../styles/components/navbar/navbar.css";
+
 export const Navbar = () => {
   return (
-    <div className="navbar-container">
+    <nav className="navbar-container">
       <div className="navbar-logo">
-        <h2>EldenRing</h2>
+        <Link to="/" className="navbar-logo-link">
+          <h2>EldenRing</h2>
+        </Link>
       </div>
-      <div className="navbar-link">
-        <Link to="/shop">Shop</Link>        
-        <Link to="/aboutus">About Us</Link>
-        <Link to="/blog">Blog</Link>
+      <div className="navbar-menu">
+        <Link to="/shop" className="navbar-item">
+          Shop
+        </Link>
+        <Link to="/aboutus" className="navbar-item">
+          About Us
+        </Link>
+        <Link to="/blog" className="navbar-item">
+          Blog
+        </Link>
       </div>
       <div className="navbar-auth">
-        <a href="">Login</a>
-        <a href="">Signup</a>
+        <Link to="/login" className="navbar-item">
+          Login
+        </Link>
+        <Link to="/signup" className="navbar-item">
+          Signup
+        </Link>
       </div>
-    </div>
+    </nav>
   );
 };

@@ -1,9 +1,12 @@
 import React from "react";
-import "./aboutus.css"; // Import the CSS file for styling
+import "../../styles/public/aboutus/aboutus.css"
+import { Navbar } from "../../components/navbar/Navbar";
+import { Footer } from "../../components/footer/Footer";
 
-const AboutUs = () => {
+export const AboutUs = () => {
   return (
     <div className="aboutus-container">
+      <Navbar />
       <h2 className="aboutus-heading">About Us</h2>
       <div className="aboutus-content">
         <p>
@@ -21,8 +24,9 @@ const AboutUs = () => {
         </p>
         <p>Join the Eldenring community and redefine your style with us.</p>
       </div>
+      <Footer />
     </div>
   );
 };
 
-export default AboutUs;
+

@@ -1,53 +1,39 @@
-/* Reset some default styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
+input {
+  border: none;
+  outline: none;
+  background: none;
+}
+
 .navbar-container {
-  display: flex; /* Use flexbox for layout */
-  justify-content: space-between; /* Space out logo, menu, and auth links */
-  align-items: center; /* Center vertically */
-  padding: 15px 30px; /* Add padding for spacing */
-  background-color: #34495e; /* Dark blue-gray background */
-  color: #ffffff; /* White text color */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  width: 100vw;
+  height: 100px;
+  border: 1px solid lime;
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  justify-content: space-between;
 }
-
-.navbar-logo {
-  font-size: 2.5rem; /* Increased logo size */
-  font-family: "Playfair Display", serif; /* Elegant serif font */
+.navbar-container .navbar-logo h2 {
+  color: Red;
 }
-
-.navbar-menu {
-  display: flex; /* Horizontal menu */
-  gap: 25px; /* Space between menu items */
+.navbar-container .navbar-link {
+  display: flex;
+  -moz-column-gap: 25px;
+       column-gap: 25px;
 }
-
-.navbar-item {
-  color: #ffffff; /* White text color */
-  text-decoration: none; /* Remove underline */
-  font-size: 1.3rem; /* Increased font size for menu items */
-  transition: color 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.navbar-item:hover {
-  color: #ff4500; /* Change color on hover */
-}
-
-.navbar-auth {
-  display: flex; /* Align login and signup horizontally */
-  gap: 20px; /* Space between auth links */
-}
-
-.navbar-auth a {
-  color: #ffffff; /* White text color for auth links */
-  text-decoration: none; /* Remove underline */
-  font-size: 1.2rem; /* Increased font size for auth links */
-  transition: color 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.navbar-auth a:hover {
-  color: #ff4500; /* Change color on hover */
-}
+.navbar-container .navbar-auth {
+  display: flex;
+  -moz-column-gap: 25px;
+       column-gap: 25px;
+}/*# sourceMappingURL=navbar.css.map */

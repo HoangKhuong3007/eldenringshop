@@ -1,3 +1,4 @@
+/* Reset some default styles */
 * {
   margin: 0;
   padding: 0;
@@ -5,8 +6,13 @@
 }
 
 a {
-  color: black;
-  text-decoration: none;
+  color: #333; /* Changed to dark gray for better readability */
+  text-decoration: none; /* Remove underline from links */
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+a:hover {
+  color: #ff4500; /* Color change on hover */
 }
 
 input {
@@ -15,25 +21,142 @@ input {
   background: none;
 }
 
+/* Navbar container */
 .navbar-container {
   width: 100vw;
-  height: 100px;
-  border: 1px solid lime;
+  height: 80px; /* Reduced height for a sleek look */
   display: flex;
   align-items: center;
-  padding: 20px 40px;
+  padding: 15px 40px;
   justify-content: space-between;
+  background-color: #34495e; /* Dark blue-gray background */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
+
+/* Navbar logo */
 .navbar-container .navbar-logo h2 {
-  color: Red;
+  color: #e74c3c; /* Red color for logo */
+  font-family: "Playfair Display", serif; /* Elegant serif font for logo */
+  font-size: 2.5rem; /* Larger font size for emphasis */
+  font-weight: bold; /* Bold logo */
 }
-.navbar-container .navbar-link {
-  display: flex;
-  -moz-column-gap: 25px;
-       column-gap: 25px;
+
+/* Navbar logo styles */
+.navbar-container .navbar-logo {
+  cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Center vertically */
+  background-color: transparent; /* Ensure background is transparent */
 }
+
+.navbar-logo img {
+  width: 200px; /* Set width of the logo to medium size */
+  height: auto; /* Maintain aspect ratio */
+  transition: transform 0.3s ease; /* Smooth scaling effect on hover */
+  background: none; /* Ensure no background is applied to the image */
+}
+
+.navbar-logo img:hover {
+  transform: scale(1.1); /* Slightly enlarge the logo on hover */
+}
+
+
+/* Navbar menu */
+.navbar-container .navbar-menu {
+  display: flex; /* Horizontal menu */
+  column-gap: 30px; /* Space between menu items */
+  font-family: Arial, sans-serif; /* Clean, modern font */
+  font-size: 1.3rem; /* Slightly increased size for better readability */
+  color: white; /* Default text color */
+}
+
+/* Individual navbar items */
+.navbar-container .navbar-menu .navbar-item {
+  color: white; /* Default white text color */
+  text-decoration: none; /* Remove underline */
+  padding: 5px 10px; /* Add padding for better clickable area */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for navbar items */
+.navbar-container .navbar-menu .navbar-item:hover {
+  color: red; /* Change text color to red on hover */
+}
+
+/* Search container */
+.navbar-search {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center vertically */
+  position: relative; /* Position relative for the search input */
+}
+
+/* Search toggle button */
+.search-toggle {
+  background: transparent; /* Transparent background */
+  border: none; /* No border */
+  color: white; /* White icon color */
+  font-size: 1.5rem; /* Larger icon size */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-right: 10px; /* Space between icon and input */
+}
+
+/* Search input */
+.search-input {
+  padding: 10px; /* Padding for the search input */
+  font-size: 1rem; /* Font size for the search input */
+  border: 1px solid #ccc; /* Light border for input */
+  border-radius: 5px; /* Rounded corners */
+  width: 250px; /* Set a fixed width for the search input */
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+  display: inline-block; /* Make it inline with toggle */
+  color: white; /* White text color */
+}
+
+.search-input:focus {
+  border-color: #ff4500; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+}
+
+.navbar-container .navbar-link a:hover {
+  color: #ff4500; /* Orange hover effect */
+}
+
+/* Navbar auth buttons */
 .navbar-container .navbar-auth {
   display: flex;
-  -moz-column-gap: 25px;
-       column-gap: 25px;
-}/*# sourceMappingURL=navbar.css.map */
+  column-gap: 20px; /* Space between login and signup */
+}
+
+.navbar-container .navbar-auth a {
+  font-family: Arial, sans-serif; /* Consistent sans-serif font */
+  font-size: 1.1rem; /* Slightly smaller for subtlety */
+  color: #ffffff; /* White text for auth links */
+  padding: 5px 15px; /* Add some padding for button-like feel */
+  background-color: #2ecc71; /* Green background for login/signup */
+  border-radius: 5px; /* Rounded corners for button effect */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+.navbar-container .navbar-auth a:hover {
+  background-color: #27ae60; /* Darker green on hover */
+  color: #f1f1f1; /* Lighter text color on hover */
+}
+
+
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column; /* Stack navbar items vertically */
+    height: auto;
+  }
+
+  .navbar-container .navbar-link {
+    margin-top: 10px; /* Add some space between sections */
+    column-gap: 15px;
+  }
+
+  .navbar-container .navbar-auth {
+    margin-top: 10px;
+  }
+}

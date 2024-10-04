@@ -12,7 +12,11 @@ export const CreateUser = async (data) => {
         return res.data
 
     } catch (error) {
-        return error
-        console.log(error)
+      console.log(error);
+        // Check if the error response has a message indicating email already exists
+        if (error.response && error.response.data === "Email already exists") {
+            throw new Error("Email is already in use");
+        }
+        throw error; // Re-throw other errors
     }
 }

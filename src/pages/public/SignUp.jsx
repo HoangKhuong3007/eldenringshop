@@ -26,16 +26,35 @@ export const SignUp = () => {
     },
   });
 
+  const validateEmail = (email) => {
+    return /\S+@\S+\.\S+/.test(email);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!submitData.email || !submitData.password) {
       alert("Please enter email and password");
       return;
     }
+
+    if (!validateEmail(submitData.email)) {
+      alert("Please enter a valid email address");
+      return;
+    }
+
     try {
       await mutation.mutateAsync(submitData);
-    } catch (error) {}
+    } catch (error) {
+      // Display specific message if email is already in use
+      if (error.message === "Email is already in use") {
+        alert("This email is already registered. Please use a different email.");
+      } else {
+        alert("An error occurred during signup. Please try again.");
+      }
+    }
   };
+
   useEffect(() => {
     console.log(submitData);
   }, [submitData]);

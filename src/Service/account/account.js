@@ -30,3 +30,26 @@ export const CreateUser = async (data) => {
     }   
 }
 
+export const LoginUser = async (data) => {
+  try {
+    const api = "http://localhost:8080/auth/login";
+    const res = await axios.post(api, data, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log(res.data);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+    
+    if (error.response && error.response.data.code === 1006) {
+      throw new Error("user not exist");
+    }if (error.response && error.response.data.code === 666) {
+      throw new Error("wrong password");
+    }
+    throw error; 
+  }
+}
+
+

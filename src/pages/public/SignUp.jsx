@@ -5,6 +5,7 @@ import * as accountService from "../../Service/account/account.js";
 
 export const SignUp = () => {
   const [submitData, setSubmitData] = useState({
+    username: "",
     email: "",
     password: "",
   });
@@ -26,16 +27,42 @@ export const SignUp = () => {
     },
   });
 
+  const validateEmail = (email) => {  
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  };
+
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!submitData.email || !submitData.password) {
       alert("Please enter email and password");
       return;
     }
+
+    if (!validateEmail(submitData.email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
     try {
       await mutation.mutateAsync(submitData);
-    } catch (error) {}
+    } catch (error) {
+      if (error.message === "User existed") {
+        alert("User already exists. Please use a different username.");
+      } else if (error.message === "Invalid username") {
+        alert("Username must be at least 3 characters!");
+      } else if (error.message === "Invalid password") {
+        alert("Password must be at least 8 characters!");
+      } else if (error.message === "Email existed") {
+        alert("Email already exists. Please use a different email!");
+      } else {
+        alert("An error occurred during signup. Please try again.");
+      }
+    }
   };
+
   useEffect(() => {
     console.log(submitData);
   }, [submitData]);
@@ -43,6 +70,12 @@ export const SignUp = () => {
   return (
     <div>
       <form action="" onSubmit={handleSubmit}>
+        <input 
+          type="text" 
+          placeholder="username" 
+          name="username" 
+          onChange={handleOnChange}
+        />
         <input
           type="text"
           placeholder="email"

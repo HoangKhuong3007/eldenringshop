@@ -14,9 +14,19 @@ export const CreateUser = async (data) => {
     } catch (error) {
       console.log(error);
         // Check if the error response has a message indicating email already exists
-        if (error.response && error.response.data === "Email already exists") {
-            throw new Error("Email is already in use");
+        if (error.response && error.response.data.code === 1001) {
+          throw new Error("User existed");
+        }
+        if (error.response && error.response.data.code === 1003) {
+          throw new Error("Invalid username");
+        }
+        if (error.response && error.response.data.code === 1004) {
+          throw new Error("Invalid password");
+        }
+        if (error.response && error.response.data.code === 1005) {
+          throw new Error("Email existed");
         }
         throw error; // Re-throw other errors
-    }
+    }   
 }
+

@@ -1,8 +1,6 @@
 import React from "react";
 import MenImg from "../../assets/Fashion-Accessories-Web-1.jpg";
-// import styles
 import "../../styles/public/aboutus/aboutus.css";
-// import components
 import { Navbar } from "../../components/navbar/Navbar";
 import { Footer } from "../../components/footer/Footer";
 
@@ -10,28 +8,22 @@ export const AboutUs = () => {
   return (
     <div className="aboutus-container">
       <Navbar />
-      <main className="aboutus-content">
+      <div className="aboutus-content">
         <h2>About Us - EldenRing</h2>
         <div className="aboutus-img">
           <img src={MenImg} alt="" />
         </div>
         <div className="aboutus-text">
           <p>
-            Welcome to Eldenring, your destination for modern men's fashion. We
-            specialize in crafting stylish, high-quality apparel and accessories
-            designed to elevate your look—whether you're dressing for work,
-            play, or special occasions.
+            Welcome to Eldenring, your go-to for modern men's fashion, where we
+            offer stylish, high-quality apparel and accessories for any
+            occasion. We believe fashion reflects your identity, showcasing a
+            range from tailored suits to casual essentials, all crafted with
+            meticulous attention to detail, ensuring confidence and comfort.
+            Join the Eldenring community and redefine your style with us.
           </p>
-          <p>
-            At Eldenring, we believe that fashion is a reflection of who you
-            are. Our curated collections range from sharp tailored suits to
-            casual essentials, combining timeless designs with contemporary
-            flair. Each piece is made with attention to detail and quality
-            craftsmanship, ensuring you feel confident and comfortable.
-          </p>
-          <p>Join the Eldenring community and redefine your style with us.</p>
         </div>
-      </main>
+      </div>
       <Footer />
     </div>
   );

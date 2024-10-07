@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/public/blog/blog.css";
+//import "../../styles/public/blog/blog.css";
 import { Navbar } from "../../components/navbar/Navbar";
 import { Footer } from "../../components/footer/Footer";
 export const Blog = () => {

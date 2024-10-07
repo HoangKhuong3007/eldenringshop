@@ -9,6 +9,7 @@ export const SignUp = () => {
     email: "",
     password: "",
   });
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setSubmitData({
@@ -16,6 +17,7 @@ export const SignUp = () => {
       [name]: value,
     });
   };
+
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: accountService.CreateUser,
@@ -27,12 +29,11 @@ export const SignUp = () => {
     },
   });
 
-  const validateEmail = (email) => {  
+  const validateEmail = (email) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailRegex.test(email);
   };
 
- 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -68,12 +69,13 @@ export const SignUp = () => {
   }, [submitData]);
 
   return (
-    <div>
+    <div className="signup-container">
+      <h1>Sign Up</h1>
       <form action="" onSubmit={handleSubmit}>
-        <input 
-          type="text" 
-          placeholder="username" 
-          name="username" 
+        <input
+          type="text"
+          placeholder="username"
+          name="username"
           onChange={handleOnChange}
         />
         <input

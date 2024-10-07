@@ -1,39 +1,56 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.navbar-container {
+  background-color: #0d1b2a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  font-family: 'Merriweather', serif;
 }
 
-a {
-  color: black;
+.navbar-logo h2 {
+  color: #d4af37;
+  font-size: 2.5rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.navbar-logo-link {
   text-decoration: none;
 }
 
-input {
-  border: none;
-  outline: none;
-  background: none;
+.navbar-menu {
+  display: flex;
+  gap: 30px;
 }
 
-.navbar-container {
-  width: 100vw;
-  height: 100px;
-  border: 1px solid lime;
-  display: flex;
-  align-items: center;
-  padding: 20px 40px;
-  justify-content: space-between;
+.navbar-item {
+  color: #c4c4c4;
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
 }
-.navbar-container .navbar-logo h2 {
-  color: Red;
+
+.navbar-item:hover {
+  color: #d4af37;
 }
-.navbar-container .navbar-link {
+
+.navbar-auth {
   display: flex;
-  -moz-column-gap: 25px;
-       column-gap: 25px;
+  gap: 20px;
 }
-.navbar-container .navbar-auth {
-  display: flex;
-  -moz-column-gap: 25px;
-       column-gap: 25px;
-}/*# sourceMappingURL=navbar.css.map */
+
+.navbar-auth .navbar-item {
+  color: #c4c4c4;
+  font-size: 1rem;
+  border: 1px solid #c4c4c4;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-auth .navbar-item:hover {
+  background-color: #d4af37;
+  color: #0d1b2a;
+  border-color: #d4af37;
+}

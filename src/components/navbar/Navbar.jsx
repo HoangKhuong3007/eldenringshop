@@ -12,23 +12,14 @@ export const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-menu">
-        <Link to="/shop" className="navbar-item">
-          Shop
-        </Link>
-        <Link to="/aboutus" className="navbar-item">
-          About Us
-        </Link>
-        <Link to="/blog" className="navbar-item">
-          Blog
-        </Link>
+        <Link to="/home" className="navbar-item">Home</Link>
+        <Link to="/shop" className="navbar-item">Shop</Link>
+        <Link to="/aboutus" className="navbar-item">About Us</Link>
+        <Link to="/blog" className="navbar-item">Blog</Link>
       </div>
       <div className="navbar-auth">
-        <Link to="/login" className="navbar-item">
-          Login
-        </Link>
-        <Link to="/signup" className="navbar-item">
-          Sign Up
-        </Link>
+        <Link to="/login" className="navbar-item">Login</Link>
+        <Link to="/signup" className="navbar-item">Sign Up</Link>
       </div>
     </nav>
   );

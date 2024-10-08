@@ -2,6 +2,12 @@ import React, { useEffect, useState } from "react";
 import "../../styles/public/signup/signup.css";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import * as accountService from "../../Service/account/account.js";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
+import { Navbar } from "../../components/navbar/Navbar";
+import { Footer } from "../../components/footer/Footer";
+
 
 export const SignUp = () => {
   const [submitData, setSubmitData] = useState({
@@ -9,6 +15,9 @@ export const SignUp = () => {
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate();
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setSubmitData({
@@ -16,50 +25,84 @@ export const SignUp = () => {
       [name]: value,
     });
   };
+
   const queryClient = useQueryClient();
+
   const mutation = useMutation({
     mutationFn: accountService.CreateUser,
-    onSuccess: () => {
-      alert("Sign up successfully");
+    onSuccess: (response) => {
+      if (response&&response.code===1001) {
+        toast.error("user existed", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else if (response&&response.code===1003) {
+        toast.error("Usernane must be at least 3 characters!", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else if (response&&response.code===1004) {
+        toast.error("password must be 8 characters!", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else if (response&&response.code===1005) {
+        toast.error("email already exist, use another email!", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      
+      } else {
+        toast.success("Sign up successfully", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setTimeout(() => {
+          navigate("/login");
+        }, 1000);
+      }
       queryClient.invalidateQueries({
         queryKey: ["account"],
       });
     },
   });
 
-  const validateEmail = (email) => {  
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailRegex.test(email);
-  };
-
- 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!submitData.email || !submitData.password) {
-      alert("Please enter email and password");
-      return;
-    }
-
-    if (!validateEmail(submitData.email)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
-
     try {
       await mutation.mutateAsync(submitData);
     } catch (error) {
-      if (error.message === "User existed") {
-        alert("User already exists. Please use a different username.");
-      } else if (error.message === "Invalid username") {
-        alert("Username must be at least 3 characters!");
-      } else if (error.message === "Invalid password") {
-        alert("Password must be at least 8 characters!");
-      } else if (error.message === "Email existed") {
-        alert("Email already exists. Please use a different email!");
-      } else {
-        alert("An error occurred during signup. Please try again.");
-      }
+      alert(error.message);
     }
   };
 
@@ -68,28 +111,37 @@ export const SignUp = () => {
   }, [submitData]);
 
   return (
-    <div>
-      <form action="" onSubmit={handleSubmit}>
-        <input 
-          type="text" 
-          placeholder="username" 
-          name="username" 
-          onChange={handleOnChange}
-        />
-        <input
-          type="text"
-          placeholder="email"
-          name="email"
-          onChange={handleOnChange}
-        />
-        <input
-          type="password"
-          placeholder="password"
-          name="password"
-          onChange={handleOnChange}
-        />
-        <input type="submit" value="Sign Up" />
-      </form>
+    <div className="signup-container">
+      <div  className="header">
+        <Navbar />
+      </div>
+      <div className="content">
+        <form  className="signup-form" action="" onSubmit={handleSubmit}>
+          <input 
+            type="text" 
+            placeholder="username" 
+            name="username" 
+            onChange={handleOnChange}
+          />
+          <input
+            type="text"
+            placeholder="email"
+            name="email"
+            onChange={handleOnChange}
+          />
+          <input
+            type="password"
+            placeholder="password"
+            name="password"
+            onChange={handleOnChange}
+          />
+          <input type="submit" value="Sign Up" />
+        </form>
+      </div>
+      <ToastContainer />
+      <div className="footer">
+        <Footer />
+      </div>
     </div>
   );
 };

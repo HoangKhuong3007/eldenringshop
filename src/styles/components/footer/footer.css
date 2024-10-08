@@ -9,12 +9,6 @@ a {
   text-decoration: none;
 }
 
-input {
-  border: none;
-  outline: none;
-  background: none;
-}
-
 .footer-container {
   width: 100vw;
   height: 100px;

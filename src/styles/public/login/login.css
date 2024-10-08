@@ -1,28 +1,77 @@
-.login-form{
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.login-form input{
-    border: 1px solid black;
-    color: black;
+
+body {
+  background-color: #b2e0b2; /* Light green background */
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
-.login-container{
-    width: 100vw;
-    height: 100vh;  
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
-.login-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url('../../assets/login-signupbackground.jpg') no-repeat center center fixed;
-    background-size: cover;
+
+.login-background {
+  background-color: #2b2b2d; /* Dark gray for the form background */
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow for more contrast */
+  width: 450px; /* Form width */
+  padding: 40px;
+  margin: 20px;
 }
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .login-form input {
-    border: 1px solid black;
-    color: black;
-    padding: 10px;
-    border-radius: 5px;
+  width: 100%;
+  padding: 15px;
+  margin: 15px 0;
+  border: 1px solid #b8a038; /* Gold border */
+  border-radius: 6px;
+  font-size: 18px;
+  color: #fff; /* White text color for better contrast */
+  background-color: #444; /* Dark background for inputs */
+}
+
+.login-form input[type="submit"] {
+  background-color: #b8a038; /* Gold button */
+  color: #1c1c1e; /* Dark text color */
+  border: none;
+  border-radius: 6px;
+  padding: 15px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form input[type="submit"]:hover {
+  background-color: #a68e2b; /* Darker gold on hover */
+}
+
+.signup-link {
+  margin-top: 20px;
+  text-align: center;
+  color: #b8a038; /* Gold link color */
+}
+
+.signup-link a {
+  color: #b8a038; /* Gold link */
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
 }

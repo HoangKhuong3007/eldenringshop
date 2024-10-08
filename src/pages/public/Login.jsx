@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import*  as accountService from "../../Service/account/account.js";
+import *  as accountService from "../../Service/account/account.js";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import "../../styles/public/login/login.css";
 export const Login = () => {
   const [loginData, setLoginData] = useState({
-    username: "", 
+    username: "",
     password: "",
   });
 
@@ -21,7 +21,7 @@ export const Login = () => {
   const mutation = useMutation({
     mutationFn: accountService.LoginUser,
     onSuccess: (response) => {
-      if (response&&response.code===1002) {
+      if (response && response.code === 1002) {
         toast.error('wrong username or password', {
           position: "bottom-right",
           autoClose: 5000,
@@ -31,8 +31,8 @@ export const Login = () => {
           draggable: true,
           progress: undefined,
           theme: "light",
-          });
-      }else{
+        });
+      } else {
         toast.success('Login successfully', {
           position: "bottom-right",
           autoClose: 5000,
@@ -42,9 +42,9 @@ export const Login = () => {
           draggable: true,
           progress: undefined,
           theme: "light",
-          });
-       
-        setTimeout(() => {    
+        });
+
+        setTimeout(() => {
           navigate("/");
         }, 1000);
       }
@@ -76,16 +76,17 @@ export const Login = () => {
   return (
     <div className="login-container">
       <Navbar />
+      {/* <img src={loginsignupbackground} alt="" /> */}
       <div className="login-content">
         <div className="login-background">
-          
+
           <form className="login-form" onSubmit={handleLogin}>
             <input
               type="text"
               placeholder="Username"
-              name="username" 
+              name="username"
               value={loginData.username}
-             onChange={handleOnChange}
+              onChange={handleOnChange}
             />
             <input
               type="password"
@@ -100,7 +101,7 @@ export const Login = () => {
             <Link to="/signup">Don't have an account? Sign Up</Link>
           </div>
         </div>
-        <ToastContainer/>
+        <ToastContainer />
       </div>
       <Footer />
     </div>

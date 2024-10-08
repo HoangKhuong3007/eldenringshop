@@ -6,22 +6,10 @@
 }
 
 a {
-  color: #333; /* Changed to dark gray for better readability */
-  text-decoration: none; /* Remove underline from links */
-  transition: color 0.3s ease; /* Smooth color transition on hover */
+  color: black;
+  text-decoration: none;
 }
 
-a:hover {
-  color: #ff4500; /* Color change on hover */
-}
-
-input {
-  border: none;
-  outline: none;
-  background: none;
-}
-
-/* Navbar container */
 .navbar-container {
   width: 100vw;
   height: 80px; /* Reduced height for a sleek look */

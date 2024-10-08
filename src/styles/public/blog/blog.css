@@ -9,12 +9,6 @@ a {
   text-decoration: none;
 }
 
-input {
-  border: none;
-  outline: none;
-  background: none;
-}
-
 .blog-container {
   width: 100vw;
 }

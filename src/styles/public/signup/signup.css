@@ -1,35 +1,4 @@
-.signup-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
-  border: 0px;
-  padding: 0px; /* Thêm khoảng cách bên trong */
-  border-radius: 10px; /* Thêm góc bo tròn (nếu cần) */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Thêm hiệu ứng đổ bóng (tùy chọn) */
-}
-.signup-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 50px;
-}
-
-.signup-form input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-.header{
-    width: 100vw;
-    height: 100px;
-    border: 1px solid lime;
-    display: flex;
-    align-items: center;
-    padding: 0px;
-    justify-content: space-between;
-}
+div form input {
+  border: 1px solid black;
+  color: black;
+}/*# sourceMappingURL=signup.css.map */

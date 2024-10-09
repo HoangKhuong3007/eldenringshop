@@ -2,13 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 // Import styles
 import "../../styles/components/navbar/navbar.css";
+// Import logo
+import EldenRingLogo from "../../assets/Elden-Ring-Logo.png";
+import { Loginsignup } from "../loginsignup/Loginsignup";
 
 export const Navbar = () => {
   return (
     <nav className="navbar-container">
       <div className="navbar-logo">
         <Link to="/" className="navbar-logo-link">
-          <h2>EldenRing</h2>
+          <img src={EldenRingLogo} alt="Elden Ring Logo" className="logo-image" />
         </Link>
       </div>
       <div className="navbar-menu">
@@ -23,12 +26,7 @@ export const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-auth">
-        <Link to="/login" className="navbar-item">
-          Login
-        </Link>
-        <Link to="/signup" className="navbar-item">
-          Sign Up
-        </Link>
+        <Loginsignup />
       </div>
     </nav>
   );

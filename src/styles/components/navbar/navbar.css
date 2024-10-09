@@ -1,33 +1,72 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-a {
-  color: black;
-  text-decoration: none;
-}
-
+/* Container tổng thể */
 .navbar-container {
   width: 100vw;
   height: 100px;
-  border: 1px solid lime;
   display: flex;
   align-items: center;
-  padding: 20px 40px;
   justify-content: space-between;
+  padding: 20px 40px;
+  background-color: black;
+  border-bottom: 1px solid #333;
 }
-.navbar-container .navbar-logo h2 {
-  color: Red;
+
+/* Logo section */
+.navbar-logo .logo-image {
+  width: 150px; /* Điều chỉnh kích thước logo */
+  height: auto;
 }
-.navbar-container .navbar-link {
+
+.navbar-logo-link {
+  text-decoration: none;
+}
+
+/* Menu section */
+.navbar-menu {
   display: flex;
-  -moz-column-gap: 25px;
-       column-gap: 25px;
+  gap: 25px;
 }
-.navbar-container .navbar-auth {
+
+.navbar-item {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-item:hover {
+  color: #f0a500;
+}
+
+/* Auth section (Login/Signup) */
+.navbar-auth {
   display: flex;
-  -moz-column-gap: 25px;
-       column-gap: 25px;
-}/*# sourceMappingURL=navbar.css.map */
+  gap: 25px;
+}
+
+.navbar-auth .loginsignup-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-auth .loginsignup-link:hover {
+  background-color: #f0a500;
+  color: black;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .navbar-menu, .navbar-auth {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

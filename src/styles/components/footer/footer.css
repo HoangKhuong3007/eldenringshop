@@ -16,6 +16,7 @@ a:hover {
 
 .footer-container {
   width: 100vw;
+  height: 80px;
   padding: 20px;
   background-color: #000000; /* Nền màu đen nhạt */
   color: white; /* Chữ màu trắng */

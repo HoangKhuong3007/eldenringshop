@@ -4,6 +4,7 @@ import "../../styles/components/loginsignup/loginsignup.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { CartProfile } from "../cartprofile/CartProfile";
 export const Loginsignup = () => {
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ export const Loginsignup = () => {
         draggable: true,
       });
       setTimeout(() => {
-        Navigate("/");
+        navigate("/");
       }, 1000);
     } catch (error) {
       console.error("Logout failed:", error.message);
@@ -40,6 +41,7 @@ export const Loginsignup = () => {
     <div className="loginsignup-container">
       {token ? (
         <>
+          <CartProfile />
           <Link to="#" onClick={handleLogout} className="loginsignup-link">
             Logout
           </Link>

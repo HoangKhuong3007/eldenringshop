@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const CreateUser = async (data) => {
     try {
-        const api = "http://localhost:8080/users/create-user"
+        const api = "http://localhost:8080/users"
         const res = await axios.post(api, data, {
             headers: {
               "Content-Type": "application/json",

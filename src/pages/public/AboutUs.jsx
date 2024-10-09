@@ -6,6 +6,8 @@ import aboutusbackground from "../../assets/login-signupbackground.jpg";
 // import components
 import { Navbar } from "../../components/navbar/Navbar";
 import { Footer } from "../../components/footer/Footer";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const AboutUs = () => {
   return (
@@ -13,6 +15,7 @@ export const AboutUs = () => {
       <Navbar />
       <div className="aboutus-content"></div>
       <Footer />
+      <ToastContainer />
     </div>
   );
 };

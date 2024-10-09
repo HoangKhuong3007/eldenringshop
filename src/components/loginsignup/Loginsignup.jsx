@@ -55,7 +55,6 @@ export const Loginsignup = () => {
           </Link>
         </>
       )}
-      <ToastContainer />
     </div>
   );
 };

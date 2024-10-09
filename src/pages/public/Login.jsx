@@ -91,7 +91,7 @@ export const Login = () => {
       <Navbar />
       {/* <img src={loginsignupbackground} alt="" /> */}
       <div className="login-content">
-        <div className="login-background">
+        <div className="login-form-container">
           <form className="login-form" onSubmit={handleLogin}>
             <input
               type="text"
@@ -113,8 +113,8 @@ export const Login = () => {
             <Link to="/signup">Don't have an account? Sign Up</Link>
           </div>
         </div>
-        <ToastContainer />
       </div>
+      <ToastContainer />
       <Footer />
     </div>
   );

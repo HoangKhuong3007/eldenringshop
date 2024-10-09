@@ -134,10 +134,8 @@ export const SignUp = () => {
 
   return (
     <div className="signup-container">
-      <div className="header">
-        <Navbar />
-      </div>
-      <div className="content">
+      <Navbar />
+      <div className="signup-content">
         <form className="signup-form" action="" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -161,9 +159,7 @@ export const SignUp = () => {
         </form>
       </div>
       <ToastContainer />
-      <div className="footer">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };

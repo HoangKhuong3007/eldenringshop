@@ -33,5 +33,3 @@ export const LoginUser = async (data) => {
     return error.response.data;    
   }
 }
-
-

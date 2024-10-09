@@ -63,6 +63,17 @@ export const SignUp = () => {
           progress: undefined,
           theme: "light",
         });
+      } else if (response && response.code === 1008) {
+        toast.error("Invalid email", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       } else if (response && response.code === 1005) {
         toast.error("email already exist, use another email!", {
           position: "bottom-right",

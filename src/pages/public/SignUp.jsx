@@ -3,11 +3,10 @@ import "../../styles/public/signup/signup.css";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import * as accountService from "../../Service/account/account.js";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Navbar } from "../../components/navbar/Navbar";
 import { Footer } from "../../components/footer/Footer";
-
 
 export const SignUp = () => {
   const [submitData, setSubmitData] = useState({
@@ -31,7 +30,7 @@ export const SignUp = () => {
   const mutation = useMutation({
     mutationFn: accountService.CreateUser,
     onSuccess: (response) => {
-      if (response&&response.code===1001) {
+      if (response && response.code === 1001) {
         toast.error("user existed", {
           position: "bottom-right",
           autoClose: 5000,
@@ -42,7 +41,7 @@ export const SignUp = () => {
           progress: undefined,
           theme: "light",
         });
-      } else if (response&&response.code===1003) {
+      } else if (response && response.code === 1003) {
         toast.error("Usernane must be at least 3 characters!", {
           position: "bottom-right",
           autoClose: 5000,
@@ -53,7 +52,7 @@ export const SignUp = () => {
           progress: undefined,
           theme: "light",
         });
-      } else if (response&&response.code===1004) {
+      } else if (response && response.code === 1004) {
         toast.error("password must be 8 characters!", {
           position: "bottom-right",
           autoClose: 5000,
@@ -64,7 +63,7 @@ export const SignUp = () => {
           progress: undefined,
           theme: "light",
         });
-      } else if (response&&response.code===1005) {
+      } else if (response && response.code === 1005) {
         toast.error("email already exist, use another email!", {
           position: "bottom-right",
           autoClose: 5000,
@@ -75,7 +74,6 @@ export const SignUp = () => {
           progress: undefined,
           theme: "light",
         });
-      
       } else {
         toast.success("Sign up successfully", {
           position: "bottom-right",
@@ -99,6 +97,19 @@ export const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!submitData.username || !submitData.email || !submitData.password) {
+      toast.error("Please enter full information", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
+    }
     try {
       await mutation.mutateAsync(submitData);
     } catch (error) {
@@ -112,15 +123,15 @@ export const SignUp = () => {
 
   return (
     <div className="signup-container">
-      <div  className="header">
+      <div className="header">
         <Navbar />
       </div>
       <div className="content">
-        <form  className="signup-form" action="" onSubmit={handleSubmit}>
-          <input 
-            type="text" 
-            placeholder="username" 
-            name="username" 
+        <form className="signup-form" action="" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="username"
+            name="username"
             onChange={handleOnChange}
           />
           <input

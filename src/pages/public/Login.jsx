@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import *  as accountService from "../../Service/account/account.js";
+import * as accountService from "../../Service/account/account.js";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import loginsignupbackground from "../../assets/login-signupbackground.jpg";
 import { Navbar } from "../../components/navbar/Navbar";
 import { Footer } from "../../components/footer/Footer";
@@ -22,7 +22,7 @@ export const Login = () => {
     mutationFn: accountService.LoginUser,
     onSuccess: (response) => {
       if (response && response.code === 1002) {
-        toast.error('wrong username or password', {
+        toast.error("wrong username or password", {
           position: "bottom-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -33,7 +33,7 @@ export const Login = () => {
           theme: "light",
         });
       } else {
-        toast.success('Login successfully', {
+        toast.success("Login successfully", {
           position: "bottom-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -65,6 +65,19 @@ export const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (!loginData.username || !loginData.password) {
+      toast.error("Please enter both username and password", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
+    }
 
     try {
       await mutation.mutateAsync(loginData);
@@ -79,7 +92,6 @@ export const Login = () => {
       {/* <img src={loginsignupbackground} alt="" /> */}
       <div className="login-content">
         <div className="login-background">
-
           <form className="login-form" onSubmit={handleLogin}>
             <input
               type="text"

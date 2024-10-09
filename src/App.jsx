@@ -9,7 +9,7 @@ export const App = () => {
     <div className="homepage-container">
       <Navbar />
       <div className="header">
-        
+        <h1>header</h1>
       </div>
       <Footer />
     </div>

@@ -11,7 +11,11 @@ export const Navbar = () => {
     <nav className="navbar-container">
       <div className="navbar-logo">
         <Link to="/" className="navbar-logo-link">
-          <img src={EldenRingLogo} alt="Elden Ring Logo" className="logo-image" />
+          <img
+            src={EldenRingLogo}
+            alt="Elden Ring Logo"
+            className="logo-image"
+          />
         </Link>
       </div>
       <div className="navbar-menu">

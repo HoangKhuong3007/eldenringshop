@@ -66,6 +66,13 @@ body {
   width: 100%;
 }
 
+.signup-form input::placeholder {
+  color: #ccc; /* Light gray placeholder text */
+  font-size: 16px; /* Larger font size for placeholder text */
+  font-style: italic; /* Italic placeholder text */
+  font-weight: 300; /* Lighter font weight */
+}
+
 .signup-form input[type="submit"]:hover {
   background-color: #a68e2b; /* Darker gold on hover */
 }

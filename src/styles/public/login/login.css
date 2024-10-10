@@ -65,6 +65,9 @@ body {
 
 .login-form input::placeholder {
   color: #ccc;
+  font-size: 16px; /* Thay đổi kích thước chữ */
+  font-style: italic; /* Thay đổi kiểu chữ thành nghiêng */
+  font-weight: 300; /* Độ đậm của chữ */
 }
 
 .login-form input[type="submit"] {

@@ -1,10 +1,22 @@
+/* Đặt lại các giá trị cơ bản */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Định dạng cho liên kết */
 a {
+  cursor: url("../../assets/glovecursor.png") 8 8, pointer; /* Thêm dấu cách giữa đường dẫn và tọa độ */
   color: black;
   text-decoration: none;
-}/*# sourceMappingURL=global.css.map */
+}
+
+/* Định dạng cho body */
+body {
+  cursor: url("../../assets/glovecursor.png") 8 8, auto; /* Thêm dấu cách giữa đường dẫn và tọa độ */
+}
+.cartprofile-icon {
+  position: relative;
+  cursor: url("../../assets/glovecursor.png") 8 8, pointer; /* Đặt con trỏ tùy chỉnh */
+}

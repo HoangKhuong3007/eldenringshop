@@ -89,7 +89,6 @@ export const Login = () => {
   return (
     <div className="login-container">
       <Navbar />
-      {/* <img src={loginsignupbackground} alt="" /> */}
       <div className="login-content">
         <div className="login-form-container">
           <form className="login-form" onSubmit={handleLogin}>

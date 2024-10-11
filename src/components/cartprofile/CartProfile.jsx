@@ -5,8 +5,7 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import "../../styles/components/cartprofile/cartprofile.css";
 
 export const CartProfile = () => {
-  const userName = localStorage.getItem("username");
-
+  const username = localStorage.getItem("username");
   return (
     <div className="cartprofile-container">
       <div className="cartprofile-icon">
@@ -14,7 +13,7 @@ export const CartProfile = () => {
       </div>
       <div className="cartprofile-icon">
         <FontAwesomeIcon icon={faUser} />
-        <span className="tooltip">{userName}</span>
+        <span className="tooltip">{username}</span>
       </div>
     </div>
   );

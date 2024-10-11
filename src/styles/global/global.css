@@ -20,3 +20,18 @@ body {
   position: relative;
   cursor: url("../../assets/glovecursor.png") 8 8, pointer; /* Đặt con trỏ tùy chỉnh */
 }
+.login-form input[type="submit"] {
+  cursor: url("../../assets/glovecursor.png") 8 8, pointer; /* Đặt con trỏ tùy chỉnh */
+}
+.signup-form input[type="submit"] {
+  cursor: url("../../assets/glovecursor.png") 8 8, pointer; /* Đặt con trỏ tùy chỉnh */
+}
+.login-form input[type="submit"] {
+  cursor: url("../../assets/glovecursor.png") 8 8, pointer; /* Đặt con trỏ tùy chỉnh */
+}
+.login-form input[type="submit"]:hover {
+  cursor: url("../../assets/glovecursor.png") 8 8, pointer; /* Đặt con trỏ tùy chỉnh */
+} 
+.signup-form input[type="submit"]:hover {
+  cursor: url("../../assets/glovecursor.png") 8 8, pointer; /* Đặt con trỏ tùy chỉnh */
+}

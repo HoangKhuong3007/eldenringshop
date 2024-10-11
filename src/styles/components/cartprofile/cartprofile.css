@@ -1,49 +1,81 @@
 /* Container tổng thể */
 .cartprofile-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px; /* Khoảng cách giữa các biểu tượng */
-    padding: 10px;
-  }
-  
-  /* Biểu tượng */
-  .cartprofile-icon {
-    position: relative; /* Để hiển thị tooltip */
-    font-size: 24px; /* Kích thước của biểu tượng */
-    color: #ffffff; /* Màu sắc của biểu tượng */
-    cursor: pointer; /* Thay đổi con trỏ khi hover vào biểu tượng */
-    transition: color 0.3s ease; /* Hiệu ứng chuyển đổi màu sắc khi hover */
-  }
-  
-  /* Hiệu ứng hover cho biểu tượng */
-  .cartprofile-icon:hover {
-    color: #f0a500; /* Màu sắc khi hover */
-  }
-  
-  /* Tooltip tùy chỉnh */
-  .cartprofile-icon .tooltip {
-    visibility: hidden; /* Ban đầu tooltip không hiển thị */
-    background-color: #333; /* Màu nền của tooltip */
-    color: #fff; /* Màu chữ của tooltip */
-    text-align: center;
-    border-radius: 5px;
-    padding: 10px 15px; /* Tăng kích thước padding để làm cho tooltip lớn hơn */
-    font-size: 20px; /* Tăng kích thước chữ của tooltip */
-    position: absolute;
-    top: 150%; /* Đặt tooltip ở dưới biểu tượng */
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    z-index: 1;
-    opacity: 0; /* Ban đầu tooltip trong suốt */
-    transition: opacity 0.3s;
-  }
-  
-  /* Hiển thị tooltip khi hover vào biểu tượng */
-  .cartprofile-icon:hover .tooltip {
-    visibility: visible;
-    opacity: 1;
-  }
- 
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px; /* Khoảng cách giữa các biểu tượng */
+  padding: 15px;
+}
+
+/* Biểu tượng */
+.cartprofile-icon {
+  position: relative; /* Để hiển thị tooltip */
+  font-size: 26px; /* Kích thước của biểu tượng */
+  color: #ffffff; /* Màu sắc của biểu tượng */
+  cursor: pointer; /* Thay đổi con trỏ khi hover vào biểu tượng */
+  transition: color 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển đổi màu sắc và thu phóng */
+}
+
+/* Hiệu ứng hover cho biểu tượng */
+.cartprofile-icon:hover {
+  color: #f0a500; /* Màu sắc khi hover */
+  transform: scale(1.1); /* Tăng kích thước khi hover để tạo hiệu ứng */
+}
+
+/* Tooltip tùy chỉnh */
+.cartprofile-icon .tooltip {
+  visibility: hidden; /* Ban đầu tooltip không hiển thị */
+  background-color: #222; /* Màu nền tối hơn cho tooltip */
+  color: #fff; /* Màu chữ của tooltip */
+  text-align: center;
+  border-radius: 8px; /* Bo góc mềm mại hơn */
+  padding: 8px 12px; /* Kích thước padding vừa phải */
+  font-size: 16px; /* Giữ kích thước chữ dễ đọc */
+  position: absolute;
+  bottom: 90%; /* Đặt tooltip phía trên biểu tượng */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 1;
+  opacity: 0; /* Ban đầu tooltip trong suốt */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển đổi */
+}
+
+/* Hiển thị tooltip khi hover vào biểu tượng */
+.cartprofile-icon:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px); /* Di chuyển tooltip lên khi xuất hiện */
+}
+
+/* Menu tùy chỉnh */
+.profile-menu {
+  background-color: #333; /* Màu nền của menu */
+  color: #fff; /* Màu chữ của menu */
+  border-radius: 8px; /* Bo góc mềm mại */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Đổ bóng */
+  padding: 10px 0; /* Khoảng cách trong của menu */
+  position: absolute;
+  top: 140%; /* Đặt menu dưới biểu tượng */
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 150px; /* Chiều rộng tối thiểu của menu */
+  z-index: 1;
+}
+
+/* Menu các mục */
+.profile-menu ul {
+  list-style: none; /* Bỏ gạch đầu dòng */
+  padding: 0;
+  margin: 0;
+}
+
+.profile-menu li {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.profile-menu li:hover {
+  background-color: #444; /* Đổi màu nền khi hover */
+}

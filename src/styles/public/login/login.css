@@ -50,6 +50,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  cursor: url("../../assets/glovecursor.png") 8 8, pointer;
 }
 
 .login-form input {
@@ -77,13 +78,14 @@ body {
   border-radius: 6px;
   padding: 15px;
   font-size: 18px;
-  cursor: pointer;
   transition: background-color 0.3s ease;
+  cursor: url("../../assets/glovecursor.png") 8 8, pointer;
 }
 
 .login-form input[type="submit"]:hover {
   background-color: #a68e2b;
 }
+
 
 /* Signup Link */
 .signup-link {

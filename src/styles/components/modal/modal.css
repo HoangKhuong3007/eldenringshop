@@ -1,0 +1,436 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input,
+button {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 1536px) {
+  .add-product-modal-container {
+    width: 100vw;
+    height: 100vh;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .add-product-modal-container ::-webkit-scrollbar {
+    width: 0;
+  }
+  .add-product-modal-container .add-product-modal {
+    width: 700px;
+    max-height: 700px;
+    height: 700px;
+    overflow-y: auto;
+    border-radius: 15px;
+    background: #090C0F;
+    padding: 25px 30px;
+  }
+  .add-product-modal-container .add-product-modal .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .add-product-modal-container .add-product-modal .header div {
+    align-items: center;
+    display: flex;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+  }
+  .add-product-modal-container .add-product-modal .header div i {
+    font-size: 24px;
+    color: #3259E8;
+  }
+  .add-product-modal-container .add-product-modal .header div p {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: white;
+  }
+  .add-product-modal-container .add-product-modal .header i {
+    cursor: pointer;
+    font-size: 26px;
+    color: #606B7A;
+  }
+  .add-product-modal-container .add-product-modal .add-product-form {
+    margin-top: 20px;
+    padding: 25px 20px;
+    background: black;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    overflow-y: hidden;
+  }
+  .add-product-modal-container .add-product-modal .add-product-form .select-item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .add-product-modal-container .add-product-modal .add-product-form .select-item label {
+    color: white;
+    font-size: 1rem;
+  }
+  .add-product-modal-container .add-product-modal .add-product-form .select-item div {
+    display: flex;
+    position: relative;
+    align-items: center;
+  }
+  .add-product-modal-container .add-product-modal .add-product-form .select-item div select {
+    width: 100%;
+    padding: 10px 20px;
+    background: #151A1F;
+    color: white;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .add-product-modal-container .add-product-modal .add-product-form .select-item div i {
+    font-size: 24px;
+    left: 93%;
+    position: absolute;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .add-product-modal-container .add-product-modal .add-product-form .select-item small {
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .add-product-modal-container .add-product-modal .add-product-form .input-image {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .add-product-modal-container .add-product-modal .add-product-form .input-image div {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border: 1px dashed rgba(255, 255, 255, 0.4);
+    align-self: center;
+    border-radius: 15px;
+  }
+  .add-product-modal-container .add-product-modal .add-product-form .input-image div label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: rgba(255, 255, 255, 0.6);
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+    cursor: pointer;
+  }
+  .add-product-modal-container .add-product-modal .add-product-form .input-image div label i {
+    font-size: 35px;
+  }
+  .add-product-modal-container .add-product-modal .add-product-form .input-image div label p {
+    font-size: 1.1rem;
+  }
+  .add-product-modal-container .add-product-modal .add-product-form .input-image div input {
+    display: none;
+  }
+  .add-product-modal-container .add-product-modal .add-product-form .input-image small {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+  }
+  .add-product-modal-container .add-product-modal .add-product-form .input-item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .add-product-modal-container .add-product-modal .add-product-form .input-item label {
+    color: white;
+    font-size: 1rem;
+  }
+  .add-product-modal-container .add-product-modal .add-product-form .input-item input {
+    padding: 10px 20px;
+    background: #151A1F;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 1rem;
+    color: white;
+  }
+  .add-product-modal-container .add-product-modal .add-product-form .input-item small {
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .add-product-modal-container .add-product-modal .submit {
+    margin: 20px 0;
+    display: flex;
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+  }
+  .add-product-modal-container .add-product-modal .submit button {
+    cursor: pointer;
+    padding: 10px 0;
+    border-radius: 10px;
+    color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .add-product-modal-container .add-product-modal .submit button:nth-child(1) {
+    width: 30%;
+    background: #22262E;
+  }
+  .add-product-modal-container .add-product-modal .submit button:nth-child(2) {
+    width: 70%;
+    background: #3259E8;
+  }
+  .update-product-modal-container {
+    width: 100vw;
+    height: 100vh;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .update-product-modal-container ::-webkit-scrollbar {
+    width: 0;
+  }
+  .update-product-modal-container .update-product-modal {
+    width: 700px;
+    max-height: 700px;
+    height: 700px;
+    overflow-y: auto;
+    border-radius: 15px;
+    background: #090C0F;
+    padding: 25px 30px;
+  }
+  .update-product-modal-container .update-product-modal .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .update-product-modal-container .update-product-modal .header div {
+    align-items: center;
+    display: flex;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+  }
+  .update-product-modal-container .update-product-modal .header div i {
+    font-size: 24px;
+    color: #3259E8;
+  }
+  .update-product-modal-container .update-product-modal .header div p {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: white;
+  }
+  .update-product-modal-container .update-product-modal .header i {
+    cursor: pointer;
+    font-size: 26px;
+    color: #606B7A;
+  }
+  .update-product-modal-container .update-product-modal .update-product-form {
+    margin-top: 20px;
+    padding: 25px 20px;
+    background: black;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    overflow-y: hidden;
+  }
+  .update-product-modal-container .update-product-modal .update-product-form .select-item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .update-product-modal-container .update-product-modal .update-product-form .select-item label {
+    color: white;
+    font-size: 1rem;
+  }
+  .update-product-modal-container .update-product-modal .update-product-form .select-item div {
+    display: flex;
+    position: relative;
+    align-items: center;
+  }
+  .update-product-modal-container .update-product-modal .update-product-form .select-item div select {
+    width: 100%;
+    padding: 10px 20px;
+    background: #151A1F;
+    color: white;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .update-product-modal-container .update-product-modal .update-product-form .select-item div i {
+    font-size: 24px;
+    left: 93%;
+    position: absolute;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .update-product-modal-container .update-product-modal .update-product-form .select-item small {
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .update-product-modal-container .update-product-modal .update-product-form .input-image {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .update-product-modal-container .update-product-modal .update-product-form .input-image div {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border: 1px dashed rgba(255, 255, 255, 0.4);
+    align-self: center;
+    border-radius: 15px;
+  }
+  .update-product-modal-container .update-product-modal .update-product-form .input-image div label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: rgba(255, 255, 255, 0.6);
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+    cursor: pointer;
+  }
+  .update-product-modal-container .update-product-modal .update-product-form .input-image div label i {
+    font-size: 35px;
+  }
+  .update-product-modal-container .update-product-modal .update-product-form .input-image div label p {
+    font-size: 1.1rem;
+  }
+  .update-product-modal-container .update-product-modal .update-product-form .input-image div input {
+    display: none;
+  }
+  .update-product-modal-container .update-product-modal .update-product-form .input-image small {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+  }
+  .update-product-modal-container .update-product-modal .update-product-form .input-item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .update-product-modal-container .update-product-modal .update-product-form .input-item label {
+    color: white;
+    font-size: 1rem;
+  }
+  .update-product-modal-container .update-product-modal .update-product-form .input-item input {
+    padding: 10px 20px;
+    background: #151A1F;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 1rem;
+    color: white;
+  }
+  .update-product-modal-container .update-product-modal .update-product-form .input-item small {
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .update-product-modal-container .update-product-modal .submit {
+    margin: 20px 0;
+    display: flex;
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+  }
+  .update-product-modal-container .update-product-modal .submit button {
+    cursor: pointer;
+    padding: 10px 0;
+    border-radius: 10px;
+    color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .update-product-modal-container .update-product-modal .submit button:nth-child(1) {
+    width: 30%;
+    background: #22262E;
+  }
+  .update-product-modal-container .update-product-modal .submit button:nth-child(2) {
+    width: 70%;
+    background: #3259E8;
+  }
+  .del-product-modal-container {
+    width: 100vw;
+    height: 100vh;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .del-product-modal-container .del-product-modal {
+    width: 500px;
+    max-height: 700px;
+    overflow-y: auto;
+    border-radius: 15px;
+    background: #090C0F;
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 15px;
+  }
+  .del-product-modal-container .del-product-modal i {
+    color: #FF3F56;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 40px;
+    background: #d1a6ad;
+  }
+  .del-product-modal-container .del-product-modal strong {
+    font-size: 1.6rem;
+    color: white;
+  }
+  .del-product-modal-container .del-product-modal p {
+    width: 90%;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .del-product-modal-container .del-product-modal .button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+  }
+  .del-product-modal-container .del-product-modal .button button {
+    width: 50%;
+    padding: 12px 0;
+    border-radius: 15px;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .del-product-modal-container .del-product-modal .button button:nth-child(1) {
+    background: white;
+    color: black;
+  }
+  .del-product-modal-container .del-product-modal .button button:nth-child(2) {
+    background: #FF3F56;
+    color: white;
+  }
+}/*# sourceMappingURL=modal.css.map */

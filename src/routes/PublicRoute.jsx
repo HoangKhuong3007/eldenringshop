@@ -1,4 +1,3 @@
-import { Route, Routes } from "react-router-dom";
 // import pages
 import { App } from "../App";
 import { Shop } from "../pages/public/Shop";

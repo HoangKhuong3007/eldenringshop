@@ -1,0 +1,8 @@
+@media only screen and (max-width: 1536px) {
+  .product-manager-container {
+    width: 100vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+}/*# sourceMappingURL=product.css.map */

@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+input,
+button {
+  border: none;
+  background: none;
+  outline: none;
+}
+
 a {
   color: black;
   text-decoration: none;
@@ -13,5 +20,5 @@ a {
   width: 100vw;
 }
 .blog-container h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Lora", serif;
 }/*# sourceMappingURL=blog.css.map */

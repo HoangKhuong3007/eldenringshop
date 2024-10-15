@@ -1,7 +1,7 @@
 @import "../../../global/global.scss";
 
 @media only screen and (max-width: 1536px) {
-    .product-list-container {
+    .account-list-container {
         display: flex;
         flex-direction: column;
         padding: 30px 40px;
@@ -103,14 +103,6 @@
                     }
 
                     a:nth-child(3) {
-                        border-right: 1px solid rgba(0, 0, 0, .2);
-                    }
-
-                    a:nth-child(4) {
-                        border-right: 1px solid rgba(0, 0, 0, .2);
-                    }
-
-                    a:nth-child(5) {
                         border-top-right-radius: 10px;
                         border-bottom-right-radius: 10px;
                         border-right: 1px solid rgba(0, 0, 0, .2);
@@ -152,7 +144,7 @@
             }
         }
 
-        .product-table {
+        .account-table {
             padding: 30px 0;
 
             thead {
@@ -235,11 +227,9 @@
                             }
                         }
 
-                        img {
-                            width: 45px;
-                            height: 45px;
-                            object-fit: cover;
-                            border-radius: 50%;
+                        i {
+                            font-size: 35px;
+                            font-weight: 400;
                         }
                     }
 
@@ -253,7 +243,7 @@
                         text-align: center;
                     }
 
-                    .active-product {
+                    .active-account {
                         grid-column: 10 / span 2;
                         display: flex;
                         align-items: center;
@@ -270,7 +260,7 @@
                         }
                     }
 
-                    .inactive-product {
+                    .inactive-account {
                         grid-column: 10 / span 2;
                         display: flex;
                         align-items: center;

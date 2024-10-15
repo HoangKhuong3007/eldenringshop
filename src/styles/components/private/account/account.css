@@ -17,12 +17,12 @@ a {
 }
 
 @media only screen and (max-width: 1536px) {
-  .product-list-container {
+  .account-list-container {
     display: flex;
     flex-direction: column;
     padding: 30px 40px;
   }
-  .product-list-container .utils {
+  .account-list-container .utils {
     padding: 25px 35px;
     display: flex;
     flex-direction: column;
@@ -31,32 +31,32 @@ a {
     border-radius: 15px;
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
-  .product-list-container .utils .section-1 {
+  .account-list-container .utils .section-1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .product-list-container .utils .section-1 .utils-header {
+  .account-list-container .utils .section-1 .utils-header {
     display: flex;
     -moz-column-gap: 15px;
          column-gap: 15px;
     align-items: center;
   }
-  .product-list-container .utils .section-1 .utils-header strong {
+  .account-list-container .utils .section-1 .utils-header strong {
     font-size: 1.6rem;
   }
-  .product-list-container .utils .section-1 .utils-header p {
+  .account-list-container .utils .section-1 .utils-header p {
     font-size: 0.9rem;
     padding: 2px 8px;
     border: 2px solid #111926;
     font-weight: 500;
     border-radius: 15px;
   }
-  .product-list-container .utils .section-1 .buttons {
+  .account-list-container .utils .section-1 .buttons {
     display: flex;
     align-items: center;
   }
-  .product-list-container .utils .section-1 .buttons .add-btn {
+  .account-list-container .utils .section-1 .buttons .add-btn {
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -66,25 +66,25 @@ a {
     background: #111926;
     border-radius: 10px;
   }
-  .product-list-container .utils .section-1 .buttons .add-btn i {
+  .account-list-container .utils .section-1 .buttons .add-btn i {
     font-size: 20px;
     color: white;
     font-weight: 700;
   }
-  .product-list-container .utils .section-1 .buttons .add-btn p {
+  .account-list-container .utils .section-1 .buttons .add-btn p {
     color: white;
     font-family: 600;
   }
-  .product-list-container .utils .section-2 {
+  .account-list-container .utils .section-2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .product-list-container .utils .section-2 .categories {
+  .account-list-container .utils .section-2 .categories {
     display: flex;
     border-radius: 15px;
   }
-  .product-list-container .utils .section-2 .categories a {
+  .account-list-container .utils .section-2 .categories a {
     padding: 9px 20px;
     font-weight: 600;
     font-size: 1rem;
@@ -94,34 +94,28 @@ a {
     background: #F9FAFC;
     cursor: pointer;
   }
-  .product-list-container .utils .section-2 .categories a.active {
+  .account-list-container .utils .section-2 .categories a.active {
     color: white;
     background: #111926;
   }
-  .product-list-container .utils .section-2 .categories a:nth-child(1) {
+  .account-list-container .utils .section-2 .categories a:nth-child(1) {
     border-right: 1px solid rgba(0, 0, 0, 0.2);
     border-left: 1px solid rgba(0, 0, 0, 0.2);
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
   }
-  .product-list-container .utils .section-2 .categories a:nth-child(2) {
+  .account-list-container .utils .section-2 .categories a:nth-child(2) {
     border-right: 1px solid rgba(0, 0, 0, 0.2);
   }
-  .product-list-container .utils .section-2 .categories a:nth-child(3) {
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
-  }
-  .product-list-container .utils .section-2 .categories a:nth-child(4) {
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
-  }
-  .product-list-container .utils .section-2 .categories a:nth-child(5) {
+  .account-list-container .utils .section-2 .categories a:nth-child(3) {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border-right: 1px solid rgba(0, 0, 0, 0.2);
   }
-  .product-list-container .utils .section-2 .filter {
+  .account-list-container .utils .section-2 .filter {
     display: flex;
   }
-  .product-list-container .utils .section-2 .filter .search {
+  .account-list-container .utils .section-2 .filter .search {
     position: relative;
     width: 400px;
     display: flex;
@@ -133,7 +127,7 @@ a {
     background: #F9FAFC;
     padding: 0 15px;
   }
-  .product-list-container .utils .section-2 .filter .search input {
+  .account-list-container .utils .section-2 .filter .search input {
     width: 100%;
     padding: 12px 0;
     border: none;
@@ -144,90 +138,87 @@ a {
     font-weight: 600;
     padding-left: 35px;
   }
-  .product-list-container .utils .section-2 .filter .search i {
+  .account-list-container .utils .section-2 .filter .search i {
     position: absolute;
     font-size: 24px;
   }
-  .product-list-container .product-table {
+  .account-list-container .account-table {
     padding: 30px 0;
   }
-  .product-list-container .product-table thead tr {
+  .account-list-container .account-table thead tr {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     padding-bottom: 15px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
-  .product-list-container .product-table thead tr th {
+  .account-list-container .account-table thead tr th {
     font-weight: 400;
     font-size: 0.9rem;
   }
-  .product-list-container .product-table thead tr th:nth-child(1) {
+  .account-list-container .account-table thead tr th:nth-child(1) {
     text-align: start;
   }
-  .product-list-container .product-table thead tr th:nth-child(2) {
+  .account-list-container .account-table thead tr th:nth-child(2) {
     grid-column: 2/span 4;
     text-align: start;
   }
-  .product-list-container .product-table thead tr th:nth-child(3) {
+  .account-list-container .account-table thead tr th:nth-child(3) {
     grid-column: 6/span 2;
   }
-  .product-list-container .product-table thead tr th:nth-child(4) {
+  .account-list-container .account-table thead tr th:nth-child(4) {
     grid-column: 8/span 2;
   }
-  .product-list-container .product-table thead tr th:nth-child(5) {
+  .account-list-container .account-table thead tr th:nth-child(5) {
     grid-column: 10/span 2;
   }
-  .product-list-container .product-table thead tr th:nth-child(6) {
+  .account-list-container .account-table thead tr th:nth-child(6) {
     grid-column: 12/span 2;
   }
-  .product-list-container .product-table tbody tr {
+  .account-list-container .account-table tbody tr {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     align-items: center;
   }
-  .product-list-container .product-table tbody tr td {
+  .account-list-container .account-table tbody tr td {
     padding: 15px 0;
     font-weight: 600;
     font-size: 0.9rem;
   }
-  .product-list-container .product-table tbody tr td:nth-child(1) {
+  .account-list-container .account-table tbody tr td:nth-child(1) {
     margin-left: 5px;
   }
-  .product-list-container .product-table tbody tr td:nth-child(2) {
+  .account-list-container .account-table tbody tr td:nth-child(2) {
     grid-column: 2/span 4;
     display: flex;
     align-items: center;
     -moz-column-gap: 15px;
          column-gap: 15px;
   }
-  .product-list-container .product-table tbody tr td:nth-child(2) div {
+  .account-list-container .account-table tbody tr td:nth-child(2) div {
     display: flex;
     flex-direction: column;
   }
-  .product-list-container .product-table tbody tr td:nth-child(2) div strong {
+  .account-list-container .account-table tbody tr td:nth-child(2) div strong {
     font-size: 1rem;
   }
-  .product-list-container .product-table tbody tr td:nth-child(2) div p {
+  .account-list-container .account-table tbody tr td:nth-child(2) div p {
     font-size: 0.8rem;
     font-weight: 400;
   }
-  .product-list-container .product-table tbody tr td:nth-child(2) img {
-    width: 45px;
-    height: 45px;
-    -o-object-fit: cover;
-       object-fit: cover;
-    border-radius: 50%;
+  .account-list-container .account-table tbody tr td:nth-child(2) i {
+    font-size: 35px;
+    font-weight: 400;
   }
-  .product-list-container .product-table tbody tr td:nth-child(3) {
+  .account-list-container .account-table tbody tr td:nth-child(3) {
     grid-column: 6/span 2;
     text-align: center;
   }
-  .product-list-container .product-table tbody tr td:nth-child(4) {
+  .account-list-container .account-table tbody tr td:nth-child(4) {
     grid-column: 8/span 2;
     text-align: center;
   }
-  .product-list-container .product-table tbody tr .active-product {
+  .account-list-container .account-table tbody tr .active-account {
     grid-column: 10/span 2;
     display: flex;
     align-items: center;
@@ -235,14 +226,14 @@ a {
     -moz-column-gap: 7px;
          column-gap: 7px;
   }
-  .product-list-container .product-table tbody tr .active-product i {
+  .account-list-container .account-table tbody tr .active-account i {
     font-size: 10px;
     color: rgb(18, 163, 18);
   }
-  .product-list-container .product-table tbody tr .active-product p {
+  .account-list-container .account-table tbody tr .active-account p {
     color: rgb(18, 163, 18);
   }
-  .product-list-container .product-table tbody tr .inactive-product {
+  .account-list-container .account-table tbody tr .inactive-account {
     grid-column: 10/span 2;
     display: flex;
     align-items: center;
@@ -250,14 +241,14 @@ a {
     -moz-column-gap: 7px;
          column-gap: 7px;
   }
-  .product-list-container .product-table tbody tr .inactive-product i {
+  .account-list-container .account-table tbody tr .inactive-account i {
     font-size: 10px;
     color: rgb(230, 43, 43);
   }
-  .product-list-container .product-table tbody tr .inactive-product p {
+  .account-list-container .account-table tbody tr .inactive-account p {
     color: rgb(230, 43, 43);
   }
-  .product-list-container .product-table tbody tr td:nth-child(6) {
+  .account-list-container .account-table tbody tr td:nth-child(6) {
     grid-column: 12/span 2;
     display: flex;
     justify-content: center;
@@ -265,13 +256,13 @@ a {
     -moz-column-gap: 10px;
          column-gap: 10px;
   }
-  .product-list-container .product-table tbody tr td:nth-child(6) i {
+  .account-list-container .account-table tbody tr td:nth-child(6) i {
     font-size: 18px;
     padding: 7px;
     border-radius: 50%;
     transition: 0.4s;
   }
-  .product-list-container .product-table tbody tr td:nth-child(6) i:hover {
+  .account-list-container .account-table tbody tr td:nth-child(6) i:hover {
     background: rgba(0, 0, 0, 0.1);
   }
-}/*# sourceMappingURL=product.css.map */
+}/*# sourceMappingURL=account.css.map */

@@ -1,13 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input,
+button {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
 .aboutus-container {
   width: 100vw;
-  height: 100vh; /* Full viewport height */
-  background-image: url("../../../assets/login-signupbackground.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
-.aboutus-content {
-  color: #fff; /* Adjust text color for visibility */
-  padding: 20px;
-  text-align: center;
-}
+.aboutus-container h2 {
+  font-family: "Lora", serif;
+}/*# sourceMappingURL=aboutus.css.map */

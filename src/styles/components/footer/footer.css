@@ -4,46 +4,23 @@
   box-sizing: border-box;
 }
 
+input,
+button {
+  border: none;
+  background: none;
+  outline: none;
+}
+
 a {
   color: black;
   text-decoration: none;
-  transition: color 0.3s ease; /* Hiệu ứng chuyển màu khi hover */
-}
-
-a:hover {
-  color: #007bff; /* Màu chữ khi hover */
 }
 
 .footer-container {
   width: 100vw;
-  padding: 20px;
-  background-color: #000000; /* Nền màu đen nhạt */
-  color: white; /* Chữ màu trắng */
+  height: 100px;
+  border: 1px solid lime;
   position: absolute;
   bottom: 0;
   left: 0;
-  text-align: center;
-}
-
-.footer-content {
-  margin-bottom: 10px;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 15px; /* Khoảng cách giữa các liên kết */
-}
-
-.footer-bottom {
-  font-size: 0.9rem;
-  margin-top: 10px;
-}
-
-.footer-links a {
-  color: white; /* Màu chữ cho liên kết trong footer */
-}
-
-.footer-links a:hover {
-  color: #f0a500; /* Màu khi hover */
-}
+}/*# sourceMappingURL=footer.css.map */

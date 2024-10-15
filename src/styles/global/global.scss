@@ -4,16 +4,21 @@
     box-sizing: border-box;
 }
 
+input,
+button {
+    border: none;
+    background: none;
+    outline: none;
+}
+
 a {
     color: black;
     text-decoration: none;
 }
 
-// input {
-//     border: none;
-//     outline: none;
-//     background: none;
-// }
-
 $border-test: 1px solid lime;
-$main-font: "Playfair Display", serif;
+$main-font: "Lora", serif;
+$dashboard-font: "Afacad Flux", sans-serif;
+// dashboard
+$main-backgr: #F9FAFC;
+$second-backgr: #111926

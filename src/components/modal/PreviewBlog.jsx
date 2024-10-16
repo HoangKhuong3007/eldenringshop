@@ -12,7 +12,7 @@ export const PreviewBlog = () => {
   const isTogglePreviewBlogModal = useSelector(
     (state) => state.modal.previewBlogModal.isToggleModal
   );
-  const isToggleAnimateModal = useSelector(
+  const isToggleAnimateBlogModal = useSelector(
     (state) => state.modal.animateBlogModal.isToggleModal
   );
   // dispatch
@@ -34,7 +34,7 @@ export const PreviewBlog = () => {
     >
       <div
         className={
-          isToggleAnimateModal
+          isToggleAnimateBlogModal
             ? `preview-blog-modal open`
             : `preview-blog-modal close`
         }

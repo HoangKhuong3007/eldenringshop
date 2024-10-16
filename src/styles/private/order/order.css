@@ -18,47 +18,49 @@ a {
 }
 
 @media only screen and (max-width: 1536px) {
-  .product-manager-container {
+  .order-manager-container {
     width: 100vw;
     position: relative;
     display: flex;
     font-family: "Afacad Flux", sans-serif;
+    overflow-y: hidden;
   }
-  .product-manager-container .product-manager {
+  .order-manager-container .order-manager {
     width: calc(100% - 250px);
     height: 100vh;
     background: #F9FAFC;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
   }
-  .product-manager-container .product-manager .header {
+  .order-manager-container .order-manager .header {
     padding: 30px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .product-manager-container .product-manager .header p {
+  .order-manager-container .order-manager .header p {
     font-size: 1.5rem;
     font-weight: 600;
   }
-  .product-manager-container .product-manager .header .my-info {
+  .order-manager-container .order-manager .header .my-info {
     display: flex;
     align-items: center;
     -moz-column-gap: 10px;
          column-gap: 10px;
   }
-  .product-manager-container .product-manager .header .my-info i {
+  .order-manager-container .order-manager .header .my-info i {
     font-size: 36px;
   }
-  .product-manager-container .product-manager .header .my-info div {
+  .order-manager-container .order-manager .header .my-info div {
     display: flex;
     flex-direction: column;
   }
-  .product-manager-container .product-manager .header .my-info div strong {
+  .order-manager-container .order-manager .header .my-info div strong {
     font-size: 1rem;
   }
-  .product-manager-container .product-manager .header .my-info div p {
+  .order-manager-container .order-manager .header .my-info div p {
     font-size: 0.9rem;
     font-weight: 400;
   }
-}/*# sourceMappingURL=product.css.map */
+}/*# sourceMappingURL=order.css.map */

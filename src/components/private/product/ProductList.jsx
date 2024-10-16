@@ -104,7 +104,7 @@ export const ProductList = () => {
             <td>$20.00</td>
             <td>40</td>
             <td className="active-product">
-              <i class="bx bxs-circle"></i>
+              <i className="bx bxs-circle"></i>
               <p>Active</p>
             </td>
             <td>
@@ -130,7 +130,7 @@ export const ProductList = () => {
             <td>$20.00</td>
             <td>0</td>
             <td className="inactive-product">
-              <i class="bx bxs-circle"></i>
+              <i className="bx bxs-circle"></i>
               <p>Out of stock</p>
             </td>
             <td>

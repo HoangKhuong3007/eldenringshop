@@ -5,7 +5,8 @@
 }
 
 input,
-button {
+button,
+textarea {
   border: none;
   background: none;
   outline: none;

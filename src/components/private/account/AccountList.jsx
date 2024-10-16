@@ -87,7 +87,7 @@ export const AccountList = () => {
             <td>0369608638</td>
             <td>FPT UNIVERSITY</td>
             <td className="active-account">
-              <i class="bx bxs-circle"></i>
+              <i className="bx bxs-circle"></i>
               <p>Active</p>
             </td>
             <td>
@@ -109,7 +109,7 @@ export const AccountList = () => {
             <td>0369608638</td>
             <td>FPT UNIVERSITY</td>
             <td className="inactive-account">
-              <i class="bx bxs-circle"></i>
+              <i className="bx bxs-circle"></i>
               <p>Blocked</p>
             </td>
             <td>

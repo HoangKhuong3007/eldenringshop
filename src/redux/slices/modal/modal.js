@@ -165,8 +165,8 @@ export const { toggleAnimateOrderModalOn, toggleAnimateOrderModalOff } =
 export const { toggleAddBlogModal } = AddBlogSlice.actions;
 export const { toggleUpdateBlogModal } = UpdateBlogSlice.actions;
 export const { toggleDelBlogModal } = DelBlogSlice.actions;
-// combine reducer
 
+// combine reducer
 const ModalReducers = combineReducers({
   addProductModal: AddProductSlice.reducer,
   updateProductModal: UpdateProductSlice.reducer,

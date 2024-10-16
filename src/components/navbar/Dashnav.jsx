@@ -36,7 +36,7 @@ export const Dashnav = () => {
             to="/dashboard/blogs"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
-            <i className="bx bx-file-blank"></i>
+            <i className="bx bx-notepad"></i>
             <p>Blogs</p>
           </NavLink>
         </div>

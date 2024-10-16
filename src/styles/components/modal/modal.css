@@ -5,7 +5,8 @@
 }
 
 input,
-button {
+button,
+textarea {
   border: none;
   background: none;
   outline: none;
@@ -300,6 +301,346 @@ a {
     width: 70%;
     background: #3259E8;
   }
+  .add-blog-modal-container {
+    width: 100vw;
+    height: 100vh;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .add-blog-modal-container ::-webkit-scrollbar {
+    width: 0;
+  }
+  .add-blog-modal-container .add-blog-modal {
+    width: 700px;
+    max-height: 700px;
+    height: 700px;
+    overflow-y: auto;
+    border-radius: 15px;
+    background: #090C0F;
+    padding: 25px 30px;
+  }
+  .add-blog-modal-container .add-blog-modal .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .add-blog-modal-container .add-blog-modal .header div {
+    align-items: center;
+    display: flex;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+  }
+  .add-blog-modal-container .add-blog-modal .header div i {
+    font-size: 24px;
+    color: #3259E8;
+  }
+  .add-blog-modal-container .add-blog-modal .header div p {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: white;
+  }
+  .add-blog-modal-container .add-blog-modal .header i {
+    cursor: pointer;
+    font-size: 26px;
+    color: #606B7A;
+  }
+  .add-blog-modal-container .add-blog-modal .add-blog-form {
+    margin-top: 20px;
+    padding: 25px 20px;
+    background: black;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    overflow-y: hidden;
+  }
+  .add-blog-modal-container .add-blog-modal .add-blog-form .input-image {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .add-blog-modal-container .add-blog-modal .add-blog-form .input-image div {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border: 1px dashed rgba(255, 255, 255, 0.4);
+    align-self: center;
+    border-radius: 15px;
+  }
+  .add-blog-modal-container .add-blog-modal .add-blog-form .input-image div label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: rgba(255, 255, 255, 0.6);
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+    cursor: pointer;
+  }
+  .add-blog-modal-container .add-blog-modal .add-blog-form .input-image div label img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border-radius: 15px;
+  }
+  .add-blog-modal-container .add-blog-modal .add-blog-form .input-image div label i {
+    font-size: 35px;
+  }
+  .add-blog-modal-container .add-blog-modal .add-blog-form .input-image div label p {
+    font-size: 1.1rem;
+  }
+  .add-blog-modal-container .add-blog-modal .add-blog-form .input-image div input {
+    display: none;
+  }
+  .add-blog-modal-container .add-blog-modal .add-blog-form .input-image small {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+  }
+  .add-blog-modal-container .add-blog-modal .add-blog-form .input-item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .add-blog-modal-container .add-blog-modal .add-blog-form .input-item label {
+    color: white;
+    font-size: 1rem;
+  }
+  .add-blog-modal-container .add-blog-modal .add-blog-form .input-item input {
+    padding: 10px 20px;
+    background: #151A1F;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 1rem;
+    color: white;
+  }
+  .add-blog-modal-container .add-blog-modal .add-blog-form .input-item small {
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .add-blog-modal-container .add-blog-modal .add-blog-form .input-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .add-blog-modal-container .add-blog-modal .add-blog-form .input-content textarea {
+    width: 100%;
+    height: 200px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-family: "Afacad Flux", sans-serif;
+    background: #151A1F;
+    padding: 20px;
+    resize: none;
+    color: white;
+    font-size: 1rem;
+  }
+  .add-blog-modal-container .add-blog-modal .add-blog-form .input-content label {
+    color: white;
+    font-size: 1rem;
+  }
+  .add-blog-modal-container .add-blog-modal .add-blog-form .input-content small {
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .add-blog-modal-container .add-blog-modal .submit {
+    margin: 20px 0;
+    display: flex;
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+  }
+  .add-blog-modal-container .add-blog-modal .submit button {
+    cursor: pointer;
+    padding: 10px 0;
+    border-radius: 10px;
+    color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .add-blog-modal-container .add-blog-modal .submit button:nth-child(1) {
+    width: 30%;
+    background: #22262E;
+  }
+  .add-blog-modal-container .add-blog-modal .submit button:nth-child(2) {
+    width: 70%;
+    background: #3259E8;
+  }
+  .update-blog-modal-container {
+    width: 100vw;
+    height: 100vh;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .update-blog-modal-container ::-webkit-scrollbar {
+    width: 0;
+  }
+  .update-blog-modal-container .update-blog-modal {
+    width: 700px;
+    max-height: 700px;
+    height: 700px;
+    overflow-y: auto;
+    border-radius: 15px;
+    background: #090C0F;
+    padding: 25px 30px;
+  }
+  .update-blog-modal-container .update-blog-modal .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .update-blog-modal-container .update-blog-modal .header div {
+    align-items: center;
+    display: flex;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+  }
+  .update-blog-modal-container .update-blog-modal .header div i {
+    font-size: 24px;
+    color: #3259E8;
+  }
+  .update-blog-modal-container .update-blog-modal .header div p {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: white;
+  }
+  .update-blog-modal-container .update-blog-modal .header i {
+    cursor: pointer;
+    font-size: 26px;
+    color: #606B7A;
+  }
+  .update-blog-modal-container .update-blog-modal .update-blog-form {
+    margin-top: 20px;
+    padding: 25px 20px;
+    background: black;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    overflow-y: hidden;
+  }
+  .update-blog-modal-container .update-blog-modal .update-blog-form .input-image {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .update-blog-modal-container .update-blog-modal .update-blog-form .input-image div {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border: 1px dashed rgba(255, 255, 255, 0.4);
+    align-self: center;
+    border-radius: 15px;
+  }
+  .update-blog-modal-container .update-blog-modal .update-blog-form .input-image div label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: rgba(255, 255, 255, 0.6);
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+    cursor: pointer;
+  }
+  .update-blog-modal-container .update-blog-modal .update-blog-form .input-image div label img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border-radius: 15px;
+  }
+  .update-blog-modal-container .update-blog-modal .update-blog-form .input-image div label i {
+    font-size: 35px;
+  }
+  .update-blog-modal-container .update-blog-modal .update-blog-form .input-image div label p {
+    font-size: 1.1rem;
+  }
+  .update-blog-modal-container .update-blog-modal .update-blog-form .input-image div input {
+    display: none;
+  }
+  .update-blog-modal-container .update-blog-modal .update-blog-form .input-image small {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+  }
+  .update-blog-modal-container .update-blog-modal .update-blog-form .input-item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .update-blog-modal-container .update-blog-modal .update-blog-form .input-item label {
+    color: white;
+    font-size: 1rem;
+  }
+  .update-blog-modal-container .update-blog-modal .update-blog-form .input-item input {
+    padding: 10px 20px;
+    background: #151A1F;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 1rem;
+    color: white;
+  }
+  .update-blog-modal-container .update-blog-modal .update-blog-form .input-item small {
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .update-blog-modal-container .update-blog-modal .update-blog-form .input-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .update-blog-modal-container .update-blog-modal .update-blog-form .input-content textarea {
+    width: 100%;
+    height: 200px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-family: "Afacad Flux", sans-serif;
+    background: #151A1F;
+    padding: 20px;
+    resize: none;
+    color: white;
+    font-size: 1rem;
+  }
+  .update-blog-modal-container .update-blog-modal .update-blog-form .input-content label {
+    color: white;
+    font-size: 1rem;
+  }
+  .update-blog-modal-container .update-blog-modal .update-blog-form .input-content small {
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .update-blog-modal-container .update-blog-modal .submit {
+    margin: 20px 0;
+    display: flex;
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+  }
+  .update-blog-modal-container .update-blog-modal .submit button {
+    cursor: pointer;
+    padding: 10px 0;
+    border-radius: 10px;
+    color: white;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .update-blog-modal-container .update-blog-modal .submit button:nth-child(1) {
+    width: 30%;
+    background: #22262E;
+  }
+  .update-blog-modal-container .update-blog-modal .submit button:nth-child(2) {
+    width: 70%;
+    background: #3259E8;
+  }
   .update-product-modal-container {
     width: 100vw;
     height: 100vh;
@@ -547,6 +888,70 @@ a {
     background: #FF3F56;
     color: white;
   }
+  .del-blog-modal-container {
+    width: 100vw;
+    height: 100vh;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .del-blog-modal-container .del-blog-modal {
+    width: 500px;
+    max-height: 700px;
+    overflow-y: auto;
+    border-radius: 15px;
+    background: #090C0F;
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 15px;
+  }
+  .del-blog-modal-container .del-blog-modal i {
+    color: #FF3F56;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 40px;
+    background: #d1a6ad;
+  }
+  .del-blog-modal-container .del-blog-modal strong {
+    font-size: 1.6rem;
+    color: white;
+  }
+  .del-blog-modal-container .del-blog-modal p {
+    width: 90%;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .del-blog-modal-container .del-blog-modal .button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+  }
+  .del-blog-modal-container .del-blog-modal .button button {
+    width: 50%;
+    padding: 12px 0;
+    border-radius: 15px;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .del-blog-modal-container .del-blog-modal .button button:nth-child(1) {
+    background: white;
+    color: black;
+  }
+  .del-blog-modal-container .del-blog-modal .button button:nth-child(2) {
+    background: #FF3F56;
+    color: white;
+  }
   .block-account-modal-container {
     width: 100vw;
     height: 100vh;
@@ -610,5 +1015,45 @@ a {
   .block-account-modal-container .block-account-modal .button button:nth-child(2) {
     background: #FF3F56;
     color: white;
+  }
+  .preview-blog-close {
+    display: none;
+  }
+  .preview-blog-container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: end;
+  }
+  .preview-blog-container .open {
+    right: 0;
+  }
+  .preview-blog-container .close {
+    right: -600px;
+  }
+  .preview-blog-container .preview-blog-modal {
+    width: 600px;
+    height: 100%;
+    background: #F9FAFC;
+    position: absolute;
+    transition: 0.8s;
+    padding: 30px 40px;
+    z-index: 21;
+    justify-self: end;
+  }
+  .preview-blog-container .preview-blog-modal .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .preview-blog-container .preview-blog-modal .header strong {
+    font-size: 1.5rem;
+  }
+  .preview-blog-container .preview-blog-modal .header i {
+    font-size: 26px;
+    cursor: pointer;
   }
 }/*# sourceMappingURL=modal.css.map */

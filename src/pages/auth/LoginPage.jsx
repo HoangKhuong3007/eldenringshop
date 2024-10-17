@@ -13,8 +13,10 @@ export const LoginPage = () => {
       </div>
       <div className="login">
         <div className="header">
-          <img src={logo} alt="" />
-          <strong>Welcome back to EldenRing</strong>
+          <Link to="/">
+            <img src={logo} alt="" />
+          </Link>
+          <strong>Welcome to EldenRing</strong>
         </div>
         <form action="" className="login-form">
           <div className="input-item">
@@ -25,7 +27,7 @@ export const LoginPage = () => {
             <label htmlFor="">Password*</label>
             <input type="password" placeholder="Enter password..." />
           </div>
-          <Link>Forget password?</Link>
+          <Link to="/forget">Forget password?</Link>
           <button>Sign in</button>
         </form>
         <div className="or">
@@ -34,6 +36,10 @@ export const LoginPage = () => {
         <div className="oauth">
           <i className="bx bxl-google"></i>
           <p>Sign in by Google</p>
+        </div>
+        <div className="signup">
+          <p>Don't have an account?</p>
+          <Link to="/signup">Create new account</Link>
         </div>
       </div>
     </div>

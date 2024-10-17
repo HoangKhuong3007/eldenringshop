@@ -1,7 +1,8 @@
 @import "../../global/global.scss";
 
+
 @media only screen and (max-width: 1536px) {
-    .login-container {
+    .signup-container {
         display: flex;
         position: relative;
         width: 100vw;
@@ -20,7 +21,7 @@
             }
         }
 
-        .login {
+        .signup {
             width: 50%;
             height: 100%;
             display: flex;
@@ -48,9 +49,10 @@
                 }
             }
 
-            .login-form {
+            .signup-form {
                 display: flex;
                 flex-direction: column;
+                row-gap: 20px;
 
                 .input-item {
                     width: 400px;
@@ -71,25 +73,9 @@
                     }
                 }
 
-                .input-item:nth-child(1) {
-                    margin-bottom: 25px;
-                }
-
-                a {
-                    text-align: end;
-                    margin-left: 5px;
-                    margin-top: 10px;
-                    font-size: 0.7rem;
-                    transition: .1s;
-                }
-
-                a:hover {
-                    text-decoration: underline;
-                }
-
                 button {
                     cursor: pointer;
-                    margin-top: 20px;
+                    margin-top: 10px;
                     padding: 12px 0;
                     background: black;
                     color: white;
@@ -137,7 +123,7 @@
                 }
             }
 
-            .signup {
+            .signin {
                 display: flex;
                 align-items: center;
                 justify-content: center;

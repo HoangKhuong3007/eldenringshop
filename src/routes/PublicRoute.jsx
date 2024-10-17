@@ -4,6 +4,7 @@ import { Shop } from "../pages/public/Shop";
 import { AboutUs } from "../pages/public/AboutUs";
 import { Blog } from "../pages/public/Blog";
 import { LoginPage } from "../pages/auth/LoginPage";
+import { SignupPage } from "../pages/auth/SignupPage";
 export const publicRoutes = [
   {
     path: "/",
@@ -27,5 +28,9 @@ export const publicRoutes = [
   {
     path: "/login",
     element: <LoginPage />,
+  },
+  {
+    path: "/signup",
+    element: <SignupPage />,
   },
 ];

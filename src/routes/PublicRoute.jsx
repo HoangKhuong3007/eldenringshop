@@ -5,6 +5,7 @@ import { AboutUs } from "../pages/public/AboutUs";
 import { Blog } from "../pages/public/Blog";
 import { LoginPage } from "../pages/auth/LoginPage";
 import { SignupPage } from "../pages/auth/SignupPage";
+import { ForgetPage } from "../pages/auth/ForgetPage";
 export const publicRoutes = [
   {
     path: "/",
@@ -32,5 +33,9 @@ export const publicRoutes = [
   {
     path: "/signup",
     element: <SignupPage />,
+  },
+  {
+    path: "/forget",
+    element: <ForgetPage />,
   },
 ];

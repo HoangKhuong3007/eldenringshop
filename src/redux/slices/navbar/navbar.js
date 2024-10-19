@@ -7,10 +7,13 @@ const navbarSlice = createSlice({
   },
   reducers: {
     toggleNavbarOn: (state) => {
-      state.isToggleModal = true;
+      state.isToggleNavbar = true;
     },
     toggleNavbarOff: (state) => {
-      state.isToggleModal = false;
+      state.isToggleNavbar = false;
+    },
+    toggleNavbar: (state) => {
+      state.isToggleNavbar = !state.isToggleNavbar;
     },
   },
 });
@@ -22,17 +25,25 @@ const animateNavbarSlice = createSlice({
   },
   reducers: {
     toggleAnimateNavbarOn: (state) => {
-      state.isToggleModal = true;
+      state.isToggleNavbar = true;
     },
+
     toggleAnimateNavbarOff: (state) => {
-      state.isToggleModal = false;
+      state.isToggleNavbar = false;
+    },
+    toggleAnimateNavbar: (state) => {
+      state.isToggleNavbar = !state.isToggleNavbar;
     },
   },
 });
 // export actions
-export const { toggleNavbarOn, toggleNavbarOff } = navbarSlice.actions;
-export const { toggleAnimateNavbarOn, toggleAnimateNavbarOff } =
-  animateNavbarSlice.actions;
+export const { toggleNavbarOn, toggleNavbarOff, toggleNavbar } =
+  navbarSlice.actions;
+export const {
+  toggleAnimateNavbarOn,
+  toggleAnimateNavbarOff,
+  toggleAnimateNavbar,
+} = animateNavbarSlice.actions;
 // combine reducers
 const navbarReducers = combineReducers({
   navbar: navbarSlice.reducer,

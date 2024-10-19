@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
 input,
 button,
 textarea {
@@ -48,6 +55,7 @@ a {
      object-fit: cover;
 }
 .homepage-container .homepage .homepage-banner div {
+  inset: 0;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -143,6 +151,7 @@ a {
      object-fit: cover;
 }
 .homepage-container .homepage .about div {
+  inset: 0;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -225,6 +234,7 @@ a {
      object-fit: cover;
 }
 .homepage-container .homepage .newsletter .header {
+  inset: 0;
   position: absolute;
   width: 100%;
   height: 100%;

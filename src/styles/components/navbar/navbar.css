@@ -41,7 +41,7 @@ a {
   .advance-navbar-container .advance-navbar {
     z-index: 10;
     position: absolute;
-    margin-top: 103px;
+    margin-top: 105px;
     width: calc(100% - 120px);
     background: rgba(0, 0, 0, 0.7);
     border-radius: 15px;

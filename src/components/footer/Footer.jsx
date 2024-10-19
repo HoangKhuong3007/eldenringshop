@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/components/footer/footer.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 // import assets
 import image from "../../assets/footer.png";
 export const Footer = () => {
@@ -40,7 +42,7 @@ export const Footer = () => {
         </div>
       </div>
       <div className="image">
-        <img src={image} alt="" />
+        <LazyLoadImage alt="" effect="blur" src={image}></LazyLoadImage>
       </div>
     </div>
   );

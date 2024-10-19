@@ -13,7 +13,7 @@ import { Footer } from "./components/footer/Footer";
 import "react-toastify/dist/ReactToastify.css";
 // import assets
 import banner from "./assets/homepage-banner.jpg";
-import product from "./assets/carousel.jpg";
+import product from "./assets/Fashion-Accessories-Web-1.jpg";
 import about from "./assets/about.jpg";
 import newsletter from "./assets/newsletter.jpg";
 import blog1 from "./assets/blog1.jpg";
@@ -45,8 +45,7 @@ export const App = () => {
       <AdvanceNavbar />
       <div className="homepage">
         <div className="homepage-banner">
-          <img src={banner} alt="" />
-          {/* <LazyLoadImage src={banner} alt="" effect="blur" /> */}
+          <LazyLoadImage src={banner} alt="Homepage Banner" effect="opacity" />
           <div>
             <strong>
               Every man deserves accessories that mirror his ambition and style
@@ -73,48 +72,53 @@ export const App = () => {
           >
             <Link to="/shop" className="carousel-item">
               <p>$40.00</p>
-              <img src={product} alt="" />
+              <LazyLoadImage src={product} alt="" effect="opacity" />
               <strong>EldenRing Product</strong>
             </Link>
             <Link to="/shop" className="carousel-item">
               <p>$40.00</p>
-              <img src={product} alt="" />
+              <LazyLoadImage src={product} alt="" effect="opacity" />
+
               <strong>EldenRing Product</strong>
             </Link>
             <Link to="/shop" className="carousel-item">
               <p>$40.00</p>
-              <img src={product} alt="" />
+              <LazyLoadImage src={product} alt="" effect="opacity" />
+
               <strong>EldenRing Product</strong>
             </Link>
             <Link to="/shop" className="carousel-item">
               <p>$40.00</p>
-              <img src={product} alt="" />
+              <LazyLoadImage src={product} alt="" effect="opacity" />
               <strong>EldenRing Product</strong>
             </Link>
             <Link to="/shop" className="carousel-item">
               <p>$40.00</p>
-              <img src={product} alt="" />
+              <LazyLoadImage src={product} alt="" effect="opacity" />
               <strong>EldenRing Product</strong>
             </Link>
             <Link to="/shop" className="carousel-item">
               <p>$40.00</p>
-              <img src={product} alt="" />
+              <LazyLoadImage src={product} alt="" effect="opacity" />
+
               <strong>EldenRing Product</strong>
             </Link>
             <Link to="/shop" className="carousel-item">
               <p>$40.00</p>
-              <img src={product} alt="" />
+              <LazyLoadImage src={product} alt="" effect="opacity" />
+
               <strong>EldenRing Product</strong>
             </Link>
             <Link to="/shop" className="carousel-item">
               <p>$40.00</p>
-              <img src={product} alt="" />
+              <LazyLoadImage src={product} alt="" effect="opacity" />
+
               <strong>EldenRing Product</strong>
             </Link>
           </Carousel>
         </div>
         <div className="about">
-          <img src={about} alt="" />
+          <LazyLoadImage src={about} alt="Homepage Banner" effect="opacity" />
           <div>
             <strong>
               Crafted with attention to detail, each piece tells a story of
@@ -125,7 +129,8 @@ export const App = () => {
         </div>
         <div className="category">
           <div className="category-list">
-            <img src={product} alt="" />
+            <LazyLoadImage src={product} alt="" effect="opacity" />
+
             <Link to="/shop/category/1">
               <strong>Hats</strong>
               <div>
@@ -133,8 +138,9 @@ export const App = () => {
                 <i class="bx bx-right-top-arrow-circle"></i>
               </div>
             </Link>
-            <img src={product} alt="" />
-            <img src={product} alt="" />
+            <LazyLoadImage src={product} alt="" effect="opacity" />
+
+            <LazyLoadImage src={product} alt="" effect="opacity" />
           </div>
           <div className="category-list">
             <Link to="/shop/category/1">
@@ -144,13 +150,17 @@ export const App = () => {
                 <i class="bx bx-right-top-arrow-circle"></i>
               </div>
             </Link>
-            <img src={product} alt="" />
-            <img src={product} alt="" />
-            <img src={product} alt="" />
+            <LazyLoadImage src={product} alt="" effect="opacity" />
+
+            <LazyLoadImage src={product} alt="" effect="opacity" />
+
+            <LazyLoadImage src={product} alt="" effect="opacity" />
           </div>
           <div className="category-list">
-            <img src={product} alt="" />
-            <img src={product} alt="" />
+            <LazyLoadImage src={product} alt="" effect="opacity" />
+
+            <LazyLoadImage src={product} alt="" effect="opacity" />
+
             <Link to="/shop/category/1">
               <strong>Rings</strong>
               <div>
@@ -158,12 +168,15 @@ export const App = () => {
                 <i class="bx bx-right-top-arrow-circle"></i>
               </div>
             </Link>
-            <img src={product} alt="" />
+            <LazyLoadImage src={product} alt="" effect="opacity" />
           </div>
           <div className="category-list">
-            <img src={product} alt="" />
-            <img src={product} alt="" />
-            <img src={product} alt="" />
+            <LazyLoadImage src={product} alt="" effect="opacity" />
+
+            <LazyLoadImage src={product} alt="" effect="opacity" />
+
+            <LazyLoadImage src={product} alt="" effect="opacity" />
+
             <Link to="/shop/category/1">
               <strong>Necklets</strong>
               <div>
@@ -174,7 +187,7 @@ export const App = () => {
           </div>
         </div>
         <div className="newsletter">
-          <img src={newsletter} alt="" />
+          <LazyLoadImage src={newsletter} alt="" effect="opacity" />
           <div className="header">
             <strong>
               Sign up for our newsletter and receive 10% off your first order
@@ -197,11 +210,13 @@ export const App = () => {
           </div>
           <div className="images">
             <div>
-              <img src={blog1} alt="" />
-              <img src={blog2} alt="" />
-              <img src={blog3} alt="" />
+              <LazyLoadImage src={blog1} alt="" effect="opacity" />
+
+              <LazyLoadImage src={blog2} alt="" effect="opacity" />
+
+              <LazyLoadImage src={blog3} alt="" effect="opacity" />
             </div>
-            <img className="big-img" src={blog4} alt="" />
+            <img loading="lazy" className="big-img" src={blog4} alt="" />
           </div>
         </div>
       </div>

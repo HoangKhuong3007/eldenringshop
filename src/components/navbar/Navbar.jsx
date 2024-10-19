@@ -41,14 +41,18 @@ export const Navbar = () => {
           <strong>EldenRing</strong>
         </Link>
         <div className="my-profile">
-          <i className="bx bx-cart"></i>
-          <div className="info">
-            <i className="bx bx-user"></i>
-            <div>
-              <strong>Lon Khuong</strong>
-              <p>lonkhuong2k4@gmail.com</p>
+          <Link to="/cart">
+            <i className="bx bx-cart"></i>
+          </Link>
+          <Link to="/profile">
+            <div className="info">
+              <i className="bx bx-user"></i>
+              <div>
+                <strong>Lon Khuong</strong>
+                <p>lonkhuong2k4@gmail.com</p>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
         {/* <div className="auth">
           <Link to="/login">Login</Link>

@@ -24,16 +24,28 @@ export const Navbar = () => {
       <div className="navbar">
         <div className="main">
           <i className="bx bx-menu" onClick={handleToggleAdvanceNavbar}></i>
-          <NavLink className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink
+            to="/shop"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             Shop
           </NavLink>
-          <NavLink className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink
+            to="/blogs"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             Blogs
           </NavLink>
-          <NavLink className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             Contact
           </NavLink>
-          <NavLink className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink
+            to="/about"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             About Us
           </NavLink>
         </div>

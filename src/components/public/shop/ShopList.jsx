@@ -18,25 +18,25 @@ export const ShopList = () => {
           <img src={product} alt="" />
           <strong>Product Name</strong>
           <strong>$100.00</strong>
-          <Link>Choose Size</Link>
+          <Link to="/productdetail">Choose Size</Link>
         </div>
         <div className="item">
           <img src={product} alt="" />
           <strong>Product Name</strong>
           <strong>$100.00</strong>
-          <Link>Choose Size</Link>
+          <Link to="/productdetail">Choose Size</Link>
         </div>
         <div className="item">
           <img src={product} alt="" />
           <strong>Product Name</strong>
           <strong>$100.00</strong>
-          <Link>Choose Size</Link>
+          <Link to="/productdetail">Choose Size</Link>
         </div>
         <div className="item">
           <img src={product} alt="" />
           <strong>Product Name</strong>
           <strong>$100.00</strong>
-          <Link>Choose Size</Link>
+          <Link to="/productdetail">Choose Size</Link>
         </div>
       </div>
     </div>

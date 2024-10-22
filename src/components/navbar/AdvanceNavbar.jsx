@@ -110,19 +110,19 @@ export const AdvanceNavbar = () => {
             </div>
             <div className="links">
               <NavLink
-                to="/profile"
+                to="/setting/profile"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
                 Profile
               </NavLink>
               <NavLink
-                to="/security"
+                to="/setting/security"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
                 Security
               </NavLink>
               <NavLink
-                to="/myorder"
+                to="/setting/my-order"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
                 My Orders

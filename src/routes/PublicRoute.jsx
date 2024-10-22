@@ -8,6 +8,10 @@ import { ProductDetail } from "../pages/public/ProductDetail";
 import { CartPage } from "../pages/public/CartPage";
 import { CheckoutPage } from "../pages/public/CheckoutPage";
 import { BlogPage } from "../pages/public/BlogPage";
+import { BlogDetailPage } from "../pages/public/BlogDetailPage";
+import { ProfileSettingPage } from "../pages/public/ProfileSettingPage";
+import { SecuritySettingPage } from "../pages/public/SecuritySettingPage";
+import { CustomerOrderPage } from "../pages/public/CustomerOrderPage";
 export const publicRoutes = [
   {
     path: "/",
@@ -44,5 +48,21 @@ export const publicRoutes = [
   {
     path: "/blogs",
     element: <BlogPage />,
+  },
+  {
+    path: "/blog-detail",
+    element: <BlogDetailPage />,
+  },
+  {
+    path: "/setting/profile",
+    element: <ProfileSettingPage />,
+  },
+  {
+    path: "/setting/security",
+    element: <SecuritySettingPage />,
+  },
+  {
+    path: "/setting/my-order",
+    element: <CustomerOrderPage />,
   },
 ];

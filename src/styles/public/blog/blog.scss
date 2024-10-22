@@ -75,11 +75,12 @@
                         text-overflow: ellipsis;
                         max-height: 140px;
                         line-height: 1.5rem;
+                        font-size: 1.1rem;
 
                     }
 
                     strong {
-                        font-size: 2rem;
+                        font-size: 2.2rem;
                     }
 
                     .info {
@@ -110,7 +111,7 @@
             .list {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                gap: 50px;
+                gap: 20px;
 
                 .blog-item {
                     display: flex;
@@ -128,7 +129,7 @@
                     }
 
                     strong {
-                        font-size: 1.2rem;
+                        font-size: 1.4rem;
                     }
 
                     p {

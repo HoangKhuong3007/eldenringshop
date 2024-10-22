@@ -271,4 +271,60 @@ a {
   .dashnav-container .dashnav .item a.active {
     background: #343A46;
   }
+  .setting-nav-container {
+    width: 20%;
+    height: 100vh;
+    overflow-y: hidden;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    font-family: "Poppins", sans-serif;
+  }
+  .setting-nav-container .setting-nav {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+  }
+  .setting-nav-container .setting-nav h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+  .setting-nav-container .setting-nav .list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .setting-nav-container .setting-nav .list a {
+    cursor: pointer;
+    padding: 9px 12px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+    transition: 0.4s;
+  }
+  .setting-nav-container .setting-nav .list a i {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.6);
+  }
+  .setting-nav-container .setting-nav .list a p {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 0.9rem;
+  }
+  .setting-nav-container .setting-nav .list .active {
+    background: #d1d2d3;
+  }
+  .setting-nav-container .setting-nav .list .active i,
+  .setting-nav-container .setting-nav .list .active p {
+    color: black;
+    font-weight: 600;
+  }
+  .setting-nav-container .setting-nav .list a:hover {
+    background: #efeff0;
+  }
+  .setting-nav-container .setting-nav .list a:hover i,
+  .setting-nav-container .setting-nav .list a:hover p {
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 500;
+  }
 }/*# sourceMappingURL=navbar.css.map */

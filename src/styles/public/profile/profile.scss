@@ -1,0 +1,9 @@
+@import "../../global/global.scss";
+
+@media only screen and (max-width: 1536px) {
+    .profile-setting-container {
+        display: flex;
+        position: relative;
+        width: 100vw;
+    }
+}

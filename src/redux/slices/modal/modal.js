@@ -148,6 +148,34 @@ const animateOrderModalSlice = createSlice({
     },
   },
 });
+const previewMyOrderSlice = createSlice({
+  name: "previewMyOrderModal",
+  initialState: {
+    isToggleModal: false,
+  },
+  reducers: {
+    togglePreviewMyOrderModalOn: (state) => {
+      state.isToggleModal = true;
+    },
+    togglePreviewMyOrderModalOff: (state) => {
+      state.isToggleModal = false;
+    },
+  },
+});
+const animateMyOrderModalSlice = createSlice({
+  name: "animateMyOrderModal",
+  initialState: {
+    isToggleModal: false,
+  },
+  reducers: {
+    toggleAnimateMyOrderModalOn: (state) => {
+      state.isToggleModal = true;
+    },
+    toggleAnimateMyOrderModalOff: (state) => {
+      state.isToggleModal = false;
+    },
+  },
+});
 // export actions
 export const { toggleAddProductModal } = AddProductSlice.actions;
 export const { toggleUpdateProductModal } = UpdateProductSlice.actions;
@@ -165,7 +193,10 @@ export const { toggleAnimateOrderModalOn, toggleAnimateOrderModalOff } =
 export const { toggleAddBlogModal } = AddBlogSlice.actions;
 export const { toggleUpdateBlogModal } = UpdateBlogSlice.actions;
 export const { toggleDelBlogModal } = DelBlogSlice.actions;
-
+export const { togglePreviewMyOrderModalOn, togglePreviewMyOrderModalOff } =
+  previewMyOrderSlice.actions;
+export const { toggleAnimateMyOrderModalOn, toggleAnimateMyOrderModalOff } =
+  animateMyOrderModalSlice.actions;
 // combine reducer
 const ModalReducers = combineReducers({
   addProductModal: AddProductSlice.reducer,
@@ -180,5 +211,7 @@ const ModalReducers = combineReducers({
   delBlogModal: DelBlogSlice.reducer,
   previewOrderModal: previewOrderSlice.reducer,
   animateOrderModal: animateOrderModalSlice.reducer,
+  previewMyOrderModal: previewMyOrderSlice.reducer,
+  animateMyOrderModal: animateMyOrderModalSlice.reducer,
 });
 export default ModalReducers;

@@ -3,54 +3,56 @@ import { useSelector, useDispatch } from "react-redux";
 // import styles
 import "../../styles/components/modal/modal.css";
 import {
-  toggleAnimateOrderModalOff,
-  togglePreviewOrderModalOff,
+  toggleAnimateMyOrderModalOff,
+  togglePreviewMyOrderModalOff,
 } from "../../redux/slices/modal/modal";
 // import slices
-export const OrderDetail = () => {
+export const MyOrderDetail = () => {
   // selector
-  const isToggleOrderDetailModal = useSelector(
-    (state) => state.modal.previewOrderModal.isToggleModal
+  const isToggleMyOrderDetailModal = useSelector(
+    (state) => state.modal.previewMyOrderModal.isToggleModal
   );
-  const isToggleAnimateOrderDetailModal = useSelector(
-    (state) => state.modal.animateOrderModal.isToggleModal
+  const isToggleAnimateMyOrderDetailModal = useSelector(
+    (state) => state.modal.animateMyOrderModal.isToggleModal
   );
   // dispatch
   const dispatch = useDispatch();
   //   handle func
-  const handleToggleDetailOrderModalOff = () => {
-    dispatch(toggleAnimateOrderModalOff());
+  const handleToggleDetailMyOrderModalOff = () => {
+    dispatch(toggleAnimateMyOrderModalOff());
     setTimeout(() => {
-      dispatch(togglePreviewOrderModalOff());
+      dispatch(togglePreviewMyOrderModalOff());
     }, 800);
   };
   return (
     <div
       className={
-        isToggleOrderDetailModal
-          ? `detail-order-container`
-          : `detail-order-close`
+        isToggleMyOrderDetailModal
+          ? `detail-myorder-container`
+          : `detail-myorder-close`
       }
     >
       <div
         className={
-          isToggleAnimateOrderDetailModal
-            ? `detail-order-modal open`
-            : `detail-order-modal close`
+          isToggleAnimateMyOrderDetailModal
+            ? `detail-myorder-modal open`
+            : `detail-myorder-modal close`
         }
       >
         <div className="header">
-          <strong>Invoice #1234</strong>
-          <i className="bx bx-x" onClick={handleToggleDetailOrderModalOff}></i>
+          <strong>My Invoice #1234</strong>
+          <i
+            className="bx bx-x"
+            onClick={handleToggleDetailMyOrderModalOff}
+          ></i>
         </div>
         <div className="pending-status">
           <i className="bx bx-loader"></i>
           <p>
-            Invoice is wating for admin confirm, customer had paid on 15 Aug
-            2023
+            Invoice is wating for admin confirm, you had paid on 15 Aug 2023
           </p>
         </div>
-        <div className="order-infomation">
+        <div className="myorder-infomation">
           <div className="list">
             <div className="two-items">
               <div className="item">
@@ -95,7 +97,7 @@ export const OrderDetail = () => {
               </div>
             </div>
           </div>
-          <div className="order-cart">
+          <div className="myorder-cart">
             <label htmlFor="">Items</label>
             <table>
               <thead>
@@ -146,14 +148,7 @@ export const OrderDetail = () => {
           </div>
         </div>
         <div className="buttons">
-          <button>
-            <i className="bx bx-check"></i>
-            <p>Mark as Success</p>
-          </button>
-          <button>
-            <i className="bx bx-x"></i>
-            <p>Mark as Unpaid</p>
-          </button>
+          <button>I want to cancel order</button>
         </div>
       </div>
     </div>

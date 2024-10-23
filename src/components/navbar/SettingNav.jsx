@@ -33,6 +33,13 @@ export const SettingNav = () => {
             to="/"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
+            <i className="bx bx-arrow-back bx-flip-vertical"></i>
+            <p>Return to homepage</p>
+          </NavLink>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             <i className="bx bx-log-out-circle"></i>
             <p>Logout</p>
           </NavLink>

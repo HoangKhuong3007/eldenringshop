@@ -1,0 +1,86 @@
+@import "../../../global/global.scss";
+
+@media only screen and (max-width: 1536px) {
+    .customer-order-list {
+        padding: 40px 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+
+        .order-item {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            background: #f1f1f1;
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(0, 0, 0, .1);
+            row-gap: 40px;
+
+            .order-item-header {
+                strong {
+                    font-size: 1.2rem;
+                }
+            }
+
+            .item1 {
+                display: flex;
+                justify-content: space-between;
+
+                .bx-chevron-right {
+                    font-size: 30px;
+                    color: rgba(0, 0, 0, .6);
+                }
+
+                .time {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 10px;
+
+                    i {
+                        font-size: 34px;
+                        color: rgba(0, 0, 0, .6);
+                    }
+
+                    div {
+                        display: flex;
+                        flex-direction: column;
+
+                        p {
+                            font-size: 0.85rem;
+                            font-weight: 600;
+                            color: #4957C0;
+                        }
+                    }
+                }
+            }
+
+            .item2 {
+                display: flex;
+                justify-content: space-between;
+
+                .item {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 10px;
+
+                    i {
+                        font-size: 34px;
+                        color: rgba(0, 0, 0, .6);
+                    }
+
+                    div {
+                        display: flex;
+                        flex-direction: column;
+
+                        p {
+                            font-size: 0.85rem;
+                            font-weight: 600;
+                            color: rgba(0, 0, 0, .5);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

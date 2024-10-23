@@ -1270,4 +1270,204 @@ a {
   .detail-order-container .detail-order-modal .buttons button:hover {
     background: rgba(0, 0, 0, 0.1);
   }
+  .detail-myorder-close {
+    display: none;
+  }
+  .detail-myorder-container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: end;
+  }
+  .detail-myorder-container .open {
+    right: 0;
+  }
+  .detail-myorder-container .close {
+    right: -600px;
+  }
+  .detail-myorder-container ::-webkit-scrollbar {
+    width: 0;
+  }
+  .detail-myorder-container .detail-myorder-modal {
+    width: 600px;
+    height: 100%;
+    background: #F9FAFC;
+    position: absolute;
+    transition: 0.8s;
+    padding: 30px 0;
+    z-index: 21;
+    justify-self: end;
+    overflow-y: auto;
+    font-family: "Afacad Flux", sans-serif;
+  }
+  .detail-myorder-container .detail-myorder-modal .header {
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .detail-myorder-container .detail-myorder-modal .header strong {
+    font-size: 1.5rem;
+  }
+  .detail-myorder-container .detail-myorder-modal .header i {
+    font-size: 26px;
+    cursor: pointer;
+  }
+  .detail-myorder-container .detail-myorder-modal .pending-status {
+    margin-top: 30px;
+    width: 100%;
+    padding: 20px 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid rgba(221, 221, 15, 0.644);
+    display: flex;
+    align-items: center;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+    background: rgba(240, 240, 34, 0.151);
+  }
+  .detail-myorder-container .detail-myorder-modal .pending-status i {
+    font-size: 22px;
+    color: rgba(119, 119, 58, 0.959);
+  }
+  .detail-myorder-container .detail-myorder-modal .pending-status p {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .list {
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .list .two-items {
+    display: flex;
+    justify-content: space-between;
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .list .two-items .item {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .list .two-items .item p {
+    font-size: 0.85rem;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .list .two-items .item strong {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .myorder-cart {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    row-gap: 20px;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .myorder-cart label {
+    padding: 0 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .myorder-cart table {
+    padding: 0 30px;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .myorder-cart table thead {
+    width: 100%;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .myorder-cart table thead tr {
+    padding: 7px 10px;
+    border-radius: 10px;
+    background: #e4e2e2;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .myorder-cart table thead tr th {
+    font-size: 0.9rem;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .myorder-cart table thead tr th:nth-child(1) {
+    grid-column: 1/span 5;
+    text-align: start;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .myorder-cart table thead tr th:nth-child(2) {
+    text-align: start;
+    grid-column: 6/span 2;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .myorder-cart table thead tr th:nth-child(3) {
+    text-align: center;
+    grid-column: 8/span 2;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .myorder-cart table thead tr th:nth-child(4) {
+    grid-column: 10/span 3;
+    text-align: end;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .myorder-cart table tbody {
+    width: 100%;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .myorder-cart table tbody tr {
+    padding: 7px 10px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .myorder-cart table tbody tr td {
+    font-size: 0.9rem;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .myorder-cart table tbody tr td:nth-child(1) {
+    grid-column: 1/span 5;
+    text-align: start;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .myorder-cart table tbody tr td:nth-child(2) {
+    text-align: start;
+    grid-column: 6/span 2;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .myorder-cart table tbody tr td:nth-child(3) {
+    text-align: center;
+    grid-column: 8/span 2;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .myorder-cart table tbody tr td:nth-child(4) {
+    grid-column: 10/span 3;
+    text-align: end;
+    margin-right: 5px;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .myorder-cart table .total {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .detail-myorder-container .detail-myorder-modal .myorder-infomation .myorder-cart table .total strong:nth-child(2) {
+    margin-right: 5px;
+  }
+  .detail-myorder-container .detail-myorder-modal .buttons {
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+  }
+  .detail-myorder-container .detail-myorder-modal .buttons button {
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 0.4s;
+    font-family: "Afacad Flux", sans-serif;
+    background: red;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .detail-myorder-container .detail-myorder-modal .buttons button:hover {
+    opacity: 0.7;
+  }
 }/*# sourceMappingURL=modal.css.map */

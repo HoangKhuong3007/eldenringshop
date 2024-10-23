@@ -52,7 +52,7 @@ export const Navbar = () => {
         <Link to="/" className="logo">
           <strong>EldenRing</strong>
         </Link>
-        <div className="my-profile">
+        {/* <div className="my-profile">
           <Link to="/cart">
             <i className="bx bx-cart"></i>
           </Link>
@@ -65,11 +65,11 @@ export const Navbar = () => {
               </div>
             </div>
           </Link>
-        </div>
-        {/* <div className="auth">
+        </div> */}
+        <div className="auth">
           <Link to="/login">Login</Link>
           <Link to="/signup">Signup</Link>
-        </div> */}
+        </div>
       </div>
     </div>
   );

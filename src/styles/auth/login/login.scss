@@ -75,17 +75,33 @@
                     margin-bottom: 25px;
                 }
 
-                a {
-                    text-align: end;
-                    margin-left: 5px;
-                    margin-top: 10px;
-                    font-size: 0.7rem;
-                    transition: .1s;
+                .forget {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    p {
+                        margin-left: 5px;
+                        cursor: pointer;
+                        margin-top: 10px;
+                        font-size: 0.7rem;
+
+                    }
+
+                    a {
+                        text-align: end;
+                        margin-left: 5px;
+                        margin-top: 10px;
+                        font-size: 0.7rem;
+                        transition: .1s;
+                    }
+
+                    a:hover {
+                        text-decoration: underline;
+                    }
                 }
 
-                a:hover {
-                    text-decoration: underline;
-                }
+
 
                 button {
                     cursor: pointer;

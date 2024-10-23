@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // import styles
 import "../../styles/auth/login/login.css";
@@ -6,6 +6,12 @@ import "../../styles/auth/login/login.css";
 import image from "../../assets/login.jpg";
 import logo from "../../assets/Elden-Ring-Logo.png";
 export const LoginPage = () => {
+  // state
+  const [showPassword, setShowPassword] = useState(false);
+  // handle func
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   return (
     <div className="login-container">
       <div className="banner">
@@ -25,9 +31,17 @@ export const LoginPage = () => {
           </div>
           <div className="input-item">
             <label htmlFor="">Password*</label>
-            <input type="password" placeholder="Enter password..." />
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Enter password..."
+            />
           </div>
-          <Link to="/forget">Forget password?</Link>
+          <div className="forget">
+            <p onClick={togglePasswordVisibility}>
+              {showPassword ? "Hide password" : "Show password"}
+            </p>
+            <Link to="/forget">Forget password?</Link>
+          </div>
           <button>Sign in</button>
         </form>
         <div className="or">

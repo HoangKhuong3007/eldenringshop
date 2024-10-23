@@ -88,6 +88,11 @@ a {
     font-family: "Lora", serif;
     background: #F0F0F0;
     border-radius: 15px;
+    border: 1px solid transparent;
+    transition: 0.4s;
+  }
+  .login-container .login .login-form .input-item input:focus {
+    border-color: black;
   }
   .login-container .login .login-form .input-item:nth-child(1) {
     margin-bottom: 25px;

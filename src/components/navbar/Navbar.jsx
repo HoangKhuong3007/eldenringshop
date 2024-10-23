@@ -9,6 +9,9 @@ import {
   toggleAnimateNavbarOn,
 } from "../../redux/slices/navbar/navbar";
 export const Navbar = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const token = localStorage.getItem("token");
+  const userRole = user?.role;
   // dispatch
   const dispatch = useDispatch();
   // handle func
@@ -52,24 +55,31 @@ export const Navbar = () => {
         <Link to="/" className="logo">
           <strong>EldenRing</strong>
         </Link>
-        {/* <div className="my-profile">
-          <Link to="/cart">
-            <i className="bx bx-cart"></i>
-          </Link>
-          <Link to="/profile">
-            <div className="info">
-              <i className="bx bx-user"></i>
-              <div>
-                <strong>Lon Khuong</strong>
-                <p>lonkhuong2k4@gmail.com</p>
-              </div>
+        {user && token ? (
+          <>
+            <div className="my-profile">
+              <Link to="/cart">
+                <i className="bx bx-cart"></i>
+              </Link>
+              <Link to="/setting/profile">
+                <div className="info">
+                  <i className="bx bx-user"></i>
+                  <div>
+                    <strong>{user.fullName}</strong>
+                    <p>{user.email}</p>
+                  </div>
+                </div>
+              </Link>
             </div>
-          </Link>
-        </div> */}
-        <div className="auth">
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Signup</Link>
-        </div>
+          </>
+        ) : (
+          <>
+            <div className="auth">
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Signup</Link>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

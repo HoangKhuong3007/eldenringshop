@@ -12,6 +12,8 @@ import { BlogDetailPage } from "../pages/public/BlogDetailPage";
 import { ProfileSettingPage } from "../pages/public/ProfileSettingPage";
 import { SecuritySettingPage } from "../pages/public/SecuritySettingPage";
 import { CustomerOrderPage } from "../pages/public/CustomerOrderPage";
+// wrapper
+import { LoggedWrapper, GuestWrapper } from "./AuthorizeWrapper";
 export const publicRoutes = [
   {
     path: "/",
@@ -19,15 +21,27 @@ export const publicRoutes = [
   },
   {
     path: "/login",
-    element: <LoginPage />,
+    element: (
+      <LoggedWrapper>
+        <LoginPage />
+      </LoggedWrapper>
+    ),
   },
   {
     path: "/signup",
-    element: <SignupPage />,
+    element: (
+      <LoggedWrapper>
+        <SignupPage />
+      </LoggedWrapper>
+    ),
   },
   {
     path: "/forget",
-    element: <ForgetPage />,
+    element: (
+      <LoggedWrapper>
+        <ForgetPage />
+      </LoggedWrapper>
+    ),
   },
   {
     path: "/shop",
@@ -55,14 +69,26 @@ export const publicRoutes = [
   },
   {
     path: "/setting/profile",
-    element: <ProfileSettingPage />,
+    element: (
+      <GuestWrapper>
+        <ProfileSettingPage />
+      </GuestWrapper>
+    ),
   },
   {
     path: "/setting/security",
-    element: <SecuritySettingPage />,
+    element: (
+      <GuestWrapper>
+        <SecuritySettingPage />
+      </GuestWrapper>
+    ),
   },
   {
     path: "/setting/my-order",
-    element: <CustomerOrderPage />,
+    element: (
+      <GuestWrapper>
+        <CustomerOrderPage />
+      </GuestWrapper>
+    ),
   },
 ];

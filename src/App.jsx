@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import { Link } from "react-router-dom";
 import "react-multi-carousel/lib/styles.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { useMutation } from "@tanstack/react-query";
 // import styles
 import "./styles/public/homepage/homepage.css";
 // import components
@@ -20,6 +21,8 @@ import blog1 from "./assets/blog1.jpg";
 import blog2 from "./assets/blog2.jpg";
 import blog3 from "./assets/blog3.jpg";
 import blog4 from "./assets/blog4.jpg";
+// import service
+import * as AccountService from "./service/account/account";
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1536 },
@@ -39,6 +42,25 @@ const responsive = {
   },
 };
 export const App = () => {
+  const token = localStorage.getItem("token");
+  // mutation
+  const mutation = useMutation({
+    mutationKey: ["authenticate"],
+    mutationFn: AccountService.authenticateService,
+  });
+  // handle func
+  const handleAuth = async () => {
+    try {
+      if (token) {
+        await mutation.mutateAsync(token);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    handleAuth();
+  }, []);
   return (
     <div className="homepage-container">
       <Navbar />

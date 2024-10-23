@@ -1,8 +1,30 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
 // import styles
 import "../../styles/components/navbar/navbar.css";
+// import service
+import * as AccountService from "../../service/account/account";
 export const SettingNav = () => {
+  const token = localStorage.getItem("token");
+  // navigate
+  const navigate = useNavigate();
+  // mutation
+  const mutation = useMutation({
+    mutationKey: ["logout"],
+    mutationFn: AccountService.logoutService,
+    onSuccess: () => {
+      navigate("/login");
+    },
+  });
+  // handle func
+  const handleLogout = async () => {
+    try {
+      await mutation.mutateAsync(token);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="setting-nav-container">
       <div className="setting-nav">
@@ -37,8 +59,8 @@ export const SettingNav = () => {
             <p>Return to homepage</p>
           </NavLink>
           <NavLink
-            to="/"
-            className={({ isActive }) => (isActive ? "active" : "")}
+            onClick={handleLogout}
+            className={({ isActive }) => (isActive ? "" : "")}
           >
             <i className="bx bx-log-out-circle"></i>
             <p>Logout</p>

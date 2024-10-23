@@ -68,6 +68,12 @@
                         font-family: $main-font;
                         background: #F0F0F0;
                         border-radius: 15px;
+                        border: 1px solid transparent;
+                        transition: .4s;
+                    }
+
+                    input:focus {
+                        border-color: black;
                     }
                 }
 

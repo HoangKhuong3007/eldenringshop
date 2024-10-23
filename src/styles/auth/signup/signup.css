@@ -89,6 +89,11 @@ a {
     font-family: "Lora", serif;
     background: #F0F0F0;
     border-radius: 15px;
+    border: 1px solid transparent;
+    transition: 0.4s;
+  }
+  .signup-container .signup .signup-form .input-item input:focus {
+    border-color: black;
   }
   .signup-container .signup .signup-form button {
     cursor: pointer;

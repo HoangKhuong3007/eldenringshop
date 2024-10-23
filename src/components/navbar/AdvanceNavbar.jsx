@@ -9,6 +9,9 @@ import {
   toggleAnimateNavbarOff,
 } from "../../redux/slices/navbar/navbar";
 export const AdvanceNavbar = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const token = localStorage.getItem("token");
+  const userRole = user?.role;
   // dispatch
   const dispatch = useDispatch();
   //   selector
@@ -104,62 +107,72 @@ export const AdvanceNavbar = () => {
               </NavLink>
             </div>
           </div>
-          <div className="list">
-            <div className="list-header">
-              <span>Utilities</span>
-            </div>
-            <div className="links">
-              <NavLink
-                to="/setting/profile"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                Profile
-              </NavLink>
-              <NavLink
-                to="/setting/security"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                Security
-              </NavLink>
-              <NavLink
-                to="/setting/my-order"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                My Orders
-              </NavLink>
-            </div>
-          </div>
-          <div className="list">
-            <div className="list-header">
-              <span>Dashboard (for Manager)</span>
-            </div>
-            <div className="links">
-              <NavLink
-                to="/dashboard/home"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                Dashboard
-              </NavLink>
-              <NavLink
-                to="/dashboard/blogs"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                Blog Manager
-              </NavLink>
-              <NavLink
-                to="/dashboard/order"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                Order Manager
-              </NavLink>
-              <NavLink
-                to="/dashboard/product"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                Product Manager
-              </NavLink>
-            </div>
-          </div>
+          {user && token ? (
+            <>
+              <div className="list">
+                <div className="list-header">
+                  <span>Utilities</span>
+                </div>
+                <div className="links">
+                  <NavLink
+                    to="/setting/profile"
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                  >
+                    Profile
+                  </NavLink>
+                  <NavLink
+                    to="/setting/security"
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                  >
+                    Security
+                  </NavLink>
+                  <NavLink
+                    to="/setting/my-order"
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                  >
+                    My Orders
+                  </NavLink>
+                </div>
+              </div>
+              {userRole === "ADMIN" && (
+                <>
+                  <div className="list">
+                    <div className="list-header">
+                      <span>Dashboard (for Manager)</span>
+                    </div>
+                    <div className="links">
+                      <NavLink
+                        to="/dashboard/home"
+                        className={({ isActive }) => (isActive ? "active" : "")}
+                      >
+                        Dashboard
+                      </NavLink>
+                      <NavLink
+                        to="/dashboard/blogs"
+                        className={({ isActive }) => (isActive ? "active" : "")}
+                      >
+                        Blog Manager
+                      </NavLink>
+                      <NavLink
+                        to="/dashboard/order"
+                        className={({ isActive }) => (isActive ? "active" : "")}
+                      >
+                        Order Manager
+                      </NavLink>
+                      <NavLink
+                        to="/dashboard/product"
+                        className={({ isActive }) => (isActive ? "active" : "")}
+                      >
+                        Product Manager
+                      </NavLink>
+                    </div>
+                  </div>
+                </>
+              )}
+            </>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </div>

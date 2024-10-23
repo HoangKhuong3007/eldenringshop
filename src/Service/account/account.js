@@ -1,23 +1,19 @@
 import axios from "axios";
 
-export const CreateUser = async (data) => {
-    try {
-        const api = "http://localhost:8080/users/create-user"
-        const res = await axios.post(api, data, {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
-          console.log(res.data)
-        return res.data
-
-    } catch (error) {
-      console.log(error);
-      return error.response.data;    
-    }   
-}
-
-export const LoginUser = async (data) => {
+export const signupService = async (data) => {
+  try {
+    const api = "http://localhost:8080/users/sign-up";
+    const res = await axios.post(api, data, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return res.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
+export const loginService = async (data) => {
   try {
     const api = "http://localhost:8080/auth/login";
     const res = await axios.post(api, data, {
@@ -25,11 +21,39 @@ export const LoginUser = async (data) => {
         "Content-Type": "application/json",
       },
     });
-    console.log(res.data);
     localStorage.setItem("token", res.data.result.token);
+    localStorage.setItem("user", JSON.stringify(res.data.result.user));
     return res.data;
   } catch (error) {
-    console.log(error);  
-    return error.response.data;    
+    return error.response.data;
   }
-}
+};
+export const logoutService = async (data) => {
+  try {
+    const api = "http://localhost:8080/auth/logout";
+    const res = await axios.post(api, data, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    return res.data;
+  } catch (error) {
+    console.log(error);
+    return error.response.data;
+  }
+};
+export const authenticateService = async (data) => {
+  try {
+    const api = "http://localhost:8080/auth/introspect";
+    const res = await axios.post(api, data, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return res.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};

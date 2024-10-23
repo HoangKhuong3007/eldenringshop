@@ -12,13 +12,6 @@ export const Dashnav = () => {
         <div className="item">
           <strong>Manager</strong>
           <NavLink
-            to="/dashboard/overview"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            <i className="bx bx-home-alt-2"></i>
-            <p>Overview</p>
-          </NavLink>
-          <NavLink
             to="/dashboard/account"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
@@ -51,19 +44,9 @@ export const Dashnav = () => {
           </NavLink>
         </div>
         <div className="item">
-          <strong>Reports</strong>
-          <NavLink
-            to="/dashboard/revenue"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            <i className="bx bx-line-chart"></i>
-            <p>Revenue summary</p>
-          </NavLink>
-        </div>
-        <div className="item">
           <strong>Utilities</strong>
           <NavLink
-            to="/setting"
+            to="/setting/profile"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             <i className="bx bx-cog"></i>

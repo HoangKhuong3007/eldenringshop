@@ -81,9 +81,19 @@ export const UpdateProductModal = () => {
             <small>Price must be number</small>
           </div>
           <div className="input-item">
-            <label htmlFor="">Number in stock*</label>
-            <input type="text" placeholder="Enter stock number..." />
-            <small>Stock must be number</small>
+            <label htmlFor="">Size S</label>
+            <input type="text" placeholder="Enter quantity of size S..." />
+            <small>Stock must be number(not required)</small>
+          </div>
+          <div className="input-item">
+            <label htmlFor="">Size M</label>
+            <input type="text" placeholder="Enter quantity of size M..." />
+            <small>Stock must be number(not required)</small>
+          </div>
+          <div className="input-item">
+            <label htmlFor="">Size L</label>
+            <input type="text" placeholder="Enter quantity of size L..." />
+            <small>Stock must be number(not required)</small>
           </div>
           <div className="select-item">
             <label htmlFor="category">Categories*</label>

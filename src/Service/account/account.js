@@ -57,3 +57,16 @@ export const authenticateService = async (data) => {
     return error.response.data;
   }
 };
+export const forgetPasswordService = async (data) => {
+  try {
+    const api = "http://localhost:8080/users/forget-password";
+    const res = await axios.post(api, data, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return res.data;
+  } catch (error) {
+    return error;
+  }
+}

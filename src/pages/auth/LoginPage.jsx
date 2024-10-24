@@ -42,6 +42,9 @@ export const LoginPage = () => {
           theme: "light",
           style: { width: "400px" },
         });
+        setTimeout(() => {
+          setIsPreventSubmit(false);
+        }, 1500);
       } else {
         toast.success("Login successful, redirect to homepage", {
           position: "top-center",

@@ -29,6 +29,41 @@ export const SignupPage = () => {
     onMutate: () => {
       setIsPreventSubmit(true);
     },
+    onSuccess: (response) => {
+      setIsPreventSubmit(false);
+      if (response && response.code === "EMAIL_EXISTED") {
+        toast.error("Email existed, try another email", {
+          position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          style: { width: "400px" },
+        });
+        setTimeout(() => {
+          setIsPreventSubmit(false);
+        }, 1500);
+      } else {
+        toast.success("Signup successful, redirect to login page", {
+          position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          style: { width: "400px" },
+        });
+        setTimeout(() => {
+          setIsPreventSubmit(false);
+          navigate("/login");
+        }, 1500);
+      }
+    },
   });
   // handle func
   const handleOnChange = (e) => {

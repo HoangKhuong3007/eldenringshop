@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useQuery } from "@tanstack/react-query";
 import { NavLink, useParams } from "react-router-dom";
 // import styles
 import "../../../styles/components/private/product/product.css";
+// import slices
+import { setProductId } from "../../../redux/slices/product/product";
 // import service
 import * as ProductService from "../../../service/product/product";
 import * as CategoryService from "../../../service/category/category";
@@ -51,10 +53,12 @@ export const ProductList = () => {
   const handleToggleAddProductModal = () => {
     dispatch(toggleAddProductModal());
   };
-  const handleToggleUpdateProductModal = () => {
+  const handleToggleUpdateProductModal = (productId) => {
+    dispatch(setProductId(productId));
     dispatch(toggleUpdateProductModal());
   };
-  const handleToggleDelProductModal = () => {
+  const handleToggleDelProductModal = (productId) => {
+    dispatch(setProductId(productId));
     dispatch(toggleDelProductModal());
   };
   useEffect(() => {
@@ -89,7 +93,7 @@ export const ProductList = () => {
         <div className="section-1">
           <div className="utils-header">
             <strong>Inventory list</strong>
-            <p>total {filteredProducts?.length} items</p>
+            <p>{filteredProducts?.length || 0} items</p>
           </div>
           <div className="buttons">
             <div className="add-btn">
@@ -185,11 +189,15 @@ export const ProductList = () => {
                       <td>
                         <i
                           className="bx bx-edit-alt"
-                          onClick={handleToggleUpdateProductModal}
+                          onClick={() =>
+                            handleToggleUpdateProductModal(product.productId)
+                          }
                         ></i>
                         <i
                           className="bx bx-trash-alt"
-                          onClick={handleToggleDelProductModal}
+                          onClick={() =>
+                            handleToggleDelProductModal(product.productId)
+                          }
                         ></i>
                       </td>
                     </tr>

@@ -198,7 +198,7 @@ export const { togglePreviewMyOrderModalOn, togglePreviewMyOrderModalOff } =
 export const { toggleAnimateMyOrderModalOn, toggleAnimateMyOrderModalOff } =
   animateMyOrderModalSlice.actions;
 // combine reducer
-const ModalReducers = combineReducers({
+const modalReducers = combineReducers({
   addProductModal: AddProductSlice.reducer,
   updateProductModal: UpdateProductSlice.reducer,
   delProductModal: DelProductSlice.reducer,
@@ -214,4 +214,4 @@ const ModalReducers = combineReducers({
   previewMyOrderModal: previewMyOrderSlice.reducer,
   animateMyOrderModal: animateMyOrderModalSlice.reducer,
 });
-export default ModalReducers;
+export default modalReducers;

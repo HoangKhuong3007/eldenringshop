@@ -13,6 +13,21 @@ export const signupService = async (data) => {
     return error.response.data;
   }
 };
+export const createUserAdmin = async (data) => {
+  const token = localStorage.getItem("token");
+  try {
+    const api = "http://localhost:8080/users/admin/create";
+    const res = await axios.post(api, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+    return res.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
 export const loginService = async (data) => {
   try {
     const api = "http://localhost:8080/auth/login";
@@ -69,4 +84,19 @@ export const forgetPasswordService = async (data) => {
   } catch (error) {
     return error;
   }
-}
+};
+export const getAccountList = async () => {
+  const token = localStorage.getItem("token");
+  try {
+    const api = "http://localhost:8080/users";
+    const res = await axios.get(api, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+    return res.data;
+  } catch (error) {
+    return error;
+  }
+};

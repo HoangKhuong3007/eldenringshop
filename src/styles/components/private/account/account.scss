@@ -191,6 +191,46 @@
             }
 
             tbody {
+                .loading {
+                    height: 300px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .server-error {
+                    height: 300px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    p {
+                        font-size: 1.3rem;
+                    }
+                }
+
+                .search-not-found {
+                    height: 300px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    p {
+                        font-size: 1.3rem;
+                    }
+                }
+
+                .empty-list {
+                    height: 300px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    p {
+                        font-size: 1.3rem;
+                    }
+                }
+
                 tr {
                     display: grid;
                     grid-template-columns: repeat(12, 1fr);

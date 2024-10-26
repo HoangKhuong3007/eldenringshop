@@ -1,26 +1,63 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 // import styles
 import "../../../styles/components/private/account/account.css";
-// import assets
-import image from "../../../assets/ring.jpg";
 import { useDispatch } from "react-redux";
 import {
   toggleAddAccountModal,
   toggleBlockAccountModal,
 } from "../../../redux/slices/modal/modal";
+// import service
+import * as AccountService from "../../../service/account/account";
+import { ClipLoader } from "react-spinners";
 export const AccountList = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const userRole = user?.role;
   // dispatch
   const dispatch = useDispatch();
+  // state
+  const [isLoadingList, setIsLoadingList] = useState(false);
+  const [isServerError, setIsServerError] = useState(false);
+  const [isEmptyList, setIsEmptyList] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  // query
+  const {
+    data: accountList = [],
+    isError,
+    isFetching,
+    isLoading,
+  } = useQuery({
+    queryKey: ["accounts"],
+    queryFn: AccountService.getAccountList,
+  });
   //   handle func
+  const filteredAccounts = accountList?.filter((account) =>
+    account?.fullName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
   const handleToggleAddAccountModal = () => {
     dispatch(toggleAddAccountModal());
   };
   const handleToggleBlockAccountModal = () => {
     dispatch(toggleBlockAccountModal());
   };
+  useEffect(() => {
+    if (isLoading || isFetching) {
+      setIsLoadingList(true);
+    } else {
+      setIsLoadingList(false);
+    }
+    if (isError) {
+      setIsServerError(true);
+    } else {
+      setIsServerError(false);
+    }
+    if (filteredAccounts?.length === 0) {
+      setIsEmptyList(true);
+    } else {
+      setIsEmptyList(false);
+    }
+  }, [isFetching, isLoading, isError, filteredAccounts]);
   return (
     <div className="account-list-container">
       <div className="utils">
@@ -60,7 +97,11 @@ export const AccountList = () => {
           <div className="filter">
             <div className="search">
               <i className="bx bx-search"></i>
-              <input type="text" placeholder="Search..." />
+              <input
+                type="text"
+                placeholder="Search..."
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
             </div>
           </div>
         </div>
@@ -77,58 +118,60 @@ export const AccountList = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>
-              <i className="bx bx-user"></i>
-              <div>
-                <strong>Lon Khuong Elden Ring</strong>
-                <p>hoangkhuong2k4@gmail.com</p>
+          {isLoadingList ? (
+            <>
+              <div className="loading">
+                <ClipLoader color="#000000" size={40} />
               </div>
-            </td>
-            <td>0369608638</td>
-            <td>FPT UNIVERSITY</td>
-            <td className="active-account">
-              <i className="bx bxs-circle"></i>
-              <p>Active</p>
-            </td>
-            <td>
-              <i
-                className="bx bx-block"
-                onClick={handleToggleBlockAccountModal}
-              ></i>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>
-              {userRole === "ADMIN" ? (
-                <>
-                  <i className="bx bx-crown"></i>
-                </>
-              ) : (
-                <>
-                  <i className="bx bx-user"></i>
-                </>
-              )}
-              <div>
-                <strong>Lon Khuong Elden Ring</strong>
-                <p>hoangkhuong2k4@gmail.com</p>
+            </>
+          ) : isServerError ? (
+            <>
+              <div className="server-error">
+                <p>Server is error now, please press F5 to reload again.</p>
               </div>
-            </td>
-            <td>0369608638</td>
-            <td>FPT UNIVERSITY</td>
-            <td className="inactive-account">
-              <i className="bx bxs-circle"></i>
-              <p>Blocked</p>
-            </td>
-            <td>
-              <i
-                className="bx bx-block"
-                onClick={handleToggleBlockAccountModal}
-              ></i>
-            </td>
-          </tr>
+            </>
+          ) : isEmptyList ? (
+            <>
+              <div className="empty-list">
+                <p>Account you looking for is not found</p>
+              </div>
+            </>
+          ) : (
+            <>
+              {filteredAccounts?.map((account, index) => (
+                <tr key={account.userId}>
+                  <td>{index + 1}</td>
+                  <td>
+                    {account.role === "ADMIN" ? (
+                      <>
+                        <i className="bx bx-crown"></i>
+                      </>
+                    ) : (
+                      <>
+                        <i className="bx bx-user"></i>
+                      </>
+                    )}
+                    <div>
+                      <strong>{account.fullName}</strong>
+                      <p>{account.email}</p>
+                    </div>
+                  </td>
+                  <td>{account.phone || "null"}</td>
+                  <td>{account.address || "null"}</td>
+                  <td className="active-account">
+                    <i className="bx bxs-circle"></i>
+                    <p>Active</p>
+                  </td>
+                  <td>
+                    <i
+                      className="bx bx-block"
+                      onClick={handleToggleBlockAccountModal}
+                    ></i>
+                  </td>
+                </tr>
+              ))}
+            </>
+          )}
         </tbody>
       </table>
     </div>

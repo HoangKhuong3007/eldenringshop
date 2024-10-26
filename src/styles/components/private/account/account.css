@@ -13,7 +13,8 @@ body {
 
 input,
 button,
-textarea {
+textarea,
+select {
   border: none;
   background: none;
   outline: none;
@@ -181,6 +182,39 @@ a {
   }
   .account-list-container .account-table thead tr th:nth-child(6) {
     grid-column: 12/span 2;
+  }
+  .account-list-container .account-table tbody .loading {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .account-list-container .account-table tbody .server-error {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .account-list-container .account-table tbody .server-error p {
+    font-size: 1.3rem;
+  }
+  .account-list-container .account-table tbody .search-not-found {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .account-list-container .account-table tbody .search-not-found p {
+    font-size: 1.3rem;
+  }
+  .account-list-container .account-table tbody .empty-list {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .account-list-container .account-table tbody .empty-list p {
+    font-size: 1.3rem;
   }
   .account-list-container .account-table tbody tr {
     display: grid;

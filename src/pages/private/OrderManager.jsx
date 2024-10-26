@@ -6,6 +6,7 @@ import { Dashnav } from "../../components/navbar/Dashnav";
 import { OrderList } from "../../components/private/order/OrderList";
 import { OrderDetail } from "../../components/modal/OrderDetail";
 export const OrderManager = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
   return (
     <div className="order-manager-container">
       <OrderDetail />
@@ -16,8 +17,8 @@ export const OrderManager = () => {
           <div className="my-info">
             <i className="bx bx-user-circle"></i>
             <div>
-              <strong>Hi, Tang Hoang Khuong</strong>
-              <p>hoangkhuong2k4@gmail.com</p>
+              <strong>Hi, {user.fullName}</strong>
+              <p>{user.email}</p>
             </div>
           </div>
         </div>

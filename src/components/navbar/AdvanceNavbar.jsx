@@ -142,12 +142,6 @@ export const AdvanceNavbar = () => {
                     </div>
                     <div className="links">
                       <NavLink
-                        to="/dashboard/home"
-                        className={({ isActive }) => (isActive ? "active" : "")}
-                      >
-                        Dashboard
-                      </NavLink>
-                      <NavLink
                         to="/dashboard/blogs"
                         className={({ isActive }) => (isActive ? "active" : "")}
                       >
@@ -164,6 +158,12 @@ export const AdvanceNavbar = () => {
                         className={({ isActive }) => (isActive ? "active" : "")}
                       >
                         Product Manager
+                      </NavLink>
+                      <NavLink
+                        to="/dashboard/account"
+                        className={({ isActive }) => (isActive ? "active" : "")}
+                      >
+                        Account Manager
                       </NavLink>
                     </div>
                   </div>

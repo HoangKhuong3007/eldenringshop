@@ -82,6 +82,11 @@
                         font-family: $dashboard-font;
                         font-size: 1rem;
                         color: white;
+                        transition: .4s;
+                    }
+
+                    input:focus {
+                        border-color: rgba(255, 255, 255, .6);
                     }
 
                     small {
@@ -221,6 +226,39 @@
                     }
                 }
 
+                .input-description {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 10px;
+
+                    textarea {
+                        width: 100%;
+                        height: 200px;
+                        border: 1px solid rgba(255, 255, 255, .1);
+                        border-radius: 10px;
+                        font-family: $dashboard-font;
+                        background: #151A1F;
+                        padding: 20px;
+                        resize: none;
+                        color: white;
+                        font-size: 1rem;
+                        transition: .4s;
+                    }
+
+                    textarea:focus {
+                        border-color: rgba(255, 255, 255, .6);
+                    }
+
+                    label {
+                        color: white;
+                        font-size: 1rem;
+                    }
+
+                    small {
+                        color: rgba(255, 255, 255, .4);
+                    }
+                }
+
                 .input-image {
                     display: flex;
                     flex-direction: column;
@@ -291,6 +329,11 @@
                         font-family: $dashboard-font;
                         font-size: 1rem;
                         color: white;
+                        transition: .4s;
+                    }
+
+                    input:focus {
+                        border-color: rgba(255, 255, 255, .6);
                     }
 
                     small {
@@ -459,6 +502,11 @@
                         font-family: $dashboard-font;
                         font-size: 1rem;
                         color: white;
+                        transition: .4s;
+                    }
+
+                    input:focus {
+                        border-color: rgba(255, 255, 255, .6);
                     }
 
                     small {
@@ -482,6 +530,11 @@
                         resize: none;
                         color: white;
                         font-size: 1rem;
+                        transition: .4s;
+                    }
+
+                    textarea:focus {
+                        border-color: rgba(255, 255, 255, .6);
                     }
 
                     label {
@@ -781,6 +834,39 @@
                 row-gap: 25px;
                 overflow-y: hidden;
 
+                .input-description {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 10px;
+
+                    textarea {
+                        width: 100%;
+                        height: 200px;
+                        border: 1px solid rgba(255, 255, 255, .1);
+                        border-radius: 10px;
+                        font-family: $dashboard-font;
+                        background: #151A1F;
+                        padding: 20px;
+                        resize: none;
+                        color: white;
+                        font-size: 1rem;
+                        transition: .4s;
+                    }
+
+                    textarea:focus {
+                        border-color: rgba(255, 255, 255, .6);
+                    }
+
+                    label {
+                        color: white;
+                        font-size: 1rem;
+                    }
+
+                    small {
+                        color: rgba(255, 255, 255, .4);
+                    }
+                }
+
                 .select-item {
                     display: flex;
                     flex-direction: column;
@@ -892,6 +978,11 @@
                         font-family: $dashboard-font;
                         font-size: 1rem;
                         color: white;
+                        transition: .4s;
+                    }
+
+                    input:focus {
+                        border-color: rgba(255, 255, 255, .6);
                     }
 
                     small {

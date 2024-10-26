@@ -13,7 +13,8 @@ body {
 
 input,
 button,
-textarea {
+textarea,
+select {
   border: none;
   background: none;
   outline: none;
@@ -30,6 +31,7 @@ a {
     position: relative;
     display: flex;
     font-family: "Afacad Flux", sans-serif;
+    overflow-y: hidden;
   }
   .product-manager-container .product-manager {
     width: calc(100% - 250px);
@@ -37,6 +39,7 @@ a {
     background: #F9FAFC;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
   }
   .product-manager-container .product-manager .header {
     padding: 30px 40px;

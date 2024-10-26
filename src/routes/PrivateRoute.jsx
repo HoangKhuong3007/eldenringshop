@@ -9,6 +9,10 @@ export const privateRoutes = [
     element: <ProductManager />,
   },
   {
+    path: "/dashboard/products/category/:cateId",
+    element: <ProductManager />,
+  },
+  {
     path: "/dashboard/account",
     element: <AccountManager />,
   },

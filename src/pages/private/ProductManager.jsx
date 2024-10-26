@@ -9,6 +9,7 @@ import { AddProductModal } from "../../components/modal/AddProductModal";
 import { UpdateProductModal } from "../../components/modal/UpdateProductModal";
 import { DelProductModal } from "../../components/modal/DelProductModal";
 export const ProductManager = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
   // selector
   const isToggleAddProductModal = useSelector(
     (state) => state.modal.addProductModal.isToggleModal
@@ -31,8 +32,8 @@ export const ProductManager = () => {
           <div className="my-info">
             <i className="bx bx-user-circle"></i>
             <div>
-              <strong>Hi, Tang Hoang Khuong</strong>
-              <p>hoangkhuong2k4@gmail.com</p>
+              <strong>Hi, {user.fullName}</strong>
+              <p>{user.email}</p>
             </div>
           </div>
         </div>

@@ -8,6 +8,8 @@ import { AccountList } from "../../components/private/account/AccountList";
 import { AddAccountModal } from "../../components/modal/AddAccountModal";
 import { BlockAccountModal } from "../../components/modal/BlockAccountModal";
 export const AccountManager = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+
   // selector
   const isToggleAddAccountModal = useSelector(
     (state) => state.modal.addAccountModal.isToggleModal
@@ -26,8 +28,8 @@ export const AccountManager = () => {
           <div className="my-info">
             <i className="bx bx-user-circle"></i>
             <div>
-              <strong>Hi, Tang Hoang Khuong</strong>
-              <p>hoangkhuong2k4@gmail.com</p>
+              <strong>Hi, {user.fullName}</strong>
+              <p>{user.email}</p>
             </div>
           </div>
         </div>

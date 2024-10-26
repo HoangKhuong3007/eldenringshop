@@ -10,6 +10,8 @@ import {
   toggleBlockAccountModal,
 } from "../../../redux/slices/modal/modal";
 export const AccountList = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const userRole = user?.role;
   // dispatch
   const dispatch = useDispatch();
   //   handle func
@@ -100,7 +102,15 @@ export const AccountList = () => {
           <tr>
             <td>2</td>
             <td>
-              <i className="bx bx-user"></i>
+              {userRole === "ADMIN" ? (
+                <>
+                  <i className="bx bx-crown"></i>
+                </>
+              ) : (
+                <>
+                  <i className="bx bx-user"></i>
+                </>
+              )}
               <div>
                 <strong>Lon Khuong Elden Ring</strong>
                 <p>hoangkhuong2k4@gmail.com</p>

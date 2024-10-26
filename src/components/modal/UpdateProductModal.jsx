@@ -100,14 +100,23 @@ export const UpdateProductModal = () => {
             <div>
               <select name="category" id="category">
                 <option value="">Select category</option>
-                <option value="">Hat</option>
-                <option value="">Bag</option>
-                <option value="">Ring</option>
-                <option value="">Necklet</option>
+                <option value="1">Bag</option>
+                <option value="2">Ring</option>
+                <option value="3">Watches</option>
+                <option value="4">Necklace</option>
               </select>
               <i className="bx bx-chevron-down"></i>
             </div>
             <small>Select category for product</small>
+          </div>
+          <div className="input-description">
+            <label htmlFor="">Description*</label>
+            <textarea
+              name="description"
+              id=""
+              placeholder="Enter description..."
+            ></textarea>
+            <small>Max description is 255 characters</small>
           </div>
         </form>
         <div className="submit">

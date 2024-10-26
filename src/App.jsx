@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import { Link } from "react-router-dom";
 import "react-multi-carousel/lib/styles.css";
@@ -157,7 +157,7 @@ export const App = () => {
               <strong>Hats</strong>
               <div>
                 <p>View all hats</p>
-                <i class="bx bx-right-top-arrow-circle"></i>
+                <i className="bx bx-right-top-arrow-circle"></i>
               </div>
             </Link>
             <LazyLoadImage src={product} alt="" effect="opacity" />
@@ -169,7 +169,7 @@ export const App = () => {
               <strong>Bags</strong>
               <div>
                 <p>View all bags</p>
-                <i class="bx bx-right-top-arrow-circle"></i>
+                <i className="bx bx-right-top-arrow-circle"></i>
               </div>
             </Link>
             <LazyLoadImage src={product} alt="" effect="opacity" />
@@ -187,7 +187,7 @@ export const App = () => {
               <strong>Rings</strong>
               <div>
                 <p>View all rings</p>
-                <i class="bx bx-right-top-arrow-circle"></i>
+                <i className="bx bx-right-top-arrow-circle"></i>
               </div>
             </Link>
             <LazyLoadImage src={product} alt="" effect="opacity" />
@@ -203,7 +203,7 @@ export const App = () => {
               <strong>Necklets</strong>
               <div>
                 <p>View all necklets</p>
-                <i class="bx bx-right-top-arrow-circle"></i>
+                <i className="bx bx-right-top-arrow-circle"></i>
               </div>
             </Link>
           </div>

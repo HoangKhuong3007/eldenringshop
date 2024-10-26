@@ -41,7 +41,6 @@ export const DelProductModal = () => {
         location.reload();
       }, 1500);
       queryClient.invalidateQueries(["products"]);
-      setIsPreventSubmit(false);
     },
   });
   // handle func
@@ -76,12 +75,10 @@ export const DelProductModal = () => {
         <i className="bx bxs-error"></i>
         <strong>Delete Product</strong>
         <p>You're going to delete this product. Are you sure?</p>
-        <strong>Product ID: {productId}</strong>
+        <span>Product ID: {productId}</span>
         <div className="button">
           <button onClick={handleToggleDelProductModal}>No, Keep it.</button>
-          <button onClick={handleDelProduct} disabled={isPreventSubmit}>
-            Yes, Delete!
-          </button>
+          <button onClick={handleDelProduct}>Yes, Delete!</button>
         </div>
       </div>
     </div>

@@ -74,6 +74,7 @@ export const UpdateProductModal = () => {
   });
   // file
   const resizeFile = (file) => {
+    if (!file) return;
     FileResizer.imageFileResizer(
       file,
       300,
@@ -83,6 +84,10 @@ export const UpdateProductModal = () => {
       0,
       (uri) => {
         setPreviewImage(uri);
+        setSubmitData((prevData) => ({
+          ...prevData,
+          image: uri,
+        }));
       },
       "base64",
       250,
@@ -96,7 +101,6 @@ export const UpdateProductModal = () => {
       ...submitData,
       [name]: value,
     });
-    console.log(submitData);
   };
   const handleOnChangeFloat = (e) => {
     const { name, value } = e.target;
@@ -118,6 +122,10 @@ export const UpdateProductModal = () => {
   };
   const removeChooseImage = () => {
     setPreviewImage(null);
+    setSubmitData({
+      ...submitData,
+      image: "",
+    });
   };
   const handleToggleUpdateProductModal = () => {
     dispatch(toggleUpdateProductModal());
@@ -173,10 +181,10 @@ export const UpdateProductModal = () => {
       return;
     }
     if (
-      !submitData.cateId ||
-      !submitData.description ||
-      !submitData.image ||
-      !submitData.name ||
+      submitData.cateId === "" ||
+      submitData.description === "" ||
+      submitData.image === "" ||
+      submitData.name === "" ||
       submitData.price === "" ||
       submitData.status === ""
     ) {

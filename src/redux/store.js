@@ -4,6 +4,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import modalReducers from "./slices/modal/modal";
 import navbarReducers from "./slices/navbar/navbar";
 import productReducers from "./slices/product/product";
+import blogReducers from "./slices/blog/blog";
 export default configureStore({
   reducer: {
     // modal
@@ -12,5 +13,7 @@ export default configureStore({
     navbar: navbarReducers,
     // product
     product: productReducers,
+    // blog
+    blog: blogReducers,
   },
 });

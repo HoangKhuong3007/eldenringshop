@@ -4,6 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
+import { SyncLoader } from "react-spinners";
 
 // import styles
 import "../../styles/auth/reset/reset.css";
@@ -12,7 +13,6 @@ import image from "../../assets/reset.jpg";
 import logo from "../../assets/Elden-Ring-Logo.png";
 // import service
 import * as AccountService from "../../service/account/account";
-import { SyncLoader } from "react-spinners";
 export const ResetPassPage = () => {
   // navigate
   const navigate = useNavigate();

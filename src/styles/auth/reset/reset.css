@@ -26,7 +26,7 @@ a {
 }
 
 @media only screen and (max-width: 1536px) {
-  .forget-container {
+  .reset-container {
     display: flex;
     position: relative;
     width: 100vw;
@@ -34,7 +34,7 @@ a {
     overflow: hidden;
     font-family: "Lora", serif;
   }
-  .forget-container .loading {
+  .reset-container .loading {
     z-index: 1;
     background: rgba(0, 0, 0, 0.7);
     width: 100vw;
@@ -46,17 +46,17 @@ a {
     display: flex;
     justify-content: center;
   }
-  .forget-container .banner {
+  .reset-container .banner {
     width: 50%;
     height: 100%;
   }
-  .forget-container .banner img {
+  .reset-container .banner img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
   }
-  .forget-container .forget {
+  .reset-container .reset {
     width: 50%;
     height: 100%;
     display: flex;
@@ -66,48 +66,72 @@ a {
     padding: 40px;
     row-gap: 30px;
   }
-  .forget-container .forget .header {
+  .reset-container .reset .header {
     display: flex;
     flex-direction: column;
     align-items: center;
     row-gap: 10px;
   }
-  .forget-container .forget .header img {
+  .reset-container .reset .header img {
     width: 60px;
     height: 60px;
     -o-object-fit: cover;
        object-fit: cover;
     border-radius: 50%;
   }
-  .forget-container .forget .header strong {
+  .reset-container .reset .header strong {
     font-size: 1.1rem;
   }
-  .forget-container .forget .forget-form {
+  .reset-container .reset .reset-form {
     display: flex;
     flex-direction: column;
   }
-  .forget-container .forget .forget-form .input-item {
+  .reset-container .reset .reset-form .input-item {
     width: 400px;
     display: flex;
     flex-direction: column;
     row-gap: 10px;
   }
-  .forget-container .forget .forget-form .input-item label {
+  .reset-container .reset .reset-form .input-item label {
     margin-left: 5px;
     font-size: 0.8rem;
   }
-  .forget-container .forget .forget-form .input-item input {
+  .reset-container .reset .reset-form .input-item input {
     padding: 12px 20px;
     font-family: "Lora", serif;
     background: #F0F0F0;
     border-radius: 15px;
-    transition: 0.4s;
     border: 1px solid transparent;
+    transition: 0.4s;
   }
-  .forget-container .forget .forget-form .input-item input:focus {
+  .reset-container .reset .reset-form .input-item input:focus {
     border-color: black;
   }
-  .forget-container .forget .forget-form button {
+  .reset-container .reset .reset-form .input-item:nth-child(1) {
+    margin-bottom: 25px;
+  }
+  .reset-container .reset .reset-form .forget {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .reset-container .reset .reset-form .forget p {
+    margin-left: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 0.7rem;
+  }
+  .reset-container .reset .reset-form .forget a {
+    text-align: end;
+    margin-left: 5px;
+    margin-top: 10px;
+    font-size: 0.7rem;
+    transition: 0.1s;
+  }
+  .reset-container .reset .reset-form .forget a:hover {
+    text-decoration: underline;
+  }
+  .reset-container .reset .reset-form button {
     cursor: pointer;
     margin-top: 20px;
     padding: 12px 0;
@@ -117,20 +141,4 @@ a {
     font-family: "Lora", serif;
     font-weight: 600;
   }
-  .forget-container .forget .signin {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    -moz-column-gap: 3px;
-         column-gap: 3px;
-  }
-  .forget-container .forget .signin p {
-    font-size: 0.7rem;
-  }
-  .forget-container .forget .signin a {
-    font-size: 0.7rem;
-  }
-  .forget-container .forget .signin a:hover {
-    text-decoration: underline;
-  }
-}/*# sourceMappingURL=forget.css.map */
+}/*# sourceMappingURL=reset.css.map */

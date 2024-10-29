@@ -74,7 +74,7 @@ export const authenticateService = async (data) => {
 };
 export const forgetPasswordService = async (data) => {
   try {
-    const api = "http://localhost:8080/users/forget-password";
+    const api = "http://localhost:8080/users/forgot-password";
     const res = await axios.post(api, data, {
       headers: {
         "Content-Type": "application/json",
@@ -82,7 +82,33 @@ export const forgetPasswordService = async (data) => {
     });
     return res.data;
   } catch (error) {
-    return error;
+    return error.response.data;
+  }
+};
+export const verifyEmailForget = async (data) => {
+  try {
+    const api = "http://localhost:8080/auth/verify-forgot-password";
+    const res = await axios.post(api, data, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return res.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
+export const resetPassword = async (data) => {
+  try {
+    const api = "http://localhost:8080/users/reset-password";
+    const res = await axios.post(api, data, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return res.data;
+  } catch (error) {
+    return error.response.data;
   }
 };
 export const getAccountList = async () => {

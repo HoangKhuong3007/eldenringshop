@@ -13,7 +13,8 @@ body {
 
 input,
 button,
-textarea {
+textarea,
+select {
   border: none;
   background: none;
   outline: none;

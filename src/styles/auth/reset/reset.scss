@@ -1,6 +1,7 @@
 @import "../../global/global.scss";
+
 @media only screen and (max-width: 1536px) {
-    .forget-container {
+    .reset-container {
         display: flex;
         position: relative;
         width: 100vw;
@@ -32,7 +33,7 @@
             }
         }
 
-        .forget {
+        .reset {
             width: 50%;
             height: 100%;
             display: flex;
@@ -60,7 +61,7 @@
                 }
             }
 
-            .forget-form {
+            .reset-form {
                 display: flex;
                 flex-direction: column;
 
@@ -80,14 +81,46 @@
                         font-family: $main-font;
                         background: #F0F0F0;
                         border-radius: 15px;
-                        transition: .4s;
                         border: 1px solid transparent;
+                        transition: .4s;
                     }
 
                     input:focus {
                         border-color: black;
                     }
                 }
+
+                .input-item:nth-child(1) {
+                    margin-bottom: 25px;
+                }
+
+                .forget {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    p {
+                        margin-left: 5px;
+                        cursor: pointer;
+                        margin-top: 10px;
+                        font-size: 0.7rem;
+
+                    }
+
+                    a {
+                        text-align: end;
+                        margin-left: 5px;
+                        margin-top: 10px;
+                        font-size: 0.7rem;
+                        transition: .1s;
+                    }
+
+                    a:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+
 
                 button {
                     cursor: pointer;
@@ -98,25 +131,6 @@
                     border-radius: 15px;
                     font-family: $main-font;
                     font-weight: 600;
-                }
-            }
-
-            .signin {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                column-gap: 3px;
-
-                p {
-                    font-size: 0.7rem;
-                }
-
-                a {
-                    font-size: 0.7rem;
-                }
-
-                a:hover {
-                    text-decoration: underline;
                 }
             }
         }

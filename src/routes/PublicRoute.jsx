@@ -12,6 +12,8 @@ import { BlogDetailPage } from "../pages/public/BlogDetailPage";
 import { ProfileSettingPage } from "../pages/public/ProfileSettingPage";
 import { SecuritySettingPage } from "../pages/public/SecuritySettingPage";
 import { CustomerOrderPage } from "../pages/public/CustomerOrderPage";
+import { VerifyPage } from "../pages/auth/VerifyPage";
+import { ResetPassPage } from "../pages/auth/ResetPassPage";
 // wrapper
 import { LoggedWrapper, GuestWrapper } from "./AuthorizeWrapper";
 export const publicRoutes = [
@@ -40,6 +42,22 @@ export const publicRoutes = [
     element: (
       <LoggedWrapper>
         <ForgetPage />
+      </LoggedWrapper>
+    ),
+  },
+  {
+    path: "/verify-email",
+    element: (
+      <LoggedWrapper>
+        <VerifyPage />
+      </LoggedWrapper>
+    ),
+  },
+  {
+    path: "/reset-password",
+    element: (
+      <LoggedWrapper>
+        <ResetPassPage />
       </LoggedWrapper>
     ),
   },

@@ -136,8 +136,51 @@ export const oauthService = async (token) => {
     });
     localStorage.setItem("token", res.data.result.token);
     localStorage.setItem("user", JSON.stringify(res.data.result.user));
-    console.log(res.data);
     return res.data.result;
+  } catch (error) {
+    return error.response.data;
+  }
+};
+export const getMyInfo = async () => {
+  try {
+    const api = "http://localhost:8080/users/my-info";
+    const res = await axios.get(api, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return res.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
+export const updateMyInfo = async (data) => {
+  const token = localStorage.getItem("token");
+  try {
+    const api = "http://localhost:8080/users/update-my-info";
+    const res = await axios.put(api, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+    localStorage.setItem("user", JSON.stringify(res.data.result));
+    return res.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
+export const updateMyPassword = async (data) => {
+  const token = localStorage.getItem("token");
+  try {
+    const api = "http://localhost:8080/users/update-password";
+    const res = await axios.put(api, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+    return res.data;
   } catch (error) {
     return error.response.data;
   }

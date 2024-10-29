@@ -10,12 +10,14 @@ import logo from "../../assets/Elden-Ring-Logo.png";
 import "../../styles/auth/signup/signup.css";
 // import service
 import * as AccountService from "../../service/account/account";
+import { useGoogleLogin } from "@react-oauth/google";
+import { SyncLoader } from "react-spinners";
 export const SignupPage = () => {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   // navigate
   const navigate = useNavigate();
   // state
-  const [isPreventSubmit, setIsPreventSubmit] = useState(false);
+  const [isLoadingPage, setIsLoadingPage] = useState(false);
   const [submitData, setSubmitData] = useState({
     email: "",
     fullName: "",
@@ -27,10 +29,9 @@ export const SignupPage = () => {
     mutationKey: ["signup"],
     mutationFn: AccountService.signupService,
     onMutate: () => {
-      setIsPreventSubmit(true);
+      setIsLoadingPage(true);
     },
     onSuccess: (response) => {
-      setIsPreventSubmit(false);
       if (response && response.code === "EMAIL_EXISTED") {
         toast.error("Email existed, try another email", {
           position: "top-center",
@@ -44,7 +45,7 @@ export const SignupPage = () => {
           style: { width: "400px" },
         });
         setTimeout(() => {
-          setIsPreventSubmit(false);
+          setIsLoadingPage(false);
         }, 1500);
       } else {
         toast.success("Signup successful, redirect to login page", {
@@ -59,7 +60,7 @@ export const SignupPage = () => {
           style: { width: "400px" },
         });
         setTimeout(() => {
-          setIsPreventSubmit(false);
+          setIsLoadingPage(false);
           navigate("/login");
         }, 1500);
       }
@@ -75,20 +76,6 @@ export const SignupPage = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isPreventSubmit) {
-      toast.error("On processing, try again!", {
-        position: "top-center",
-        autoClose: 1500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        style: { width: "400px" },
-      });
-      return;
-    }
     if (
       !submitData.email ||
       !submitData.password ||
@@ -156,8 +143,58 @@ export const SignupPage = () => {
       console.log(error);
     }
   };
+  const oauthMutation = useMutation({
+    mutationKey: ["oauth"],
+    mutationFn: AccountService.oauthService,
+    onMutate: () => {
+      setIsLoadingPage(true);
+    },
+    onSuccess: (response) => {
+      if (response && response.code === "EMAIL_EXISTED") {
+        toast.error("Email existed, try another email", {
+          position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          style: { width: "400px" },
+        });
+        setIsLoadingPage(false);
+      } else {
+        toast.success("Login successful, redirect to homepage", {
+          position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          style: { width: "400px" },
+        });
+        setTimeout(() => {
+          setIsLoadingPage(false);
+          navigate("/");
+        }, 1500);
+      }
+    },
+  });
+  const handleGoogleLogin = useGoogleLogin({
+    onSuccess: (credentialResponse) => {
+      const googleIdToken = credentialResponse.access_token;
+      oauthMutation.mutateAsync(googleIdToken);
+    },
+  });
   return (
     <div className="signup-container">
+      {isLoadingPage && (
+        <div className="loading">
+          <SyncLoader margin={5} size={20} color="#ffffff" />
+        </div>
+      )}
       <ToastContainer />
       <div className="signup">
         <div className="header">
@@ -208,7 +245,7 @@ export const SignupPage = () => {
         <div className="or">
           <p>or</p>
         </div>
-        <div className="oauth">
+        <div className="oauth" onClick={handleGoogleLogin}>
           <i className="bx bxl-google"></i>
           <p>Sign up by Google</p>
         </div>

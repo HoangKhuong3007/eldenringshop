@@ -26,14 +26,14 @@ a {
 }
 
 @media only screen and (max-width: 1536px) {
-  .account-manager-container {
+  .refund-manager-container {
     width: 100vw;
     position: relative;
     display: flex;
     font-family: "Afacad Flux", sans-serif;
     overflow-y: hidden;
   }
-  .account-manager-container .account-manager {
+  .refund-manager-container .refund-manager {
     width: calc(100% - 250px);
     height: 100vh;
     background: #F9FAFC;
@@ -41,34 +41,34 @@ a {
     flex-direction: column;
     overflow-y: auto;
   }
-  .account-manager-container .account-manager .header {
+  .refund-manager-container .refund-manager .header {
     padding: 30px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .account-manager-container .account-manager .header p {
+  .refund-manager-container .refund-manager .header p {
     font-size: 1.5rem;
     font-weight: 600;
   }
-  .account-manager-container .account-manager .header .my-info {
+  .refund-manager-container .refund-manager .header .my-info {
     display: flex;
     align-items: center;
     -moz-column-gap: 10px;
          column-gap: 10px;
   }
-  .account-manager-container .account-manager .header .my-info i {
+  .refund-manager-container .refund-manager .header .my-info i {
     font-size: 36px;
   }
-  .account-manager-container .account-manager .header .my-info div {
+  .refund-manager-container .refund-manager .header .my-info div {
     display: flex;
     flex-direction: column;
   }
-  .account-manager-container .account-manager .header .my-info div strong {
+  .refund-manager-container .refund-manager .header .my-info div strong {
     font-size: 1rem;
   }
-  .account-manager-container .account-manager .header .my-info div p {
+  .refund-manager-container .refund-manager .header .my-info div p {
     font-size: 0.9rem;
     font-weight: 400;
   }
-}/*# sourceMappingURL=account.css.map */
+}/*# sourceMappingURL=refund.css.map */

@@ -1,14 +1,14 @@
 @import "../../global/global.scss";
 
 @media only screen and (max-width: 1536px) {
-    .account-manager-container {
+    .refund-manager-container {
         width: 100vw;
         position: relative;
         display: flex;
         font-family: $dashboard-font;
         overflow-y: hidden;
 
-        .account-manager {
+        .refund-manager {
             width: calc(100% - 250px);
             height: 100vh;
             background: $main-backgr;

@@ -148,6 +148,34 @@ const animateOrderModalSlice = createSlice({
     },
   },
 });
+const previewRefundSlice = createSlice({
+  name: "previewRefundModal",
+  initialState: {
+    isToggleModal: false,
+  },
+  reducers: {
+    togglePreviewRefundModalOn: (state) => {
+      state.isToggleModal = true;
+    },
+    togglePreviewRefundModalOff: (state) => {
+      state.isToggleModal = false;
+    },
+  },
+});
+const animateRefundModalSlice = createSlice({
+  name: "animateRefundModal",
+  initialState: {
+    isToggleModal: false,
+  },
+  reducers: {
+    toggleAnimateRefundModalOn: (state) => {
+      state.isToggleModal = true;
+    },
+    toggleAnimateRefundModalOff: (state) => {
+      state.isToggleModal = false;
+    },
+  },
+});
 const previewMyOrderSlice = createSlice({
   name: "previewMyOrderModal",
   initialState: {
@@ -197,6 +225,10 @@ export const { togglePreviewMyOrderModalOn, togglePreviewMyOrderModalOff } =
   previewMyOrderSlice.actions;
 export const { toggleAnimateMyOrderModalOn, toggleAnimateMyOrderModalOff } =
   animateMyOrderModalSlice.actions;
+export const { togglePreviewRefundModalOn, togglePreviewRefundModalOff } =
+  previewRefundSlice.actions;
+export const { toggleAnimateRefundModalOn, toggleAnimateRefundModalOff } =
+  animateRefundModalSlice.actions;
 // combine reducer
 const modalReducers = combineReducers({
   addProductModal: AddProductSlice.reducer,
@@ -213,5 +245,7 @@ const modalReducers = combineReducers({
   animateOrderModal: animateOrderModalSlice.reducer,
   previewMyOrderModal: previewMyOrderSlice.reducer,
   animateMyOrderModal: animateMyOrderModalSlice.reducer,
+  previewRefundModal: previewRefundSlice.reducer,
+  animateRefundModal: animateRefundModalSlice.reducer,
 });
 export default modalReducers;

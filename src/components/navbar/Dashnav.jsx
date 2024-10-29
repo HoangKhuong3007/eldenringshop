@@ -42,6 +42,13 @@ export const Dashnav = () => {
             <i className="bx bx-receipt"></i>
             <p>Orders</p>
           </NavLink>
+          <NavLink
+            to="/dashboard/refund"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            <i className="bx bx-task-x"></i>
+            <p>Refund</p>
+          </NavLink>
         </div>
         <div className="item">
           <strong>Utilities</strong>

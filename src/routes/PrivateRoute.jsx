@@ -3,6 +3,7 @@ import { ProductManager } from "../pages/private/ProductManager";
 import { AccountManager } from "../pages/private/AccountManager";
 import { BlogManager } from "../pages/private/BlogManager";
 import { OrderManager } from "../pages/private/OrderManager";
+import { RefundManager } from "../pages/private/RefundManager";
 export const privateRoutes = [
   {
     path: "/dashboard/product",
@@ -23,5 +24,9 @@ export const privateRoutes = [
   {
     path: "/dashboard/order",
     element: <OrderManager />,
+  },
+  {
+    path: "/dashboard/refund",
+    element: <RefundManager />,
   },
 ];

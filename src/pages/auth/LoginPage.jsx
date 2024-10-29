@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { ToastContainer, toast } from "react-toastify";
@@ -19,7 +19,6 @@ export const LoginPage = () => {
   const navigate = useNavigate();
   // state
   const [isLoadingPage, setIsLoadingPage] = useState(false);
-  const [isPreventSubmit, setIsPreventSubmit] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [submitData, setSubmitData] = useState({
     email: "",
@@ -30,7 +29,7 @@ export const LoginPage = () => {
     mutationKey: ["login"],
     mutationFn: AccountService.loginService,
     onMutate: () => {
-      setIsPreventSubmit(true);
+      setIsLoadingPage(true);
     },
     onSuccess: (response) => {
       if (response && response.code === "USERNAME_OR_PASSWORD_WRONG") {
@@ -46,7 +45,7 @@ export const LoginPage = () => {
           style: { width: "400px" },
         });
         setTimeout(() => {
-          setIsPreventSubmit(false);
+          setIsLoadingPage(false);
         }, 1500);
       } else {
         toast.success("Login successful, redirect to homepage", {
@@ -61,7 +60,7 @@ export const LoginPage = () => {
           style: { width: "400px" },
         });
         setTimeout(() => {
-          setIsPreventSubmit(false);
+          setIsLoadingPage(false);
           navigate("/");
         }, 1500);
       }
@@ -81,20 +80,6 @@ export const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isPreventSubmit) {
-      toast.error("On processing, try again!", {
-        position: "top-center",
-        autoClose: 1500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        style: { width: "400px" },
-      });
-      return;
-    }
     if (!submitData.email || !submitData.password) {
       toast.error("Please input all fields", {
         position: "top-center",

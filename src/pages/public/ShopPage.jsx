@@ -15,10 +15,7 @@ import { ShopList } from "../../components/public/shop/ShopList";
 import shop1 from "../../assets/shop1.jpg";
 import shop2 from "../../assets/shop2.jpg";
 import shop3 from "../../assets/shop3.jpg";
-import cate1 from "../../assets/category1.jpg";
-import cate2 from "../../assets/category2.jpg";
-import cate3 from "../../assets/category3.jpg";
-import cate4 from "../../assets/category4.jpg";
+
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1536 },
@@ -82,32 +79,6 @@ export const ShopPage = () => {
             <img src={shop3} alt="" />
           </div>
         </Carousel>
-        <div className="category">
-          <Link to="/shop/category/1">
-            <img src={cate1} alt="" />
-            <div>
-              <strong>Watches</strong>
-            </div>
-          </Link>
-          <Link to="/shop/category/2">
-            <img src={cate2} alt="" />
-            <div>
-              <strong>Rings</strong>
-            </div>
-          </Link>
-          <Link to="/shop/category/3">
-            <img src={cate3} alt="" />
-            <div>
-              <strong>Bags</strong>
-            </div>
-          </Link>
-          <Link to="/shop/category/4">
-            <img src={cate4} alt="" />
-            <div>
-              <strong>Necklace</strong>
-            </div>
-          </Link>
-        </div>
         <ShopList />
       </div>
       <Footer />

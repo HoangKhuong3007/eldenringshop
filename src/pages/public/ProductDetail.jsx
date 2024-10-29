@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 // import styles
 import "../../styles/public/productdetail/productdetail.css";
 // import components
@@ -8,35 +9,49 @@ import { Footer } from "../../components/footer/Footer";
 // import assets
 import product from "../../assets/carousel.jpg";
 export const ProductDetail = () => {
+  const location = useLocation();
+  const { productInfo } = location.state;
+  // handle func
+  const formatPrice = (price) =>
+    new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 2,
+    }).format(price);
   return (
     <div className="product-detail-container">
       <Navbar />
       <AdvanceNavbar />
       <div className="product-detail">
         <div className="product-image">
-          <img src={product} alt="" />
+          <img src={productInfo.image} alt="" />
         </div>
         <div className="product-main-info">
-          <span>Ring Category</span>
-          <strong>Fushi V2 EldenRing Silver</strong>
-          <p>$40.00</p>
+          <span>{productInfo.cateName} Category</span>
+          <strong>{productInfo.name}</strong>
+          <p>{formatPrice(productInfo.price)}</p>
           <div className="size">
             <label className="label" htmlFor="">
               Size
             </label>
             <div className="size-list">
-              <div className="size-item">
-                <input type="radio" id="sizeS" name="size" value="S" />
-                <label htmlFor="sizeS">Size S</label>
-              </div>
-              <div className="size-item">
-                <input type="radio" id="sizeM" name="size" value="M" />
-                <label htmlFor="sizeM">Size M</label>
-              </div>
-              <div className="size-item">
-                <input type="radio" id="sizeL" name="size" value="L" />
-                <label htmlFor="sizeL">Size L</label>
-              </div>
+              {productInfo.productVariants.map((variant) => (
+                <div className="size-item" key={variant.sizeName}>
+                  <input
+                    type="radio"
+                    id={`size${variant.sizeName}`}
+                    name="size"
+                    value={variant.sizeName}
+                    disabled={variant.quantity === 0}
+                  />
+                  <label
+                    className={variant.quantity === 0 && "out-of-stock"}
+                    htmlFor={`size${variant.sizeName}`}
+                  >
+                    Size {variant.sizeName}
+                  </label>
+                </div>
+              ))}
             </div>
           </div>
           <div className="buttons">
@@ -57,22 +72,7 @@ export const ProductDetail = () => {
           <strong>Product Description</strong>
         </div>
         <div className="main">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet sequi
-            molestiae voluptatum! Ut ab temporibus itaque inventore asperiores
-            incidunt ducimus sunt voluptas dolore, nulla placeat voluptates?
-            Officiis in ut minus? Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Amet sequi molestiae voluptatum! Ut ab temporibus
-            itaque inventore asperiores incidunt ducimus sunt voluptas dolore,
-            nulla placeat voluptates? Officiis in ut minus?Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Amet sequi molestiae voluptatum!
-            Ut ab temporibus itaque inventore asperiores incidunt ducimus sunt
-            voluptas dolore, nulla placeat voluptates? Officiis in ut
-            minus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-            sequi molestiae voluptatum! Ut ab temporibus itaque inventore
-            asperiores incidunt ducimus sunt voluptas dolore, nulla placeat
-            voluptates? Officiis in ut minus?
-          </p>
+          <p>{productInfo.description}</p>
         </div>
       </div>
       <Footer />

@@ -1,63 +1,51 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 // import styles
 import "../../styles/public/blogdetail/blogdetail.css";
 // import components
 import { Navbar } from "../../components/navbar/Navbar";
 import { AdvanceNavbar } from "../../components/navbar/AdvanceNavbar";
 import { Footer } from "../../components/footer/Footer";
-// import assets
-import image from "../../assets/blogbanner.jpg";
+// import service
+import * as BlogService from "../../service/blog/blog";
 export const BlogDetailPage = () => {
+  // location
+  const location = useLocation();
+  const { blogInfo } = location.state;
+  // query
+  const { data: blogList = [] } = useQuery({
+    queryKey: ["blogList"],
+    queryFn: BlogService.getBlogList,
+    refetchOnWindowFocus: false,
+  });
   return (
     <div className="blog-detail-container">
       <Navbar />
       <AdvanceNavbar />
       <div className="blog-detail">
         <div className="header">
-          <span>By Admin</span>
-          <strong>How To Choose Best Module For Javascript Sites</strong>
-          <p>January 26, 2024</p>
+          <span>By {blogInfo.fullname}</span>
+          <strong>{blogInfo.title}</strong>
+          <p>Posted at {blogInfo.createDate}</p>
         </div>
-        <img src={image} alt="" />
+        <img src={blogInfo.image} alt="" />
         <div className="main">
           <div className="content">
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa
-              maxime vitae eveniet animi ut. Recusandae blanditiis aut rerum
-              neque iusto, praesentium aperiam, repellendus eos ea optio alias
-              dolorum provident ad?Lorem ipsum dolor sit, amet consectetur
-              adipisicing elit. Ipsa maxime vitae eveniet animi ut. Recusandae
-              blanditiis aut rerum neque iusto, praesentium aperiam, repellendus
-              eos ea optio alias dolorum provident ad?Lorem ipsum dolor sit,
-              amet consectetur adipisicing elit. Ipsa maxime vitae eveniet animi
-              ut. Recusandae blanditiis aut rerum neque iusto, praesentium
-              aperiam, repellendus eos ea optio alias dolorum provident ad?Lorem
-              ipsum dolor sit, amet consectetur adipisicing elit. Ipsa maxime
-              vitae eveniet animi ut. Recusandae blanditiis aut rerum neque
-              iusto, praesentium aperiam, repellendus eos ea optio alias dolorum
-              provident ad?Lorem ipsum dolor sit, amet consectetur adipisicing
-              elit. Ipsa maxime vitae eveniet animi ut. Recusandae blanditiis
-              aut rerum neque iusto, praesentium aperiam, repellendus eos ea
-              optio alias dolorum provident ad?Lorem ipsum dolor sit, amet
-              consectetur adipisicing elit. Ipsa maxime vitae eveniet animi ut.
-              Recusandae blanditiis aut rerum neque iusto, praesentium aperiam,
-              repellendus eos ea optio alias dolorum provident ad?Lorem ipsum
-              dolor sit, amet consectetur adipisicing elit. Ipsa maxime vitae
-              eveniet animi ut. Recusandae blanditiis aut rerum neque iusto,
-              praesentium aperiam, repellendus eos ea optio alias dolorum
-              provident ad?
-            </p>
+            <p>{blogInfo.content}</p>
           </div>
           <div className="utils">
             <div className="list">
-              <strong>Recent posts</strong>
-              <Link>
-                How To Choose Best Module For Javascript Site. React or Angular?
-              </Link>
-              <Link>How To Choose Best Module For Javascript Sites</Link>
-              <Link>How To Choose Best Module For Javascript Sites</Link>
-              <Link>How To Choose Best Module For Javascript Sites</Link>
+              <strong>Explore posts</strong>
+              {blogList?.slice(0, 4).map((blog) => (
+                <Link
+                  state={{ blogInfo: blog }}
+                  to={`/blogdetail/${blog.blogId}`}
+                  key={blog.blogId}
+                >
+                  {blog.title}
+                </Link>
+              ))}
             </div>
             <div className="list">
               <strong>Share this article</strong>

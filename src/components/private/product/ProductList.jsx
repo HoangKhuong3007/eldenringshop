@@ -6,6 +6,8 @@ import { NavLink, useParams } from "react-router-dom";
 import "../../../styles/components/private/product/product.css";
 // import slices
 import { setProductId } from "../../../redux/slices/product/product";
+// import assets
+
 // import service
 import * as ProductService from "../../../service/product/product";
 import * as CategoryService from "../../../service/category/category";

@@ -66,7 +66,11 @@ export const publicRoutes = [
     element: <ShopPage />,
   },
   {
-    path: "/productdetail",
+    path: "/shop/category/:cateId",
+    element: <ShopPage />,
+  },
+  {
+    path: "/productdetail/:productId",
     element: <ProductDetail />,
   },
   {
@@ -82,7 +86,7 @@ export const publicRoutes = [
     element: <BlogPage />,
   },
   {
-    path: "/blog-detail",
+    path: "/blogdetail/:blogId",
     element: <BlogDetailPage />,
   },
   {

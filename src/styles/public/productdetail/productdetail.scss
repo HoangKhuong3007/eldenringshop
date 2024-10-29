@@ -67,6 +67,13 @@
                                 transition: .4s;
                             }
 
+                            .out-of-stock {
+                                background-color: #c0c0c0;
+                                color: #000000;
+                                cursor: not-allowed;
+                                opacity: 0.7;
+                            }
+
                             input[type="radio"] {
                                 display: none;
                             }

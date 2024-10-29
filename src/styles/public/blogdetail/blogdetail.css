@@ -52,10 +52,12 @@ a {
     font-weight: 600;
   }
   .blog-detail-container .blog-detail .header strong {
-    font-size: 2.5rem;
+    width: 80%;
+    text-align: center;
+    font-size: 2.2rem;
   }
   .blog-detail-container .blog-detail .header p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.6);
   }

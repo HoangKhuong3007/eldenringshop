@@ -11,11 +11,14 @@ import image from "../../assets/login.jpg";
 import logo from "../../assets/Elden-Ring-Logo.png";
 // import service
 import * as AccountService from "../../service/account/account";
+import { useGoogleLogin } from "@react-oauth/google";
+import { SyncLoader } from "react-spinners";
 export const LoginPage = () => {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   // navigate
   const navigate = useNavigate();
   // state
+  const [isLoadingPage, setIsLoadingPage] = useState(false);
   const [isPreventSubmit, setIsPreventSubmit] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [submitData, setSubmitData] = useState({
@@ -141,8 +144,58 @@ export const LoginPage = () => {
       console.log(error);
     }
   };
+  const oauthMutation = useMutation({
+    mutationKey: ["oauth"],
+    mutationFn: AccountService.oauthService,
+    onMutate: () => {
+      setIsLoadingPage(true);
+    },
+    onSuccess: (response) => {
+      if (response && response.code === "EMAIL_EXISTED") {
+        toast.error("Email existed, try another email", {
+          position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          style: { width: "400px" },
+        });
+        setIsLoadingPage(false);
+      } else {
+        toast.success("Login successful, redirect to homepage", {
+          position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          style: { width: "400px" },
+        });
+        setTimeout(() => {
+          setIsLoadingPage(false);
+          navigate("/");
+        }, 1500);
+      }
+    },
+  });
+  const handleGoogleLogin = useGoogleLogin({
+    onSuccess: (credentialResponse) => {
+      const googleIdToken = credentialResponse.access_token;
+      oauthMutation.mutateAsync(googleIdToken);
+    },
+  });
   return (
     <div className="login-container">
+      {isLoadingPage && (
+        <div className="loading">
+          <SyncLoader margin={5} size={20} color="#ffffff" />
+        </div>
+      )}
       <ToastContainer />
       <div className="banner">
         <img src={image} alt="" />
@@ -184,7 +237,7 @@ export const LoginPage = () => {
         <div className="or">
           <p>or</p>
         </div>
-        <div className="oauth">
+        <div className="oauth" onClick={handleGoogleLogin}>
           <i className="bx bxl-google"></i>
           <p>Sign in by Google</p>
         </div>

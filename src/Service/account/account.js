@@ -126,3 +126,19 @@ export const getAccountList = async () => {
     return error;
   }
 };
+export const oauthService = async (token) => {
+  try {
+    const api = "http://localhost:8080/auth/login-by-google";
+    const res = await axios.post(api, token, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    localStorage.setItem("token", res.data.result.token);
+    localStorage.setItem("user", JSON.stringify(res.data.result.user));
+    console.log(res.data);
+    return res.data.result;
+  } catch (error) {
+    return error.response.data;
+  }
+};

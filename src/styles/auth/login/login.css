@@ -34,6 +34,18 @@ a {
     overflow: hidden;
     font-family: "Lora", serif;
   }
+  .login-container .loading {
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
   .login-container .banner {
     width: 50%;
     height: 100%;

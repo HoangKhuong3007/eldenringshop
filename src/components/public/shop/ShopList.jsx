@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 // import styles
 import "../../../styles/components/public/shop/shop.css";
 // import assets

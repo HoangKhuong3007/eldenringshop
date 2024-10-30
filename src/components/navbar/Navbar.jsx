@@ -28,7 +28,7 @@ export const Navbar = () => {
     if (cartInfo) {
       setCartList(cartInfo.cartItems || []);
     }
-  }, [cartList, cartInfo]);
+  }, [cartInfo]);
   const handleToggleAdvanceNavbar = () => {
     dispatch(toggleNavbarOn());
     setTimeout(() => {

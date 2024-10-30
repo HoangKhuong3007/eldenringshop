@@ -39,7 +39,7 @@ export const CheckoutPage = () => {
       setIsLoadingPage(true);
     },
     onSuccess: () => {
-      localStorage.setItem("paymentInfo", JSON.stringify(submitData));
+      setIsLoadingPage(false);
     },
   });
   // handle func
@@ -56,7 +56,6 @@ export const CheckoutPage = () => {
       ...submitData,
       [name]: value,
     });
-    console.log(submitData);
   };
   const handleCheckout = async () => {
     if (
@@ -85,6 +84,7 @@ export const CheckoutPage = () => {
         ...submitData,
         total: totalPrice,
       };
+      localStorage.setItem("paymentInfo", JSON.stringify(updatedSubmitData));
       await mutation.mutateAsync(updatedSubmitData);
     } catch (error) {
       console.log(error);
@@ -97,10 +97,7 @@ export const CheckoutPage = () => {
     if (user && token) {
       setSubmitData({
         ...submitData,
-        fullName: user.fullName || "",
-        email: user.email || "",
-        address: user.address || "",
-        phone: user.phone || "",
+
         cartId: cartInfo?.cartId || "",
       });
     }

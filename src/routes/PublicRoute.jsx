@@ -15,6 +15,10 @@ import { CustomerOrderPage } from "../pages/public/CustomerOrderPage";
 import { VerifyPage } from "../pages/auth/VerifyPage";
 import { ResetPassPage } from "../pages/auth/ResetPassPage";
 import { BuynowPage } from "../pages/public/BuynowPage";
+import { PaymentSuccess } from "../pages/public/PaymentSuccess";
+import { PaymentBuySuccess } from "../pages/public/PaymentBuySuccess";
+import { PaymentCancel } from "../pages/public/PaymentCancel";
+import { PaymentError } from "../pages/public/PaymentError";
 // wrapper
 import { LoggedWrapper, GuestWrapper } from "./AuthorizeWrapper";
 export const publicRoutes = [
@@ -81,6 +85,22 @@ export const publicRoutes = [
   {
     path: "/checkout",
     element: <CheckoutPage />,
+  },
+  {
+    path: "/payment/success",
+    element: <PaymentSuccess />,
+  },
+  {
+    path: "/payment/successbuy",
+    element: <PaymentBuySuccess />,
+  },
+  {
+    path: "/payment/cancel",
+    element: <PaymentCancel />,
+  },
+  {
+    path: "/payment/error",
+    element: <PaymentError />,
   },
   {
     path: "/buynow/:productId",

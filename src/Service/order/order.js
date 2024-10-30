@@ -1,36 +1,30 @@
 import axios from "axios";
 
-export const createCheckout = async (data) => {
+export const createOrderCheckout = async (data) => {
   const token = localStorage.getItem("token");
   try {
-    const api = "http://localhost:8080/payment/create/checkout";
+    const api = "http://localhost:8080/order/create/checkout";
     const res = await axios.post(api, data, {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
     });
-    if (res.data && res.data.result && res.data.result.approval_url) {
-      window.location.href = res.data.result.approval_url;
-    }
     return res.data;
   } catch (error) {
     return error.response.data;
   }
 };
-export const createBuynow = async (data) => {
+export const createOrderBuynow = async (data) => {
   const token = localStorage.getItem("token");
   try {
-    const api = "http://localhost:8080/payment/create/buy-now";
+    const api = "http://localhost:8080/order/create/buy-now";
     const res = await axios.post(api, data, {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
     });
-    if (res.data && res.data.result && res.data.result.approval_url) {
-      window.location.href = res.data.result.approval_url;
-    }
     return res.data;
   } catch (error) {
     return error.response.data;

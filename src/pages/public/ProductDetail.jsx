@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,7 +16,12 @@ export const ProductDetail = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const userId = user?.userId;
   const { productId } = useParams();
+  // navigate
+  const navigate = useNavigate();
   // state
+  const [selectedSize, setSelectedSize] = useState({
+    sizeName: "",
+  });
   const [submitData, setSubmitData] = useState({
     quantity: 1,
     sizeName: "",
@@ -60,6 +65,9 @@ export const ProductDetail = () => {
       ...submitData,
       [name]: value,
     });
+    setSelectedSize({
+      sizeName: value,
+    });
   };
   const debounce = (func, delay) => {
     let timeoutId;
@@ -71,6 +79,23 @@ export const ProductDetail = () => {
         func(...args);
       }, delay);
     };
+  };
+  const handleBuynow = (productId) => {
+    if (!selectedSize.sizeName) {
+      toast.error("Please choose product size.", {
+        position: "top-center",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        style: { width: "400px" },
+      });
+      return;
+    }
+    navigate(`/buynow/${productId}`);
   };
   const handleAddToCart = debounce(async () => {
     if (!submitData.sizeName) {
@@ -149,8 +174,11 @@ export const ProductDetail = () => {
               Add To Cart
             </button>
             <Link
-              state={{ productInfo: productInfo }}
-              to={`/buynow/${productInfo?.productId}`}
+              onClick={() => handleBuynow(productInfo?.productId)}
+              state={{
+                productInfo: productInfo,
+                selectedSize: selectedSize.sizeName,
+              }}
             >
               Buy Now
             </Link>

@@ -1,4 +1,5 @@
 import React from "react";
+import { useQuery } from "@tanstack/react-query";
 // import styles
 import "../../styles/public/my-order/my-order.css";
 // import components
@@ -6,7 +7,14 @@ import { SettingNav } from "../../components/navbar/SettingNav";
 import { BounceLoader } from "react-spinners";
 import { MyOrderList } from "../../components/public/my-order/MyOrderList";
 import { MyOrderDetail } from "../../components/modal/MyOrderDetail";
+// import service
+import * as OrderService from "../../service/order/order";
 export const CustomerOrderPage = () => {
+  // query
+  const { data: orderList = [] } = useQuery({
+    queryKey: ["my-order"],
+    queryFn: OrderService.getMyOrder,
+  });
   return (
     <div className="customer-order-container">
       <MyOrderDetail />

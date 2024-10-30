@@ -97,7 +97,10 @@ export const CheckoutPage = () => {
     if (user && token) {
       setSubmitData({
         ...submitData,
-
+        fullName: user.fullName || "",
+        email: user.email || "",
+        address: user.address || "",
+        phone: user.phone || "",
         cartId: cartInfo?.cartId || "",
       });
     }

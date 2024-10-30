@@ -14,6 +14,28 @@
             justify-content: space-between;
             background: #EFF3F6;
 
+            .server-error {
+                width: 100%;
+                height: 678px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: $font-1;
+                font-weight: 600;
+                font-size: 1.4rem;
+            }
+
+            .empty-list {
+                width: 100%;
+                height: 678px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: $font-1;
+                font-weight: 600;
+                font-size: 1.2rem;
+            }
+
             .cart-table {
                 width: 70%;
                 padding: 20px 30px 20px 30px;
@@ -31,21 +53,26 @@
                         }
 
                         th:nth-child(1) {
-                            grid-column: 1 / span 6;
+                            grid-column: 1 / span 4;
                             text-align: start;
                         }
 
                         th:nth-child(2) {
-                            grid-column: 7 / span 2;
+                            grid-column: 5 / span 2;
                             text-align: center;
 
                         }
 
                         th:nth-child(3) {
-                            grid-column: 9 / span 2;
+                            grid-column: 7 / span 2;
                         }
 
                         th:nth-child(4) {
+                            grid-column: 9 / span 2;
+                            text-align: center;
+                        }
+
+                        th:nth-child(5) {
                             grid-column: 11 / span 2;
                             text-align: center;
                         }
@@ -63,7 +90,7 @@
 
 
                         td:nth-child(1) {
-                            grid-column: 1 / span 6;
+                            grid-column: 1 / span 4;
                             display: flex;
                             column-gap: 15px;
 
@@ -96,12 +123,12 @@
                         }
 
                         td:nth-child(2) {
-                            grid-column: 7 / span 2;
+                            grid-column: 5 / span 2;
                             text-align: center;
                         }
 
                         td:nth-child(3) {
-                            grid-column: 9 / span 2;
+                            grid-column: 7 / span 2;
                             display: flex;
                             align-items: center;
                             justify-content: center;
@@ -118,8 +145,17 @@
                         }
 
                         td:nth-child(4) {
+                            grid-column: 9 / span 2;
+                            text-align: center;
+                            font-weight: 600;
+                        }
+
+                        td:nth-child(5) {
                             grid-column: 11 / span 2;
                             text-align: center;
+                            font-size: 22px;
+                            color: red;
+                            cursor: pointer;
                             font-weight: 600;
                         }
                     }

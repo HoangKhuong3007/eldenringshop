@@ -53,6 +53,7 @@ export const logoutService = async (data) => {
     });
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    localStorage.removeItem("cartId");
     return res.data;
   } catch (error) {
     console.log(error);

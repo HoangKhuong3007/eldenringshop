@@ -1,15 +1,125 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import { useQuery, useMutation } from "@tanstack/react-query";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // import styles
 import "../../styles/public/checkout/checkout.css";
 // import components
 import { Navbar } from "../../components/navbar/Navbar";
 import { AdvanceNavbar } from "../../components/navbar/AdvanceNavbar";
 import { Footer } from "../../components/footer/Footer";
-// import assets
-import product from "../../assets/carousel.jpg";
+// import service
+import * as CartService from "../../service/cart/cart";
+import * as PaymentService from "../../service/payment/payment";
+import { SyncLoader } from "react-spinners";
 export const CheckoutPage = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const token = localStorage.getItem("token");
+  // state
+  const [cartList, setCartList] = useState([]);
+  const [isLoadingPage, setIsLoadingPage] = useState(false);
+  const [submitData, setSubmitData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    address: "",
+    total: "",
+    cartId: "",
+  });
+  // query
+  const { data: cartInfo } = useQuery({
+    queryKey: ["my-cart"],
+    queryFn: () => CartService.getMyCart(user?.userId),
+  });
+  // mutation
+  const mutation = useMutation({
+    mutationKey: ["checkout"],
+    mutationFn: PaymentService.createCheckout,
+    onMutate: () => {
+      setIsLoadingPage(true);
+    },
+    onSuccess: () => {
+      localStorage.setItem("paymentInfo", JSON.stringify(submitData));
+    },
+  });
+  // handle func
+  const totalTotalCartValue = () => {
+    return Array.isArray(cartList)
+      ? cartList.reduce((total, item) => {
+          return total + (item.quantity || 0) * (item.product.price || 0);
+        }, 0)
+      : 0;
+  };
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setSubmitData({
+      ...submitData,
+      [name]: value,
+    });
+    console.log(submitData);
+  };
+  const handleCheckout = async () => {
+    if (
+      submitData.address === "" ||
+      submitData.email === "" ||
+      submitData.fullName === "" ||
+      submitData.phone === ""
+    ) {
+      toast.error("Please input all fields", {
+        position: "top-center",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        style: { width: "400px" },
+      });
+      console.log(submitData);
+      return;
+    }
+    try {
+      const totalPrice = totalTotalCartValue();
+      const updatedSubmitData = {
+        ...submitData,
+        total: totalPrice,
+      };
+      await mutation.mutateAsync(updatedSubmitData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    if (cartInfo) {
+      setCartList(cartInfo.cartItems);
+    }
+    if (user && token) {
+      setSubmitData({
+        ...submitData,
+        fullName: user.fullName || "",
+        email: user.email || "",
+        address: user.address || "",
+        phone: user.phone || "",
+        cartId: cartInfo?.cartId || "",
+      });
+    }
+  }, [cartInfo, cartList]);
+  const formatPrice = (price) =>
+    new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 2,
+    }).format(price);
+
   return (
     <div className="checkout-container">
+      {isLoadingPage && (
+        <div className="loading">
+          <SyncLoader margin={5} size={20} color="#ffffff" />
+        </div>
+      )}
+      <ToastContainer />
       <Navbar />
       <AdvanceNavbar />
       <div className="checkout">
@@ -19,19 +129,44 @@ export const CheckoutPage = () => {
           </div>
           <div className="input-item">
             <label htmlFor="">Name</label>
-            <input type="text" placeholder="Lon Khuong" />
+            <input
+              type="text"
+              name="fullName"
+              onChange={handleOnChange}
+              defaultValue={user?.fullName || ""}
+              placeholder="Lon Khuong"
+            />
           </div>
           <div className="input-item">
             <label htmlFor="">Email</label>
-            <input type="text" placeholder="hoangkhuong2k4@gmail.com" />
+            <input
+              type="text"
+              onChange={handleOnChange}
+              disabled
+              defaultValue={user?.email || ""}
+              name="email"
+              placeholder="hoangkhuong2k4@gmail.com"
+            />
           </div>
           <div className="input-item">
             <label htmlFor="">Address</label>
-            <input type="text" placeholder="Vinhomes Grand Park" />
+            <input
+              type="text"
+              onChange={handleOnChange}
+              defaultValue={user?.address || ""}
+              name="address"
+              placeholder="Vinhomes Grand Park"
+            />
           </div>
           <div className="input-item">
             <label htmlFor="">Phone</label>
-            <input type="text" placeholder="0123456789" />
+            <input
+              type="text"
+              onChange={handleOnChange}
+              defaultValue={user?.phone || ""}
+              name="phone"
+              placeholder="0123456789"
+            />
           </div>
         </form>
         <div className="summary">
@@ -39,45 +174,25 @@ export const CheckoutPage = () => {
             <strong>Order Summary</strong>
           </div>
           <div className="cart-list">
-            <div className="cart-item">
-              <div className="main">
-                <img src={product} alt="" />
-                <div>
-                  <strong>Product name</strong>
-                  <p>Size S</p>
-                  <span>$40.00</span>
+            {cartList?.map((item) => (
+              <div key={item.cartItemId} className="cart-item">
+                <div className="main">
+                  <img src={item.product.image} alt="" />
+                  <div>
+                    <strong>{item.product.name}</strong>
+                    <p>Size {item.size.name}</p>
+                    <span>{formatPrice(item.product.price)}</span>
+                  </div>
                 </div>
+                <p className="quantity">{item.quantity} items</p>
               </div>
-              <p className="quantity">4 items</p>
-            </div>
-            <div className="cart-item">
-              <div className="main">
-                <img src={product} alt="" />
-                <div>
-                  <strong>Product name</strong>
-                  <p>Size S</p>
-                  <span>$40.00</span>
-                </div>
-              </div>
-              <p className="quantity">4 items</p>
-            </div>
-            <div className="cart-item">
-              <div className="main">
-                <img src={product} alt="" />
-                <div>
-                  <strong>Product name</strong>
-                  <p>Size S</p>
-                  <span>$40.00</span>
-                </div>
-              </div>
-              <p className="quantity">4 items</p>
-            </div>
+            ))}
           </div>
           <div className="total">
             <div className="subtotal">
               <div className="item">
                 <p>Subtotal</p>
-                <strong>$40.00</strong>
+                <strong>{formatPrice(totalTotalCartValue())}</strong>
               </div>
               <div className="item">
                 <p>Shipping</p>
@@ -87,9 +202,11 @@ export const CheckoutPage = () => {
             <div className="confirm">
               <div>
                 <strong>Total</strong>
-                <strong>$40.00</strong>
+                <strong>{formatPrice(totalTotalCartValue())}</strong>
               </div>
-              <button>Confirm Pay $40.00</button>
+              <button onClick={handleCheckout}>
+                Confirm Pay {formatPrice(totalTotalCartValue())}
+              </button>
             </div>
           </div>
         </div>

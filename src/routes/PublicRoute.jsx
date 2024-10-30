@@ -14,6 +14,7 @@ import { SecuritySettingPage } from "../pages/public/SecuritySettingPage";
 import { CustomerOrderPage } from "../pages/public/CustomerOrderPage";
 import { VerifyPage } from "../pages/auth/VerifyPage";
 import { ResetPassPage } from "../pages/auth/ResetPassPage";
+import { BuynowPage } from "../pages/public/BuynowPage";
 // wrapper
 import { LoggedWrapper, GuestWrapper } from "./AuthorizeWrapper";
 export const publicRoutes = [
@@ -80,6 +81,10 @@ export const publicRoutes = [
   {
     path: "/checkout",
     element: <CheckoutPage />,
+  },
+  {
+    path: "/buynow/:productId",
+    element: <BuynowPage />,
   },
   {
     path: "/blogs",

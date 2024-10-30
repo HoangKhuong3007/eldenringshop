@@ -106,7 +106,8 @@ a {
     flex-direction: column;
     row-gap: 10px;
   }
-  .product-detail-container .product-detail .product-main-info .buttons button {
+  .product-detail-container .product-detail .product-main-info .buttons button,
+  .product-detail-container .product-detail .product-main-info .buttons a {
     cursor: pointer;
     padding: 12px 20px;
     border: 1px solid transparent;
@@ -115,7 +116,12 @@ a {
     font-family: "Lora", serif;
     transition: 0.4s;
   }
-  .product-detail-container .product-detail .product-main-info .buttons button:hover {
+  .product-detail-container .product-detail .product-main-info .buttons a {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  .product-detail-container .product-detail .product-main-info .buttons button:hover,
+  .product-detail-container .product-detail .product-main-info .buttons a:hover {
     border-color: black;
     color: black;
     background: white;

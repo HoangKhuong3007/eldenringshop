@@ -94,7 +94,8 @@
                     flex-direction: column;
                     row-gap: 10px;
 
-                    button {
+                    button,
+                    a {
                         cursor: pointer;
                         padding: 12px 20px;
                         border: 1px solid transparent;
@@ -104,7 +105,13 @@
                         transition: .4s;
                     }
 
-                    button:hover {
+                    a {
+                        text-align: center;
+                        font-size: 0.9rem;
+                    }
+
+                    button:hover,
+                    a:hover {
                         border-color: black;
                         color: black;
                         background: white;

@@ -200,6 +200,25 @@ a {
     color: white;
     font-size: 24px;
   }
+  .navbar-container .navbar .my-profile .cart-quantity {
+    position: relative;
+  }
+  .navbar-container .navbar .my-profile .cart-quantity .bxs-cart {
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+  }
+  .navbar-container .navbar .my-profile .cart-quantity p {
+    position: absolute;
+    font-family: "Libre Baskerville", serif;
+    font-size: 0.7rem;
+    color: black;
+    background: white;
+    padding: 2px 6px;
+    border-radius: 50%;
+    top: -13px;
+    left: 27px;
+  }
   .navbar-container .navbar .auth {
     width: 40%;
     display: flex;

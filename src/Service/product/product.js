@@ -83,6 +83,7 @@ export const getProductDetail = async (productId) => {
     });
     return res.data.result;
   } catch (error) {
+    console.log(error);
     return error;
   }
 };

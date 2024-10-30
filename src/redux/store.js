@@ -6,6 +6,7 @@ import navbarReducers from "./slices/navbar/navbar";
 import productReducers from "./slices/product/product";
 import blogReducers from "./slices/blog/blog";
 import accountReducers from "./slices/account/account";
+import paymentReducer from "./slices/payment/payment";
 export default configureStore({
   reducer: {
     // modal
@@ -18,5 +19,7 @@ export default configureStore({
     blog: blogReducers,
     // account
     account: accountReducers,
+    // payment
+    payment: paymentReducer,
   },
 });

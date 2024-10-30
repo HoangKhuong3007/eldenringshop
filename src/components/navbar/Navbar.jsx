@@ -1,27 +1,47 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-// Import styles
+import { useDispatch } from "react-redux";
+import { useQuery } from "@tanstack/react-query";
 import "../../styles/components/navbar/navbar.css";
-import logo from "../../assets/logonavbar.png";
+// import slices
 import {
   toggleNavbarOn,
   toggleAnimateNavbarOn,
 } from "../../redux/slices/navbar/navbar";
+// import service
+import * as CartService from "../../service/cart/cart";
+
 export const Navbar = () => {
   const user = JSON.parse(localStorage.getItem("user"));
+  const userId = user?.userId;
   const token = localStorage.getItem("token");
-  const userRole = user?.role;
-  // dispatch
   const dispatch = useDispatch();
+  // state
+  const [cartList, setCartList] = useState([]);
+  // query
+  const { data: cartInfo = {} } = useQuery({
+    queryKey: ["my-cart"],
+    queryFn: () => CartService.getMyCart(userId),
+  });
   // handle func
+  useEffect(() => {
+    if (cartInfo) {
+      setCartList(cartInfo.cartItems || []);
+    }
+  }, [cartList, cartInfo]);
   const handleToggleAdvanceNavbar = () => {
     dispatch(toggleNavbarOn());
     setTimeout(() => {
       dispatch(toggleAnimateNavbarOn());
     }, 1);
   };
-
+  const totalQuantity = () => {
+    return Array.isArray(cartList)
+      ? cartList.reduce((total, item) => {
+          return total + (item.quantity || 0);
+        }, 0)
+      : 0;
+  };
   return (
     <div className="navbar-container">
       <div className="navbar">
@@ -56,29 +76,41 @@ export const Navbar = () => {
           <strong>EldenRing</strong>
         </Link>
         {user && token ? (
-          <>
-            <div className="my-profile">
-              <Link to="/cart">
-                <i className="bx bx-cart"></i>
-              </Link>
-              <Link to="/setting/profile">
-                <div className="info">
-                  <i className="bx bx-user"></i>
-                  <div>
-                    <strong>{user.fullName}</strong>
-                    <p>{user.email}</p>
-                  </div>
+          <div className="my-profile">
+            {cartList?.length > 0 ? (
+              <>
+                <Link
+                  state={{ cartInfo: cartInfo }}
+                  className="cart-quantity"
+                  to="/cart"
+                >
+                  <i className="bx bxs-cart"></i>
+                  <p className="quantity">{totalQuantity()}</p>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link state={{ cartInfo: cartInfo }} to="/cart">
+                  <i className="bx bx-cart"></i>
+                </Link>
+              </>
+            )}
+
+            <Link to="/setting/profile">
+              <div className="info">
+                <i className="bx bx-user"></i>
+                <div>
+                  <strong>{user.fullName}</strong>
+                  <p>{user.email}</p>
                 </div>
-              </Link>
-            </div>
-          </>
+              </div>
+            </Link>
+          </div>
         ) : (
-          <>
-            <div className="auth">
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
-            </div>
-          </>
+          <div className="auth">
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Signup</Link>
+          </div>
         )}
       </div>
     </div>

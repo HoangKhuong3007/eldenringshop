@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 // import styles
 import "../../../styles/components/public/shop/shop.css";
-// import assets
-import product from "../../../assets/category2.jpg";
+
 import cate1 from "../../../assets/category1.jpg";
 import cate2 from "../../../assets/category2.jpg";
 import cate3 from "../../../assets/category3.jpg";

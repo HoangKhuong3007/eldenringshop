@@ -23,6 +23,7 @@ import blog3 from "./assets/blog3.jpg";
 import blog4 from "./assets/blog4.jpg";
 // import service
 import * as AccountService from "./service/account/account";
+import * as CartService from "./service/cart/cart";
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1536 },
@@ -43,16 +44,22 @@ const responsive = {
 };
 export const App = () => {
   const token = localStorage.getItem("token");
+  const user = JSON.parse(localStorage.getItem("user"));
   // mutation
   const mutation = useMutation({
     mutationKey: ["authenticate"],
     mutationFn: AccountService.authenticateService,
   });
+  const cartMutation = useMutation({
+    mutationKey: ["create-cart"],
+    mutationFn: CartService.createCart,
+  });
   // handle func
   const handleAuth = async () => {
     try {
-      if (token) {
+      if (token && user) {
         await mutation.mutateAsync(token);
+        await cartMutation.mutateAsync(user?.userId);
       }
     } catch (error) {
       console.log(error);

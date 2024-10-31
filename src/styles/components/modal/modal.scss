@@ -1254,6 +1254,87 @@
         }
     }
 
+    .cancel-order-modal-container {
+        width: 100vw;
+        height: 100vh;
+        z-index: 25;
+        background: rgba(0, 0, 0, .8);
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: $dashboard-font;
+
+        .cancel-order-modal {
+            width: 500px;
+            max-height: 700px;
+            overflow-y: auto;
+            border-radius: 15px;
+            background: #090C0F;
+            padding: 30px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 15px;
+
+            i {
+                color: #FF3F56;
+                padding: 15px;
+                border-radius: 50%;
+                font-size: 40px;
+                background: #d1a6ad;
+            }
+
+            strong {
+                font-size: 1.6rem;
+                color: white;
+            }
+
+            p {
+                width: 90%;
+                text-align: center;
+                font-size: 1.1rem;
+                font-weight: 400;
+                color: rgba(255, 255, 255, .6);
+            }
+
+            span {
+                width: 90%;
+                text-align: center;
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: rgba(255, 255, 255, .9);
+            }
+
+            .button {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                column-gap: 20px;
+
+                button {
+                    width: 50%;
+                    padding: 12px 0;
+                    border-radius: 15px;
+                    font-family: $dashboard-font;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                }
+
+                button:nth-child(1) {
+                    background: white;
+                    color: black;
+                }
+
+                button:nth-child(2) {
+                    background: #FF3F56;
+                    color: white;
+                }
+            }
+        }
+    }
+
     .preview-blog-close {
         display: none;
     }
@@ -1849,7 +1930,7 @@
                 }
             }
 
-            .pending-status {
+            .pending {
                 margin-top: 30px;
                 width: 100%;
                 padding: 20px 30px;
@@ -1863,6 +1944,72 @@
                 i {
                     font-size: 22px;
                     color: rgba(119, 119, 58, 0.959);
+                }
+
+                p {
+                    font-size: 1rem;
+                    font-weight: 500;
+                }
+            }
+
+            .approved {
+                margin-top: 30px;
+                width: 100%;
+                padding: 20px 30px;
+                border-top: 1px solid rgba(0, 0, 0, .1);
+                border-bottom: 2px solid rgba(32, 221, 15, 0.644);
+                display: flex;
+                align-items: center;
+                column-gap: 15px;
+                background: rgba(116, 240, 34, 0.151);
+
+                i {
+                    font-size: 22px;
+                    color: rgba(58, 119, 58, 0.959);
+                }
+
+                p {
+                    font-size: 1rem;
+                    font-weight: 500;
+                }
+            }
+
+            .rejected {
+                margin-top: 30px;
+                width: 100%;
+                padding: 20px 30px;
+                border-top: 1px solid rgba(0, 0, 0, .1);
+                border-bottom: 2px solid rgba(221, 15, 15, 0.644);
+                display: flex;
+                align-items: center;
+                column-gap: 15px;
+                background: rgba(240, 34, 34, 0.151);
+
+                i {
+                    font-size: 22px;
+                    color: rgba(119, 58, 58, 0.959);
+                }
+
+                p {
+                    font-size: 1rem;
+                    font-weight: 500;
+                }
+            }
+
+            .refunded {
+                margin-top: 30px;
+                width: 100%;
+                padding: 20px 30px;
+                border-top: 1px solid rgba(0, 0, 0, .1);
+                border-bottom: 2px solid rgba(121, 15, 221, 0.644);
+                display: flex;
+                align-items: center;
+                column-gap: 15px;
+                background: rgba(113, 34, 240, 0.151);
+
+                i {
+                    font-size: 22px;
+                    color: rgba(79, 58, 119, 0.959);
                 }
 
                 p {

@@ -80,10 +80,11 @@ export const BuynowPage = () => {
       return;
     }
     try {
-      const totalPrice = calculateTotalItemPrice(productInfo?.price, quantity);
+      const totalPrice = parseFloat((productInfo.price * quantity).toFixed(2));
       const updatedSubmitData = {
         ...submitData,
         total: totalPrice,
+        quantity,
       };
       localStorage.setItem("paymentInfo", JSON.stringify(updatedSubmitData));
       await mutation.mutateAsync(updatedSubmitData);

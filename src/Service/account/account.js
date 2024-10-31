@@ -122,7 +122,7 @@ export const getAccountList = async () => {
         "Content-Type": "application/json",
       },
     });
-    return res.data;
+    return res.data.result;
   } catch (error) {
     return error;
   }

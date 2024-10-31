@@ -91,6 +91,17 @@ const DelBlogSlice = createSlice({
     },
   },
 });
+const cancelOrderSlice = createSlice({
+  name: "cancelOrderModal",
+  initialState: {
+    isToggleModal: false,
+  },
+  reducers: {
+    toggleCancelOrderModal: (state) => {
+      state.isToggleModal = !state.isToggleModal;
+    },
+  },
+});
 // detail
 const previewBlogSlice = createSlice({
   name: "previewBlogModal",
@@ -210,6 +221,7 @@ export const { toggleUpdateProductModal } = UpdateProductSlice.actions;
 export const { toggleDelProductModal } = DelProductSlice.actions;
 export const { toggleAddAccountModal } = AddAccountSlice.actions;
 export const { toggleBlockAccountModal } = blockAccountSlice.actions;
+export const { toggleCancelOrderModal } = cancelOrderSlice.actions;
 export const { togglePreviewBlogModalOn, togglePreviewBlogModalOff } =
   previewBlogSlice.actions;
 export const { toggleAnimateBlogModalOn, toggleAnimateBlogModalOff } =
@@ -247,5 +259,6 @@ const modalReducers = combineReducers({
   animateMyOrderModal: animateMyOrderModalSlice.reducer,
   previewRefundModal: previewRefundSlice.reducer,
   animateRefundModal: animateRefundModalSlice.reducer,
+  cancelOrderModal: cancelOrderSlice.reducer,
 });
 export default modalReducers;

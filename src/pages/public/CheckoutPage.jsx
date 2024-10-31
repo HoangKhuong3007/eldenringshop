@@ -155,7 +155,7 @@ export const CheckoutPage = () => {
               onChange={handleOnChange}
               defaultValue={user?.address || ""}
               name="address"
-              placeholder="Vinhomes Grand Park"
+              placeholder="Enter your address"
             />
           </div>
           <div className="input-item">
@@ -165,7 +165,7 @@ export const CheckoutPage = () => {
               onChange={handleOnChange}
               defaultValue={user?.phone || ""}
               name="phone"
-              placeholder="0123456789"
+              placeholder="Enter your phone"
             />
           </div>
         </form>

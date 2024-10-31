@@ -1,35 +1,25 @@
 import React from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useSelector } from "react-redux";
 // import styles
 import "../../styles/public/my-order/my-order.css";
 // import components
 import { SettingNav } from "../../components/navbar/SettingNav";
-import { BounceLoader } from "react-spinners";
 import { MyOrderList } from "../../components/public/my-order/MyOrderList";
 import { MyOrderDetail } from "../../components/modal/MyOrderDetail";
-// import service
-import * as OrderService from "../../service/order/order";
+import { CancelOrderModal } from "../../components/modal/CancelOrderModal";
 export const CustomerOrderPage = () => {
-  // query
-  const { data: orderList = [] } = useQuery({
-    queryKey: ["my-order"],
-    queryFn: OrderService.getMyOrder,
-  });
+  // selector
+  const isToggleCancelOrderModal = useSelector(
+    (state) => state.modal.cancelOrderModal.isToggleModal
+  );
   return (
     <div className="customer-order-container">
+      {isToggleCancelOrderModal && <CancelOrderModal />}
       <MyOrderDetail />
       <SettingNav />
       <div className="customer-order">
         <div className="header">
           <strong>Order History</strong>
-          <div className="loading">
-            <BounceLoader color="#23B870" size={25} />
-            <p>Loading orders</p>
-          </div>
-          {/* <div className="saved">
-            <i className="bx bx-check"></i>
-            <p>All loaded</p>
-          </div> */}
         </div>
         <MyOrderList />
       </div>

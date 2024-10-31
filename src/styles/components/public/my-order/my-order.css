@@ -72,6 +72,9 @@ a {
     font-weight: 600;
     color: #4957C0;
   }
+  .customer-order-list .order-item .item1 .time div strong {
+    font-size: 0.85rem;
+  }
   .customer-order-list .order-item .item2 {
     display: flex;
     justify-content: space-between;
@@ -94,5 +97,8 @@ a {
     font-size: 0.85rem;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.5);
+  }
+  .customer-order-list .order-item .item2 .item div strong {
+    font-size: 0.85rem;
   }
 }/*# sourceMappingURL=my-order.css.map */

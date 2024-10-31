@@ -1117,6 +1117,78 @@ a {
     background: #FF3F56;
     color: white;
   }
+  .cancel-order-modal-container {
+    width: 100vw;
+    height: 100vh;
+    z-index: 25;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Afacad Flux", sans-serif;
+  }
+  .cancel-order-modal-container .cancel-order-modal {
+    width: 500px;
+    max-height: 700px;
+    overflow-y: auto;
+    border-radius: 15px;
+    background: #090C0F;
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 15px;
+  }
+  .cancel-order-modal-container .cancel-order-modal i {
+    color: #FF3F56;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 40px;
+    background: #d1a6ad;
+  }
+  .cancel-order-modal-container .cancel-order-modal strong {
+    font-size: 1.6rem;
+    color: white;
+  }
+  .cancel-order-modal-container .cancel-order-modal p {
+    width: 90%;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .cancel-order-modal-container .cancel-order-modal span {
+    width: 90%;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .cancel-order-modal-container .cancel-order-modal .button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+  }
+  .cancel-order-modal-container .cancel-order-modal .button button {
+    width: 50%;
+    padding: 12px 0;
+    border-radius: 15px;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .cancel-order-modal-container .cancel-order-modal .button button:nth-child(1) {
+    background: white;
+    color: black;
+  }
+  .cancel-order-modal-container .cancel-order-modal .button button:nth-child(2) {
+    background: #FF3F56;
+    color: white;
+  }
   .preview-blog-close {
     display: none;
   }
@@ -1628,7 +1700,7 @@ a {
     font-size: 26px;
     cursor: pointer;
   }
-  .detail-myorder-container .detail-myorder-modal .pending-status {
+  .detail-myorder-container .detail-myorder-modal .pending {
     margin-top: 30px;
     width: 100%;
     padding: 20px 30px;
@@ -1640,11 +1712,71 @@ a {
          column-gap: 15px;
     background: rgba(240, 240, 34, 0.151);
   }
-  .detail-myorder-container .detail-myorder-modal .pending-status i {
+  .detail-myorder-container .detail-myorder-modal .pending i {
     font-size: 22px;
     color: rgba(119, 119, 58, 0.959);
   }
-  .detail-myorder-container .detail-myorder-modal .pending-status p {
+  .detail-myorder-container .detail-myorder-modal .pending p {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .detail-myorder-container .detail-myorder-modal .approved {
+    margin-top: 30px;
+    width: 100%;
+    padding: 20px 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid rgba(32, 221, 15, 0.644);
+    display: flex;
+    align-items: center;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+    background: rgba(116, 240, 34, 0.151);
+  }
+  .detail-myorder-container .detail-myorder-modal .approved i {
+    font-size: 22px;
+    color: rgba(58, 119, 58, 0.959);
+  }
+  .detail-myorder-container .detail-myorder-modal .approved p {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .detail-myorder-container .detail-myorder-modal .rejected {
+    margin-top: 30px;
+    width: 100%;
+    padding: 20px 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid rgba(221, 15, 15, 0.644);
+    display: flex;
+    align-items: center;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+    background: rgba(240, 34, 34, 0.151);
+  }
+  .detail-myorder-container .detail-myorder-modal .rejected i {
+    font-size: 22px;
+    color: rgba(119, 58, 58, 0.959);
+  }
+  .detail-myorder-container .detail-myorder-modal .rejected p {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .detail-myorder-container .detail-myorder-modal .refunded {
+    margin-top: 30px;
+    width: 100%;
+    padding: 20px 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid rgba(121, 15, 221, 0.644);
+    display: flex;
+    align-items: center;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+    background: rgba(113, 34, 240, 0.151);
+  }
+  .detail-myorder-container .detail-myorder-modal .refunded i {
+    font-size: 22px;
+    color: rgba(79, 58, 119, 0.959);
+  }
+  .detail-myorder-container .detail-myorder-modal .refunded p {
     font-size: 1rem;
     font-weight: 500;
   }

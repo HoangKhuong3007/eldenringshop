@@ -11,6 +11,7 @@ import {
 import { setOrderInfo } from "../../../redux/slices/order/order";
 // import service
 import * as OrderService from "../../../service/order/order";
+import { ClipLoader } from "react-spinners";
 export const MyOrderList = () => {
   // dispatch
   const dispatch = useDispatch();
@@ -70,40 +71,62 @@ export const MyOrderList = () => {
 
   return (
     <div className="customer-order-list">
-      {orderList?.map((order) => (
-        <div
-          key={order.order.orderId}
-          className="order-item"
-          onClick={() => handleToggleMyOrderDetailModalOn(order)}
-        >
-          <div className="item1">
-            <div className="time">
-              <i className="bx bx-time"></i>
-              <div>
-                <p>{order.order.status}</p>
-                <strong>{formatDate(order.order.createdDate)}</strong>
-              </div>
-            </div>
-            <i className="bx bx-chevron-right"></i>
+      {isLoadingPage ? (
+        <>
+          <div className="loading">
+            <ClipLoader color="#000000" size={40} />
           </div>
-          <div className="item2">
-            <div className="item">
-              <i className="bx bxl-paypal"></i>
-              <div>
-                <p>Payment ID</p>
-                <strong>{order.order.paymentId}</strong>
-              </div>
-            </div>
-            <div className="item">
-              <i className="bx bx-dollar-circle"></i>
-              <div>
-                <p>Invoice Amount</p>
-                <strong>{formatPrice(order.order.total)}</strong>
-              </div>
-            </div>
+        </>
+      ) : isServerError ? (
+        <>
+          <div className="server-error">
+            <p>Server is error now, please press F5 to reload again.</p>
           </div>
-        </div>
-      ))}
+        </>
+      ) : isEmptyList ? (
+        <>
+          <div className="empty-list">
+            <p>Your order list is empty</p>
+          </div>
+        </>
+      ) : (
+        <>
+          {orderList?.map((order) => (
+            <div
+              key={order.order.orderId}
+              className="order-item"
+              onClick={() => handleToggleMyOrderDetailModalOn(order)}
+            >
+              <div className="item1">
+                <div className="time">
+                  <i className="bx bx-time"></i>
+                  <div>
+                    <p>{order.order.status}</p>
+                    <strong>{formatDate(order.order.createdDate)}</strong>
+                  </div>
+                </div>
+                <i className="bx bx-chevron-right"></i>
+              </div>
+              <div className="item2">
+                <div className="item">
+                  <i className="bx bxl-paypal"></i>
+                  <div>
+                    <p>Payment ID</p>
+                    <strong>{order.order.paymentId}</strong>
+                  </div>
+                </div>
+                <div className="item">
+                  <i className="bx bx-dollar-circle"></i>
+                  <div>
+                    <p>Invoice Amount</p>
+                    <strong>{formatPrice(order.order.total)}</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </>
+      )}
     </div>
   );
 };

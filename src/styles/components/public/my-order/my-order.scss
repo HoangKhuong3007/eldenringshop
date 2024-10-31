@@ -7,6 +7,34 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
 
+        .loading {
+            grid-column: 1 / span 2;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .server-error {
+            grid-column: 1 / span 2;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .empty-list {
+            grid-column: 1 / span 2;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
         .order-item {
             cursor: pointer;
             display: flex;

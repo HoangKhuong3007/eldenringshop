@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { useQuery } from "@tanstack/react-query";
 // import styles
 import "../../../styles/components/private/order/order.css";
 // import slices
@@ -7,9 +8,25 @@ import {
   toggleAnimateOrderModalOn,
   togglePreviewOrderModalOn,
 } from "../../../redux/slices/modal/modal";
+// import service
+import * as OrderService from "../../../service/order/order";
 export const OrderList = () => {
   // dispatch
   const dispatch = useDispatch();
+  // state
+  const [isServerError, setIsServerError] = useState(false);
+  const [isLoadingPage, setIsLoadingPage] = useState(false);
+  const [isEmptyList, setIsEmptyList] = useState(false);
+  // query
+  const {
+    data: orderList = [],
+    isError,
+    isLoading,
+    isFetching,
+  } = useQuery({
+    queryKey: ["allOrders"],
+    queryFn: OrderService.getAllOrder,
+  });
   // handle func
   const handleToggleOrderDetailModalOn = () => {
     dispatch(togglePreviewOrderModalOn());
@@ -17,6 +34,23 @@ export const OrderList = () => {
       dispatch(toggleAnimateOrderModalOn());
     }, 1);
   };
+  useEffect(() => {
+    if (isLoading || isFetching) {
+      setIsLoadingPage(true);
+    } else {
+      setIsLoadingPage(false);
+    }
+    if (isError) {
+      setIsServerError(true);
+    } else {
+      setIsServerError(false);
+    }
+    if (orderList?.length === 0) {
+      setIsEmptyList(true);
+    } else {
+      setIsEmptyList(false);
+    }
+  }, [isLoading, isFetching]);
   return (
     <div className="order-list-container">
       <div className="utils">

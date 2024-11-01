@@ -38,8 +38,26 @@ export const CheckoutPage = () => {
     onMutate: () => {
       setIsLoadingPage(true);
     },
-    onSuccess: () => {
-      setIsLoadingPage(false);
+    onSuccess: (response) => {
+      if (response?.code === "PRODUCT_VARIANT_NOT_ENOUGH_STOCK") {
+        toast.error(
+          "This size is out of stock for now, please choose another item.",
+          {
+            position: "top-center",
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            style: { width: "400px" },
+          }
+        );
+        setIsLoadingPage(false);
+      } else {
+        setIsLoadingPage(false);
+      }
     },
   });
   // handle func

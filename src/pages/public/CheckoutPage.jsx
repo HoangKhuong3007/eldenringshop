@@ -75,7 +75,20 @@ export const CheckoutPage = () => {
         theme: "light",
         style: { width: "400px" },
       });
-      console.log(submitData);
+      return;
+    }
+    if (submitData.phone.length > 10) {
+      toast.error("Phone number too long, please input valid phone number", {
+        position: "top-center",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        style: { width: "400px" },
+      });
       return;
     }
     try {

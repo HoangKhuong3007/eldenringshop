@@ -13,7 +13,6 @@ import * as ProductService from "../../../service/product/product";
 import * as CategoryService from "../../../service/category/category";
 import {
   toggleAddProductModal,
-  toggleDelProductModal,
   toggleUpdateProductModal,
 } from "../../../redux/slices/modal/modal";
 import { ClipLoader } from "react-spinners";
@@ -58,10 +57,6 @@ export const ProductList = () => {
   const handleToggleUpdateProductModal = (productId) => {
     dispatch(setProductId(productId));
     dispatch(toggleUpdateProductModal());
-  };
-  const handleToggleDelProductModal = (productId) => {
-    dispatch(setProductId(productId));
-    dispatch(toggleDelProductModal());
   };
   useEffect(() => {
     if (isLoading || isFetching) {

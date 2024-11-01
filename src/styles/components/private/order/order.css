@@ -31,6 +31,33 @@ a {
     flex-direction: column;
     padding: 30px 40px;
   }
+  .order-list-container .loading {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .order-list-container .server-error {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: "Afacad Flux", sans-serif;
+  }
+  .order-list-container .empty-list {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: "Afacad Flux", sans-serif;
+  }
   .order-list-container .utils {
     display: flex;
     -moz-column-gap: 20px;
@@ -154,33 +181,61 @@ a {
     grid-column: 11/span 1;
     text-align: center;
   }
-  .order-list-container .order-table tbody tr .pending-order {
+  .order-list-container .order-table tbody tr .pending {
     display: flex;
     align-items: center;
     justify-content: center;
     -moz-column-gap: 7px;
          column-gap: 7px;
   }
-  .order-list-container .order-table tbody tr .pending-order i {
+  .order-list-container .order-table tbody tr .pending i {
     font-size: 10px;
     color: rgb(161, 163, 18);
   }
-  .order-list-container .order-table tbody tr .pending-order p {
+  .order-list-container .order-table tbody tr .pending p {
     color: rgb(161, 163, 18);
   }
-  .order-list-container .order-table tbody tr .success-order {
+  .order-list-container .order-table tbody tr .approved {
     display: flex;
     align-items: center;
     justify-content: center;
     -moz-column-gap: 7px;
          column-gap: 7px;
   }
-  .order-list-container .order-table tbody tr .success-order i {
+  .order-list-container .order-table tbody tr .approved i {
     font-size: 10px;
     color: rgb(30, 163, 18);
   }
-  .order-list-container .order-table tbody tr .success-order p {
+  .order-list-container .order-table tbody tr .approved p {
     color: rgb(30, 163, 18);
+  }
+  .order-list-container .order-table tbody tr .rejected {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -moz-column-gap: 7px;
+         column-gap: 7px;
+  }
+  .order-list-container .order-table tbody tr .rejected i {
+    font-size: 10px;
+    color: rgb(163, 18, 18);
+  }
+  .order-list-container .order-table tbody tr .rejected p {
+    color: rgb(163, 18, 18);
+  }
+  .order-list-container .order-table tbody tr .refunded {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -moz-column-gap: 7px;
+         column-gap: 7px;
+  }
+  .order-list-container .order-table tbody tr .refunded i {
+    font-size: 10px;
+    color: rgb(40, 18, 163);
+  }
+  .order-list-container .order-table tbody tr .refunded p {
+    color: rgb(40, 18, 163);
   }
   .order-list-container .order-table tbody tr td:nth-child(7) {
     grid-column: 12/span 2;

@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { useQuery } from "@tanstack/react-query";
 // import styles
 import "../../../styles/components/private/refund/refund.css";
 // import slices
@@ -7,9 +8,16 @@ import {
   toggleAnimateRefundModalOn,
   togglePreviewRefundModalOn,
 } from "../../../redux/slices/modal/modal";
+// import service
+import * as RefundService from "../../../service/refund/refund";
 export const RefundList = () => {
   // dispatch
   const dispatch = useDispatch();
+  // query
+  const queyr = useQuery({
+    queryKey: ["all-refunds"],
+    queryFn: RefundService.getAllRefund,
+  });
   // handle func
   const handleToggleRefundDetailModalOn = () => {
     dispatch(togglePreviewRefundModalOn());

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
@@ -35,7 +35,10 @@ export const CancelOrderModal = () => {
         progress: undefined,
         theme: "light",
       });
-      setIsPreventSubmit(false);
+      setTimeout(() => {
+        setIsPreventSubmit(false);
+        location.reload();
+      }, 1500);
     },
   });
   //   handle func
@@ -75,10 +78,15 @@ export const CancelOrderModal = () => {
           you cancel this.
         </span>
         <div className="button">
-          <button onClick={handleToggleCancelOrderModal}>
+          <button
+            disabled={isPreventSubmit}
+            onClick={handleToggleCancelOrderModal}
+          >
             No, Don't cancel.
           </button>
-          <button onClick={handleCancelOrder}>Yes, Cancel!</button>
+          <button disabled={isPreventSubmit} onClick={handleCancelOrder}>
+            Yes, Cancel!
+          </button>
         </div>
       </div>
     </div>

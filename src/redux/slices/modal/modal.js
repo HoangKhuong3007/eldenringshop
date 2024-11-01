@@ -215,6 +215,17 @@ const animateMyOrderModalSlice = createSlice({
     },
   },
 });
+const refundRequestSlice = createSlice({
+  name: "refundRequestModal",
+  initialState: {
+    isToggleModal: false,
+  },
+  reducers: {
+    toggleRefundRequestModal: (state) => {
+      state.isToggleModal = !state.isToggleModal;
+    },
+  },
+});
 // export actions
 export const { toggleAddProductModal } = AddProductSlice.actions;
 export const { toggleUpdateProductModal } = UpdateProductSlice.actions;
@@ -222,6 +233,7 @@ export const { toggleDelProductModal } = DelProductSlice.actions;
 export const { toggleAddAccountModal } = AddAccountSlice.actions;
 export const { toggleBlockAccountModal } = blockAccountSlice.actions;
 export const { toggleCancelOrderModal } = cancelOrderSlice.actions;
+export const { toggleRefundRequestModal } = refundRequestSlice.actions;
 export const { togglePreviewBlogModalOn, togglePreviewBlogModalOff } =
   previewBlogSlice.actions;
 export const { toggleAnimateBlogModalOn, toggleAnimateBlogModalOff } =
@@ -260,5 +272,6 @@ const modalReducers = combineReducers({
   previewRefundModal: previewRefundSlice.reducer,
   animateRefundModal: animateRefundModalSlice.reducer,
   cancelOrderModal: cancelOrderSlice.reducer,
+  refundRequestModal: refundRequestSlice.reducer,
 });
 export default modalReducers;

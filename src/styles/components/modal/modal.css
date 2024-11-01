@@ -1373,7 +1373,7 @@ a {
     font-size: 26px;
     cursor: pointer;
   }
-  .detail-order-container .detail-order-modal .pending-status {
+  .detail-order-container .detail-order-modal .pending {
     margin-top: 30px;
     width: 100%;
     padding: 20px 30px;
@@ -1385,11 +1385,71 @@ a {
          column-gap: 15px;
     background: rgba(240, 240, 34, 0.151);
   }
-  .detail-order-container .detail-order-modal .pending-status i {
+  .detail-order-container .detail-order-modal .pending i {
     font-size: 22px;
     color: rgba(119, 119, 58, 0.959);
   }
-  .detail-order-container .detail-order-modal .pending-status p {
+  .detail-order-container .detail-order-modal .pending p {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .detail-order-container .detail-order-modal .approved {
+    margin-top: 30px;
+    width: 100%;
+    padding: 20px 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid rgba(32, 221, 15, 0.644);
+    display: flex;
+    align-items: center;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+    background: rgba(116, 240, 34, 0.151);
+  }
+  .detail-order-container .detail-order-modal .approved i {
+    font-size: 22px;
+    color: rgba(58, 119, 58, 0.959);
+  }
+  .detail-order-container .detail-order-modal .approved p {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .detail-order-container .detail-order-modal .rejected {
+    margin-top: 30px;
+    width: 100%;
+    padding: 20px 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid rgba(221, 15, 15, 0.644);
+    display: flex;
+    align-items: center;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+    background: rgba(240, 34, 34, 0.151);
+  }
+  .detail-order-container .detail-order-modal .rejected i {
+    font-size: 22px;
+    color: rgba(119, 58, 58, 0.959);
+  }
+  .detail-order-container .detail-order-modal .rejected p {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .detail-order-container .detail-order-modal .refunded {
+    margin-top: 30px;
+    width: 100%;
+    padding: 20px 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid rgba(121, 15, 221, 0.644);
+    display: flex;
+    align-items: center;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+    background: rgba(113, 34, 240, 0.151);
+  }
+  .detail-order-container .detail-order-modal .refunded i {
+    font-size: 22px;
+    color: rgba(79, 58, 119, 0.959);
+  }
+  .detail-order-container .detail-order-modal .refunded p {
     font-size: 1rem;
     font-weight: 500;
   }
@@ -1511,6 +1571,18 @@ a {
     justify-content: space-between;
     -moz-column-gap: 20px;
          column-gap: 20px;
+  }
+  .detail-order-container .detail-order-modal .buttons .marked-success {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background: rgba(116, 240, 34, 0.151);
+    color: rgba(58, 119, 58, 0.959);
+    cursor: not-allowed;
+  }
+  .detail-order-container .detail-order-modal .buttons .marked-reject {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background: rgba(240, 34, 34, 0.151);
+    color: rgba(119, 58, 58, 0.959);
+    cursor: not-allowed;
   }
   .detail-order-container .detail-order-modal .buttons button {
     width: 50%;

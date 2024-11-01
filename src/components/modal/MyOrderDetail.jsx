@@ -9,12 +9,6 @@ import {
 } from "../../redux/slices/modal/modal";
 // import slices
 export const MyOrderDetail = () => {
-  const orderStatusClassname = {
-    pending: "pending",
-    approved: "approved",
-    rejected: "rejected",
-    refunded: "refunded",
-  };
   // selector
   const isToggleMyOrderDetailModal = useSelector(
     (state) => state.modal.previewMyOrderModal.isToggleModal
@@ -34,20 +28,6 @@ export const MyOrderDetail = () => {
   };
   const handleToggleCancelOrderModal = () => {
     dispatch(toggleCancelOrderModal());
-  };
-  const handleSetClassname = (status) => {
-    if (status === "PENDING") {
-      return orderStatusClassname.pending;
-    }
-    if (status === "APPROVED") {
-      return orderStatusClassname.approved;
-    }
-    if (status === "REJECTED") {
-      return orderStatusClassname.rejected;
-    }
-    if (status === "REFUNDED") {
-      return orderStatusClassname.refunded;
-    }
   };
   const formatDate = (dateString) => {
     const options = {
@@ -102,7 +82,7 @@ export const MyOrderDetail = () => {
           ></i>
         </div>
         {orderInfo?.order?.status === "PENDING" && (
-          <div className={handleSetClassname(orderInfo?.order?.status)}>
+          <div className="pending">
             <i className="bx bx-loader"></i>
             <p>
               Invoice is wating for admin confirm, you had paid on{" "}
@@ -111,7 +91,7 @@ export const MyOrderDetail = () => {
           </div>
         )}
         {orderInfo?.order?.status === "APPROVED" && (
-          <div className={handleSetClassname(orderInfo?.order?.status)}>
+          <div className="approved">
             <i className="bx bx-check"></i>
             <p>
               Your order had been approved, we will deliver as quickly as
@@ -120,7 +100,7 @@ export const MyOrderDetail = () => {
           </div>
         )}
         {orderInfo?.order?.status === "REJECTED" && (
-          <div className={handleSetClassname(orderInfo?.order?.status)}>
+          <div className="rejected">
             <i className="bx bx-x"></i>
             <p>
               Your order is cancelled, if you have any questions please contact
@@ -129,7 +109,7 @@ export const MyOrderDetail = () => {
           </div>
         )}
         {orderInfo?.order?.status === "REFUNDED" && (
-          <div className={handleSetClassname(orderInfo?.order?.status)}>
+          <div className="refunded">
             <i className="bx bx-sync"></i>
             <p>
               Your refund request has been approved, we will process the refund
@@ -215,21 +195,23 @@ export const MyOrderDetail = () => {
           </div>
         </div>
         <div className="buttons">
-          {orderInfo?.order?.status === "REJECTED" ? (
-            <>
-              <div className="rejected-messege">
-                <strong>
-                  Important: this order status now is "REJECTED", we are going
-                  to refund within 1 day
-                </strong>
-              </div>
-            </>
-          ) : (
-            <>
-              <button onClick={handleToggleCancelOrderModal}>
-                I want to cancel order
-              </button>
-            </>
+          {orderInfo?.order?.status === "REJECTED" && (
+            <div className="rejected-messege">
+              <strong>
+                Important: this order status now is "REJECTED", we are going to
+                refund within 1 day
+              </strong>
+            </div>
+          )}
+          {orderInfo?.order?.status === "PENDING" && (
+            <button onClick={handleToggleCancelOrderModal}>
+              I want to cancel order
+            </button>
+          )}
+          {orderInfo?.order?.status === "APPROVED" && (
+            <button onClick={handleToggleCancelOrderModal}>
+              I want to refund
+            </button>
           )}
         </div>
       </div>

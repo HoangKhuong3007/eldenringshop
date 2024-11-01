@@ -95,7 +95,18 @@ a {
   .customer-order-list .order-item .item1 .time div p {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #4957C0;
+  }
+  .customer-order-list .order-item .item1 .time div .pending {
+    color: rgba(201, 201, 36, 0.801);
+  }
+  .customer-order-list .order-item .item1 .time div .success {
+    color: rgba(52, 185, 19, 0.801);
+  }
+  .customer-order-list .order-item .item1 .time div .reject {
+    color: rgba(238, 31, 31, 0.801);
+  }
+  .customer-order-list .order-item .item1 .time div .refund {
+    color: rgba(186, 74, 230, 0.801);
   }
   .customer-order-list .order-item .item1 .time div strong {
     font-size: 0.85rem;

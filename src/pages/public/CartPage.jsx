@@ -48,20 +48,37 @@ export const CartPage = () => {
     mutationKey: ["updateQuantity"],
     mutationFn: ({ cartId, cartItemId, quantity }) =>
       CartService.updateQuantityItem(cartId, cartItemId, quantity),
-    onSuccess: () => {
-      toast.success("Quantity updated", {
-        position: "top-center",
-        autoClose: 1500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        style: { width: "400px" },
-      });
-      queryClient.invalidateQueries(["my-cart"]);
-      queryClient.refetchQueries(["my-cart"]);
+    onSuccess: (response) => {
+      if (response?.code === "QUANTITY_EXCEEDS_STOCK") {
+        toast.error(
+          "Sorry you can't add to cart because this size is out of stock",
+          {
+            position: "top-center",
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            style: { width: "400px" },
+          }
+        );
+      } else {
+        toast.success("Quantity updated", {
+          position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          style: { width: "400px" },
+        });
+        queryClient.invalidateQueries(["my-cart"]);
+        queryClient.refetchQueries(["my-cart"]);
+      }
     },
   });
   // handle func

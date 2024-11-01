@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import styles
 import "../../styles/components/modal/modal.css";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleBlockAccountModal } from "../../redux/slices/modal/modal";
+import { toggleUnblockAccountModal } from "../../redux/slices/modal/modal";
 // import service
 import * as AccountService from "../../service/account/account";
-export const BlockAccountModal = () => {
+export const UnblockAccountModal = () => {
   // selector
   const accountInfo = useSelector(
     (state) => state.account.accountInfo.accountInfo
@@ -17,16 +17,21 @@ export const BlockAccountModal = () => {
   const dispatch = useDispatch();
   // state
   const [isPreventSubmit, setIsPreventSubmit] = useState(false);
+  const [submitData, setSubmitData] = useState({
+    status: true,
+  });
   // mutation
   const queryClient = useQueryClient();
   const mutation = useMutation({
-    mutationKey: ["block-account"],
-    mutationFn: AccountService.blockAccount,
+    mutationKey: ["unblock-account"],
+    mutationFn: (updateData) => {
+      AccountService.unblockAccount(accountInfo?.userId, updateData);
+    },
     onMutate: () => {
       setIsPreventSubmit(true);
     },
     onSuccess: () => {
-      toast.success("Block account successful", {
+      toast.success("Unblock account successful", {
         position: "top-right",
         autoClose: 1500,
         hideProgressBar: false,
@@ -45,10 +50,10 @@ export const BlockAccountModal = () => {
     },
   });
   //   handle func
-  const handleToggleBlockAccountModal = () => {
-    dispatch(toggleBlockAccountModal());
+  const handleToggleUnblockAccountModal = () => {
+    dispatch(toggleUnblockAccountModal());
   };
-  const handleBlockAccount = async () => {
+  const handleUnblockAccount = async () => {
     if (isPreventSubmit) {
       toast.error("On processing, try again!", {
         position: "top-right",
@@ -64,7 +69,7 @@ export const BlockAccountModal = () => {
       return;
     }
     try {
-      await mutation.mutateAsync(accountInfo?.userId);
+      await mutation.mutateAsync(submitData);
     } catch (error) {
       console.log(error);
     }
@@ -74,13 +79,15 @@ export const BlockAccountModal = () => {
       <ToastContainer />
       <div className="block-account-modal">
         <i className="bx bxs-error"></i>
-        <strong>Block Account</strong>
-        <p>You're going to block user {accountInfo?.fullName}. Are you sure?</p>
+        <strong>Unblock Account</strong>
+        <p>
+          You're going to unblock user {accountInfo?.fullName}. Are you sure?
+        </p>
         <div className="button">
-          <button onClick={handleToggleBlockAccountModal}>
-            No, Don't block.
+          <button onClick={handleToggleUnblockAccountModal}>
+            No, Stay it.
           </button>
-          <button onClick={handleBlockAccount}>Yes, Block!</button>
+          <button onClick={handleUnblockAccount}>Yes, Unblock!</button>
         </div>
       </div>
     </div>

@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 // import styles
 import "../../../styles/components/private/account/account.css";
@@ -7,7 +6,9 @@ import { useDispatch } from "react-redux";
 import {
   toggleAddAccountModal,
   toggleBlockAccountModal,
+  toggleUnblockAccountModal,
 } from "../../../redux/slices/modal/modal";
+import { setAccountInfo } from "../../../redux/slices/account/account";
 // import service
 import * as AccountService from "../../../service/account/account";
 import { ClipLoader } from "react-spinners";
@@ -38,8 +39,13 @@ export const AccountList = () => {
   const handleToggleAddAccountModal = () => {
     dispatch(toggleAddAccountModal());
   };
-  const handleToggleBlockAccountModal = () => {
+  const handleToggleBlockAccountModal = (accountInfo) => {
+    dispatch(setAccountInfo(accountInfo));
     dispatch(toggleBlockAccountModal());
+  };
+  const handleToggleUnblockAccountModal = (accountInfo) => {
+    dispatch(setAccountInfo(accountInfo));
+    dispatch(toggleUnblockAccountModal());
   };
   useEffect(() => {
     if (isLoading || isFetching) {
@@ -74,26 +80,6 @@ export const AccountList = () => {
           </div>
         </div>
         <div className="section-2">
-          <div className="categories">
-            <NavLink
-              className={({ isActive }) => (isActive ? "active" : "")}
-              to="/dashboard/account"
-            >
-              View all
-            </NavLink>
-            <NavLink
-              className={({ isActive }) => (isActive ? "active" : "")}
-              to="/dashboard/account/role/manager"
-            >
-              Managers
-            </NavLink>
-            <NavLink
-              className={({ isActive }) => (isActive ? "active" : "")}
-              to="/dashboard/account/role/customer"
-            >
-              Customers
-            </NavLink>
-          </div>
           <div className="filter">
             <div className="search">
               <i className="bx bx-search"></i>
@@ -158,16 +144,48 @@ export const AccountList = () => {
                   </td>
                   <td>{account.phone || "null"}</td>
                   <td>{account.address || "null"}</td>
-                  <td className="active-account">
-                    <i className="bx bxs-circle"></i>
-                    <p>Active</p>
-                  </td>
-                  <td>
-                    <i
-                      className="bx bx-block"
-                      onClick={handleToggleBlockAccountModal}
-                    ></i>
-                  </td>
+                  {account.status ? (
+                    <>
+                      <td className="active-account">
+                        <i className="bx bxs-circle"></i>
+                        <p>Active</p>
+                      </td>
+                    </>
+                  ) : (
+                    <>
+                      <td className="inactive-account">
+                        <i className="bx bxs-circle"></i>
+                        <p>Inactive</p>
+                      </td>
+                    </>
+                  )}
+                  {account.status ? (
+                    <>
+                      <td>
+                        {account.role === "CUSTOMER" && (
+                          <i
+                            className="bx bx-block"
+                            onClick={() =>
+                              handleToggleBlockAccountModal(account)
+                            }
+                          ></i>
+                        )}
+                      </td>
+                    </>
+                  ) : (
+                    <>
+                      <td>
+                        {account.role === "CUSTOMER" && (
+                          <i
+                            className="bx bx-lock-open-alt"
+                            onClick={() =>
+                              handleToggleUnblockAccountModal(account)
+                            }
+                          ></i>
+                        )}
+                      </td>
+                    </>
+                  )}
                 </tr>
               ))}
             </>

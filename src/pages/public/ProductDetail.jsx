@@ -41,21 +41,38 @@ export const ProductDetail = () => {
     mutationKey: ["add-to-cart"],
     mutationFn: ({ cartId, productId, data }) =>
       CartService.addToCart(cartId, productId, data),
-    onSuccess: () => {
-      queryClient.invalidateQueries(["my-cart"]);
-      queryClient.invalidateQueries(["productInfo"]);
-      queryClient.refetchQueries(["my-cart"]);
-      toast.success("Added to your cart", {
-        position: "top-center",
-        autoClose: 1500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        style: { width: "400px" },
-      });
+    onSuccess: (response) => {
+      if (response?.code === "QUANTITY_EXCEEDS_STOCK") {
+        toast.error(
+          "Sorry you can't add to cart because this size is out of stock",
+          {
+            position: "top-center",
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            style: { width: "400px" },
+          }
+        );
+      } else {
+        queryClient.invalidateQueries(["my-cart"]);
+        queryClient.invalidateQueries(["productInfo"]);
+        queryClient.refetchQueries(["my-cart"]);
+        toast.success("Added to your cart", {
+          position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          style: { width: "400px" },
+        });
+      }
     },
   });
   // handle func

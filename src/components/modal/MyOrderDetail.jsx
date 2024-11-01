@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 // import styles
 import "../../styles/components/modal/modal.css";
@@ -6,6 +5,7 @@ import {
   toggleAnimateMyOrderModalOff,
   toggleCancelOrderModal,
   togglePreviewMyOrderModalOff,
+  toggleRefundRequestModal,
 } from "../../redux/slices/modal/modal";
 // import slices
 export const MyOrderDetail = () => {
@@ -28,6 +28,9 @@ export const MyOrderDetail = () => {
   };
   const handleToggleCancelOrderModal = () => {
     dispatch(toggleCancelOrderModal());
+  };
+  const handleToggleRefundRequestModal = () => {
+    dispatch(toggleRefundRequestModal());
   };
   const formatDate = (dateString) => {
     const options = {
@@ -209,9 +212,32 @@ export const MyOrderDetail = () => {
             </button>
           )}
           {orderInfo?.order?.status === "APPROVED" && (
-            <button onClick={handleToggleCancelOrderModal}>
-              I want to refund
-            </button>
+            <>
+              <div className="note">
+                <strong className="refund-text">
+                  If you had requested a refund, here is some infomation:
+                </strong>
+                <p className="refund-text-item">
+                  1. We will handle your refund request within 2-3 days
+                </p>
+                <p className="refund-text-item">
+                  2. If your request is approved, we will refund to your PAYPAL
+                  account within 1 day.
+                </p>
+                <p className="refund-text-item">
+                  3. But if your request is rejected, your order status still
+                  'APPROVED', we will send to your email the reason of
+                  rejection.
+                </p>
+                <strong className="contact">
+                  If you have any questions, please contact email:
+                  eldenring@gmail.com. We will resolve it as soon as possible
+                </strong>
+                <button onClick={handleToggleRefundRequestModal}>
+                  I want to refund
+                </button>
+              </div>
+            </>
           )}
         </div>
       </div>

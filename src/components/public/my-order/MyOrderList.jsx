@@ -101,7 +101,18 @@ export const MyOrderList = () => {
                 <div className="time">
                   <i className="bx bx-time"></i>
                   <div>
-                    <p>{order.order.status}</p>
+                    {order.order.status === "PENDING" && (
+                      <p className="pending">Pending</p>
+                    )}
+                    {order.order.status === "APPROVED" && (
+                      <p className="success">Approved</p>
+                    )}
+                    {order.order.status === "REJECTED" && (
+                      <p className="reject">Rejected</p>
+                    )}
+                    {order.order.status === "REFUNDED" && (
+                      <p className="refund">Refunded</p>
+                    )}
                     <strong>{formatDate(order.order.createdDate)}</strong>
                   </div>
                 </div>

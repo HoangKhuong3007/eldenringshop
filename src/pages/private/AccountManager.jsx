@@ -7,6 +7,7 @@ import { Dashnav } from "../../components/navbar/Dashnav";
 import { AccountList } from "../../components/private/account/AccountList";
 import { AddAccountModal } from "../../components/modal/AddAccountModal";
 import { BlockAccountModal } from "../../components/modal/BlockAccountModal";
+import { UnblockAccountModal } from "../../components/modal/UnblockAccountModal";
 export const AccountManager = () => {
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -17,8 +18,12 @@ export const AccountManager = () => {
   const isToggleBlockAccountModal = useSelector(
     (state) => state.modal.blockAccountModal.isToggleModal
   );
+  const isToggleUnblockAccountModal = useSelector(
+    (state) => state.modal.unblockAccountModal.isToggleModal
+  );
   return (
     <div className="account-manager-container">
+      {isToggleUnblockAccountModal && <UnblockAccountModal />}
       {isToggleAddAccountModal && <AddAccountModal />}
       {isToggleBlockAccountModal && <BlockAccountModal />}
       <Dashnav />

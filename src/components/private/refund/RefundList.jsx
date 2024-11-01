@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import { useQuery } from "@tanstack/react-query";
 // import styles
@@ -8,22 +7,58 @@ import {
   toggleAnimateRefundModalOn,
   togglePreviewRefundModalOn,
 } from "../../../redux/slices/modal/modal";
+import { setRefundInfo } from "../../../redux/slices/refund/refund";
 // import service
 import * as RefundService from "../../../service/refund/refund";
+import { useEffect, useState } from "react";
+import { ClipLoader } from "react-spinners";
 export const RefundList = () => {
   // dispatch
   const dispatch = useDispatch();
+  // state
+  const [isServerError, setIsServerError] = useState(false);
+  const [isLoadingPage, setIsLoadingPage] = useState(false);
+  const [isEmptyList, setIsEmptyList] = useState(false);
   // query
-  const queyr = useQuery({
+  const {
+    data: refundList = [],
+    isLoading,
+    isFetching,
+    isError,
+  } = useQuery({
     queryKey: ["all-refunds"],
     queryFn: RefundService.getAllRefund,
   });
   // handle func
-  const handleToggleRefundDetailModalOn = () => {
+  const handleToggleRefundDetailModalOn = (refundInfo) => {
+    dispatch(setRefundInfo(refundInfo));
     dispatch(togglePreviewRefundModalOn());
     setTimeout(() => {
       dispatch(toggleAnimateRefundModalOn());
     }, 1);
+  };
+  useEffect(() => {
+    if (isLoading || isFetching) {
+      setIsLoadingPage(true);
+    } else {
+      setIsLoadingPage(false);
+    }
+    if (isError) {
+      setIsServerError(true);
+    } else {
+      setIsServerError(false);
+    }
+    if (refundList?.length === 0) {
+      setIsEmptyList(true);
+    } else {
+      setIsEmptyList(false);
+    }
+  }, [isLoading, isFetching, isError]);
+  const countApprovedRefund = () => {
+    return refundList.filter((refund) => refund?.status === "APPROVED").length;
+  };
+  const countPendingRefund = () => {
+    return refundList.filter((refund) => refund?.status === "PENDING").length;
   };
   return (
     <div className="refund-list-container">
@@ -34,8 +69,8 @@ export const RefundList = () => {
               <p>Total invoice refunded</p>
               <i className="bx bx-x-circle"></i>
             </div>
-            <strong>4 invoices</strong>
-            <small>from 10 invoices</small>
+            <strong>{countApprovedRefund()} invoices</strong>
+            <small>from {refundList?.length} requests</small>
           </div>
         </div>
         <div className="item-container">
@@ -44,7 +79,7 @@ export const RefundList = () => {
               <p>Wating request</p>
               <i className="bx bx-error-alt"></i>
             </div>
-            <strong>5 Invoices</strong>
+            <strong>{countPendingRefund()} Invoices</strong>
             <small>wating for confirm</small>
           </div>
         </div>
@@ -52,7 +87,7 @@ export const RefundList = () => {
       <table className="refund-table">
         <thead>
           <tr>
-            <th>ID</th>
+            <th>Order ID</th>
             <th>Image</th>
             <th>Reason</th>
             <th>Status</th>
@@ -60,34 +95,61 @@ export const RefundList = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>PAYID-a4habb8akjqwa</td>
-            <td>
-              <img src="" alt="" />
-            </td>
-            <td>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
-            </td>
-            <td className="pending-refund">
-              <i className="bx bxs-circle"></i>
-              <p>Pending</p>
-            </td>
-            <td>
-              <i
-                className="bx bx-info-circle"
-                onClick={handleToggleRefundDetailModalOn}
-              ></i>
-            </td>
-          </tr>
+          {isLoadingPage ? (
+            <>
+              <div className="loading">
+                <ClipLoader color="#000000" size={40} />
+              </div>
+            </>
+          ) : isServerError ? (
+            <>
+              <div className="server-error">
+                <p>Server is error now, please press F5 to reload again.</p>
+              </div>
+            </>
+          ) : isEmptyList ? (
+            <>
+              <div className="empty-list">
+                <p>Your request list is empty</p>
+              </div>
+            </>
+          ) : (
+            <>
+              {refundList?.map((refund) => (
+                <tr key={refund.refundRequestId}>
+                  <td>{refund.orderId}</td>
+                  <td>
+                    <img src={refund.refundReasonImage} alt="" />
+                  </td>
+                  <td>{refund.refundReason}</td>
+                  {refund.status === "PENDING" && (
+                    <td className="pending">
+                      <i className="bx bxs-circle"></i>
+                      <p>Pending</p>
+                    </td>
+                  )}
+                  {refund.status === "APPROVED" && (
+                    <td className="success">
+                      <i className="bx bxs-circle"></i>
+                      <p>Approved</p>
+                    </td>
+                  )}
+                  {refund.status === "REJECTED" && (
+                    <td className="reject">
+                      <i className="bx bxs-circle"></i>
+                      <p>Rejected</p>
+                    </td>
+                  )}
+                  <td>
+                    <i
+                      className="bx bx-info-circle"
+                      onClick={() => handleToggleRefundDetailModalOn(refund)}
+                    ></i>
+                  </td>
+                </tr>
+              ))}
+            </>
+          )}
         </tbody>
       </table>
     </div>

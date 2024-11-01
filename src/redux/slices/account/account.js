@@ -18,12 +18,25 @@ const otpSlice = createSlice({
     },
   },
 });
+const accountInfoSlice = createSlice({
+  name: "accountInfo",
+  initialState: {
+    accountInfo: {},
+  },
+  reducers: {
+    setAccountInfo(state, action) {
+      state.accountInfo = action.payload;
+    },
+  },
+});
 export const { setEmail } = emailSlice.actions;
 export const { setOtp } = otpSlice.actions;
+export const { setAccountInfo } = accountInfoSlice.actions;
 
 const accountReducers = combineReducers({
   email: emailSlice.reducer,
   otp: otpSlice.reducer,
+  accountInfo: accountInfoSlice.reducer,
 });
 
 export default accountReducers;

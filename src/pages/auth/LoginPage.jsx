@@ -44,9 +44,20 @@ export const LoginPage = () => {
           theme: "light",
           style: { width: "400px" },
         });
-        setTimeout(() => {
-          setIsLoadingPage(false);
-        }, 1500);
+      }
+      if (response?.code === "USER_INACTIVE") {
+        toast.error("Your account is Blocked now, please contact to admin!", {
+          position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          style: { width: "400px" },
+        });
+        setIsLoadingPage(false);
       } else {
         toast.success("Login successful, redirect to homepage", {
           position: "top-center",
@@ -136,8 +147,22 @@ export const LoginPage = () => {
       setIsLoadingPage(true);
     },
     onSuccess: (response) => {
-      if (response && response.code === "EMAIL_EXISTED") {
+      if (response?.code === "EMAIL_EXISTED") {
         toast.error("Email existed, try another email", {
+          position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          style: { width: "400px" },
+        });
+        setIsLoadingPage(false);
+      }
+      if (response?.code === "USER_INACTIVE") {
+        toast.error("Your account is Blocked now, please contact to admin!", {
           position: "top-center",
           autoClose: 1500,
           hideProgressBar: false,

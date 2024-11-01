@@ -31,6 +31,33 @@ a {
     flex-direction: column;
     padding: 30px 40px;
   }
+  .refund-list-container .loading {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .refund-list-container .server-error {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: "Afacad Flux", sans-serif;
+  }
+  .refund-list-container .empty-list {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: "Afacad Flux", sans-serif;
+  }
   .refund-list-container .utils {
     display: flex;
     -moz-column-gap: 20px;
@@ -127,33 +154,47 @@ a {
     grid-column: 11/span 1;
     text-align: center;
   }
-  .refund-list-container .refund-table tbody tr .pending-refund {
+  .refund-list-container .refund-table tbody tr .pending {
     display: flex;
     align-items: center;
     justify-content: center;
     -moz-column-gap: 7px;
          column-gap: 7px;
   }
-  .refund-list-container .refund-table tbody tr .pending-refund i {
+  .refund-list-container .refund-table tbody tr .pending i {
     font-size: 10px;
     color: rgb(161, 163, 18);
   }
-  .refund-list-container .refund-table tbody tr .pending-refund p {
+  .refund-list-container .refund-table tbody tr .pending p {
     color: rgb(161, 163, 18);
   }
-  .refund-list-container .refund-table tbody tr .success-refund {
+  .refund-list-container .refund-table tbody tr .success {
     display: flex;
     align-items: center;
     justify-content: center;
     -moz-column-gap: 7px;
          column-gap: 7px;
   }
-  .refund-list-container .refund-table tbody tr .success-refund i {
+  .refund-list-container .refund-table tbody tr .success i {
     font-size: 10px;
     color: rgb(30, 163, 18);
   }
-  .refund-list-container .refund-table tbody tr .success-refund p {
+  .refund-list-container .refund-table tbody tr .success p {
     color: rgb(30, 163, 18);
+  }
+  .refund-list-container .refund-table tbody tr .reject {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -moz-column-gap: 7px;
+         column-gap: 7px;
+  }
+  .refund-list-container .refund-table tbody tr .reject i {
+    font-size: 10px;
+    color: rgb(163, 18, 18);
+  }
+  .refund-list-container .refund-table tbody tr .reject p {
+    color: rgb(163, 18, 18);
   }
   .refund-list-container .refund-table tbody tr td:nth-child(5) {
     grid-column: 12/span 2;

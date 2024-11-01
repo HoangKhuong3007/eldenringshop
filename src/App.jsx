@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "react-multi-carousel/lib/styles.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 // import styles
 import "./styles/public/homepage/homepage.css";
 // import components
@@ -24,6 +24,7 @@ import blog4 from "./assets/blog4.jpg";
 // import service
 import * as AccountService from "./service/account/account";
 import * as CartService from "./service/cart/cart";
+import * as ProductService from "./service/product/product";
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1536 },
@@ -45,6 +46,12 @@ const responsive = {
 export const App = () => {
   const token = localStorage.getItem("token");
   const user = JSON.parse(localStorage.getItem("user"));
+  // query
+  const { data: productList = [] } = useQuery({
+    queryKey: ["products"],
+    queryFn: ProductService.getAllShop,
+    refetchOnWindowFocus: false,
+  });
   // mutation
   const mutation = useMutation({
     mutationKey: ["authenticate"],
@@ -68,6 +75,12 @@ export const App = () => {
   useEffect(() => {
     handleAuth();
   }, []);
+  const formatPrice = (price) =>
+    new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 2,
+    }).format(price);
   return (
     <div className="homepage-container">
       <Navbar />
@@ -99,51 +112,17 @@ export const App = () => {
             containerClass="carousel-container"
             itemClass="carousel-item"
           >
-            <Link to="/shop" className="carousel-item">
-              <p>$40.00</p>
-              <LazyLoadImage src={product} alt="" effect="opacity" />
-              <strong>EldenRing Product</strong>
-            </Link>
-            <Link to="/shop" className="carousel-item">
-              <p>$40.00</p>
-              <LazyLoadImage src={product} alt="" effect="opacity" />
-
-              <strong>EldenRing Product</strong>
-            </Link>
-            <Link to="/shop" className="carousel-item">
-              <p>$40.00</p>
-              <LazyLoadImage src={product} alt="" effect="opacity" />
-
-              <strong>EldenRing Product</strong>
-            </Link>
-            <Link to="/shop" className="carousel-item">
-              <p>$40.00</p>
-              <LazyLoadImage src={product} alt="" effect="opacity" />
-              <strong>EldenRing Product</strong>
-            </Link>
-            <Link to="/shop" className="carousel-item">
-              <p>$40.00</p>
-              <LazyLoadImage src={product} alt="" effect="opacity" />
-              <strong>EldenRing Product</strong>
-            </Link>
-            <Link to="/shop" className="carousel-item">
-              <p>$40.00</p>
-              <LazyLoadImage src={product} alt="" effect="opacity" />
-
-              <strong>EldenRing Product</strong>
-            </Link>
-            <Link to="/shop" className="carousel-item">
-              <p>$40.00</p>
-              <LazyLoadImage src={product} alt="" effect="opacity" />
-
-              <strong>EldenRing Product</strong>
-            </Link>
-            <Link to="/shop" className="carousel-item">
-              <p>$40.00</p>
-              <LazyLoadImage src={product} alt="" effect="opacity" />
-
-              <strong>EldenRing Product</strong>
-            </Link>
+            {productList?.slice(0, 8)?.map((product) => (
+              <Link
+                key={product.productId}
+                to={`/productdetail/${product.productId}`}
+                className="carousel-item"
+              >
+                <p>{formatPrice(product.price)}</p>
+                <LazyLoadImage src={product.image} alt="" effect="opacity" />
+                <strong>{product.name}</strong>
+              </Link>
+            ))}
           </Carousel>
         </div>
         <div className="about">
@@ -160,10 +139,10 @@ export const App = () => {
           <div className="category-list">
             <LazyLoadImage src={product} alt="" effect="opacity" />
 
-            <Link to="/shop/category/1">
-              <strong>Hats</strong>
+            <Link to="/shop/category/3">
+              <strong>Watches</strong>
               <div>
-                <p>View all hats</p>
+                <p>View all watches</p>
                 <i className="bx bx-right-top-arrow-circle"></i>
               </div>
             </Link>
@@ -190,7 +169,7 @@ export const App = () => {
 
             <LazyLoadImage src={product} alt="" effect="opacity" />
 
-            <Link to="/shop/category/1">
+            <Link to="/shop/category/2">
               <strong>Rings</strong>
               <div>
                 <p>View all rings</p>
@@ -206,10 +185,10 @@ export const App = () => {
 
             <LazyLoadImage src={product} alt="" effect="opacity" />
 
-            <Link to="/shop/category/1">
-              <strong>Necklets</strong>
+            <Link to="/shop/category/4">
+              <strong>Necklace</strong>
               <div>
-                <p>View all necklets</p>
+                <p>View all necklace</p>
                 <i className="bx bx-right-top-arrow-circle"></i>
               </div>
             </Link>

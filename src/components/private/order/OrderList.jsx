@@ -73,6 +73,10 @@ export const OrderList = () => {
       return total + item.order.total;
     }, 0);
   };
+  const countPendingOrders = () => {
+    return orderList.filter((order) => order?.order?.status === "PENDING")
+      .length;
+  };
   return (
     <div className="order-list-container">
       {isLoadingPage ? (
@@ -112,7 +116,7 @@ export const OrderList = () => {
                   <p>Pending invoices</p>
                   <i className="bx bx-calendar-x"></i>
                 </div>
-                <strong>9 Invoices</strong>
+                <strong>{countPendingOrders()} Invoices</strong>
                 <small>wating for confirm</small>
               </div>
             </div>

@@ -576,6 +576,213 @@
         }
     }
 
+    .create-refund-modal-container {
+        width: 100vw;
+        height: 100vh;
+        z-index: 25;
+        background: rgba(0, 0, 0, .8);
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        ::-webkit-scrollbar {
+            width: 0;
+        }
+
+        .create-refund-modal {
+            width: 700px;
+            max-height: 700px;
+            height: 700px;
+            overflow-y: auto;
+            border-radius: 15px;
+            background: #090C0F;
+            padding: 25px 30px;
+            font-family: $dashboard-font;
+
+            .header {
+                display: flex;
+                justify-content: space-between;
+
+                div {
+                    align-items: center;
+                    display: flex;
+                    column-gap: 15px;
+
+                    i {
+                        font-size: 24px;
+                        color: #3259E8;
+                    }
+
+                    p {
+                        font-size: 1.6rem;
+                        font-weight: 500;
+                        color: white;
+                    }
+                }
+
+                i {
+                    cursor: pointer;
+                    font-size: 26px;
+                    color: #606B7A;
+                }
+            }
+
+            .create-refund-form {
+                margin-top: 20px;
+                padding: 25px 20px;
+                background: black;
+                border-radius: 15px;
+                border: 1px solid rgba(255, 255, 255, .1);
+                display: flex;
+                flex-direction: column;
+                row-gap: 25px;
+                overflow-y: hidden;
+
+                .input-image {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 10px;
+
+                    div {
+                        position: relative;
+                        width: 100%;
+                        height: 300px;
+                        border: 1px dashed rgba(255, 255, 255, .4);
+                        align-self: center;
+                        border-radius: 15px;
+
+                        label {
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            color: rgba(255, 255, 255, .6);
+                            align-items: center;
+                            justify-content: center;
+                            row-gap: 10px;
+                            cursor: pointer;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                border-radius: 15px;
+                            }
+
+                            i {
+                                font-size: 35px;
+                            }
+
+                            p {
+                                font-size: 1.1rem;
+                            }
+                        }
+
+                        input {
+                            display: none;
+                        }
+                    }
+
+                    small {
+                        font-size: 0.9rem;
+                        color: rgba(255, 255, 255, .4);
+                        cursor: pointer;
+                    }
+                }
+
+                .input-item {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 10px;
+
+                    label {
+                        color: white;
+                        font-size: 1rem;
+                    }
+
+                    input {
+                        padding: 10px 20px;
+                        background: #151A1F;
+                        border: 1px solid rgba(255, 255, 255, .1);
+                        border-radius: 10px;
+                        font-family: $dashboard-font;
+                        font-size: 1rem;
+                        color: white;
+                        transition: .4s;
+                    }
+
+                    input:focus {
+                        border-color: rgba(255, 255, 255, .6);
+                    }
+
+                    small {
+                        color: rgba(255, 255, 255, .4);
+                    }
+                }
+
+                .input-content {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 10px;
+
+                    textarea {
+                        width: 100%;
+                        height: 200px;
+                        border: 1px solid rgba(255, 255, 255, .1);
+                        border-radius: 10px;
+                        font-family: $dashboard-font;
+                        background: #151A1F;
+                        padding: 20px;
+                        resize: none;
+                        color: white;
+                        font-size: 1rem;
+                        transition: .4s;
+                    }
+
+                    textarea:focus {
+                        border-color: rgba(255, 255, 255, .6);
+                    }
+
+                    label {
+                        color: white;
+                        font-size: 1rem;
+                    }
+
+                    small {
+                        color: rgba(255, 255, 255, .4);
+                    }
+                }
+            }
+
+            .submit {
+                margin: 20px 0;
+                display: flex;
+                column-gap: 20px;
+
+                button {
+                    cursor: pointer;
+                    padding: 10px 0;
+                    border-radius: 10px;
+                    color: white;
+                    font-family: $dashboard-font;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                }
+
+                button:nth-child(1) {
+                    width: 30%;
+                    background: #22262E;
+                }
+
+                button:nth-child(2) {
+                    width: 70%;
+                    background: #3259E8;
+                }
+            }
+        }
+    }
+
     .update-blog-modal-container {
         width: 100vw;
         height: 100vh;
@@ -1872,7 +2079,7 @@
                 }
             }
 
-            .pending-status {
+            .pending {
                 margin-top: 30px;
                 width: 100%;
                 padding: 20px 30px;
@@ -1886,6 +2093,50 @@
                 i {
                     font-size: 22px;
                     color: rgba(119, 119, 58, 0.959);
+                }
+
+                p {
+                    font-size: 1rem;
+                    font-weight: 500;
+                }
+            }
+
+            .success {
+                margin-top: 30px;
+                width: 100%;
+                padding: 20px 30px;
+                border-top: 1px solid rgba(0, 0, 0, .1);
+                border-bottom: 2px solid rgba(56, 221, 15, 0.644);
+                display: flex;
+                align-items: center;
+                column-gap: 15px;
+                background: rgba(58, 240, 34, 0.151);
+
+                i {
+                    font-size: 22px;
+                    color: rgba(58, 119, 58, 0.959);
+                }
+
+                p {
+                    font-size: 1rem;
+                    font-weight: 500;
+                }
+            }
+
+            .reject {
+                margin-top: 30px;
+                width: 100%;
+                padding: 20px 30px;
+                border-top: 1px solid rgba(0, 0, 0, .1);
+                border-bottom: 2px solid rgba(221, 15, 15, 0.644);
+                display: flex;
+                align-items: center;
+                column-gap: 15px;
+                background: rgba(240, 34, 34, 0.151);
+
+                i {
+                    font-size: 22px;
+                    color: rgba(119, 58, 58, 0.959);
                 }
 
                 p {
@@ -1927,6 +2178,20 @@
                 display: flex;
                 justify-content: space-between;
                 column-gap: 20px;
+
+                .marked-success {
+                    border: 1px solid rgba(0, 0, 0, 0.2);
+                    background: rgba(116, 240, 34, 0.151);
+                    color: rgba(58, 119, 58, 0.959);
+                    cursor: not-allowed;
+                }
+
+                .marked-reject {
+                    border: 1px solid rgba(0, 0, 0, 0.2);
+                    background: rgba(240, 34, 34, 0.151);
+                    color: rgba(119, 58, 58, 0.959);
+                    cursor: not-allowed;
+                }
 
                 button {
                     width: 50%;
@@ -2239,6 +2504,12 @@
                 display: flex;
                 justify-content: space-between;
                 column-gap: 20px;
+
+                .note {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 10px;
+                }
 
                 button {
                     width: 100%;

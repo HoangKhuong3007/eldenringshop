@@ -170,8 +170,8 @@ export const OrderDetail = () => {
           <div className="refunded">
             <i className="bx bx-sync"></i>
             <p>
-              Your refund request has been approved, we will process the refund
-              within 1 day.
+              This order had been approved the refund request, please prepare
+              for refund
             </p>
           </div>
         )}

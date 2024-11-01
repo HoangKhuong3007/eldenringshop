@@ -80,6 +80,17 @@ const blockAccountSlice = createSlice({
     },
   },
 });
+const unblockAccountSlice = createSlice({
+  name: "unblockAccountModal",
+  initialState: {
+    isToggleModal: false,
+  },
+  reducers: {
+    toggleUnblockAccountModal: (state) => {
+      state.isToggleModal = !state.isToggleModal;
+    },
+  },
+});
 const DelBlogSlice = createSlice({
   name: "delBlogModal",
   initialState: {
@@ -232,6 +243,7 @@ export const { toggleUpdateProductModal } = UpdateProductSlice.actions;
 export const { toggleDelProductModal } = DelProductSlice.actions;
 export const { toggleAddAccountModal } = AddAccountSlice.actions;
 export const { toggleBlockAccountModal } = blockAccountSlice.actions;
+export const { toggleUnblockAccountModal } = unblockAccountSlice.actions;
 export const { toggleCancelOrderModal } = cancelOrderSlice.actions;
 export const { toggleRefundRequestModal } = refundRequestSlice.actions;
 export const { togglePreviewBlogModalOn, togglePreviewBlogModalOff } =
@@ -273,5 +285,6 @@ const modalReducers = combineReducers({
   animateRefundModal: animateRefundModalSlice.reducer,
   cancelOrderModal: cancelOrderSlice.reducer,
   refundRequestModal: refundRequestSlice.reducer,
+  unblockAccountModal: unblockAccountSlice.reducer,
 });
 export default modalReducers;

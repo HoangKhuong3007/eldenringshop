@@ -8,6 +8,7 @@ import blogReducers from "./slices/blog/blog";
 import accountReducers from "./slices/account/account";
 import paymentReducer from "./slices/payment/payment";
 import orderReducer from "./slices/order/order";
+import refundReducer from "./slices/refund/refund";
 export default configureStore({
   reducer: {
     // modal
@@ -24,5 +25,7 @@ export default configureStore({
     payment: paymentReducer,
     // order
     order: orderReducer,
+    // refund
+    refund: refundReducer,
   },
 });

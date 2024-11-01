@@ -195,12 +195,6 @@ export const ProductList = () => {
                             handleToggleUpdateProductModal(product.productId)
                           }
                         ></i>
-                        <i
-                          className="bx bx-trash-alt"
-                          onClick={() =>
-                            handleToggleDelProductModal(product.productId)
-                          }
-                        ></i>
                       </td>
                     </tr>
                   ))}

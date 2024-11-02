@@ -19,6 +19,7 @@ import { PaymentSuccess } from "../pages/public/PaymentSuccess";
 import { PaymentBuySuccess } from "../pages/public/PaymentBuySuccess";
 import { PaymentCancel } from "../pages/public/PaymentCancel";
 import { PaymentError } from "../pages/public/PaymentError";
+import { NotAuthorizePage } from "../pages/public/NotAuthorizePage";
 // wrapper
 import { LoggedWrapper, GuestWrapper } from "./AuthorizeWrapper";
 export const publicRoutes = [
@@ -77,6 +78,10 @@ export const publicRoutes = [
   {
     path: "/productdetail/:productId",
     element: <ProductDetail />,
+  },
+  {
+    path: "/not-authorized",
+    element: <NotAuthorizePage />,
   },
   {
     path: "/cart",

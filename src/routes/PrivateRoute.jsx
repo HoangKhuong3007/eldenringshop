@@ -4,29 +4,55 @@ import { AccountManager } from "../pages/private/AccountManager";
 import { BlogManager } from "../pages/private/BlogManager";
 import { OrderManager } from "../pages/private/OrderManager";
 import { RefundManager } from "../pages/private/RefundManager";
+// import wrapper
+import { RoleWrapper } from "./AuthorizeWrapper";
 export const privateRoutes = [
   {
     path: "/dashboard/product",
-    element: <ProductManager />,
+    element: (
+      <RoleWrapper allowedRoles={["ADMIN"]}>
+        <ProductManager />
+      </RoleWrapper>
+    ),
   },
   {
     path: "/dashboard/products/category/:cateId",
-    element: <ProductManager />,
+    element: (
+      <RoleWrapper allowedRoles={["ADMIN"]}>
+        <ProductManager />
+      </RoleWrapper>
+    ),
   },
   {
     path: "/dashboard/account",
-    element: <AccountManager />,
+    element: (
+      <RoleWrapper allowedRoles={["ADMIN"]}>
+        <AccountManager />
+      </RoleWrapper>
+    ),
   },
   {
     path: "/dashboard/blogs",
-    element: <BlogManager />,
+    element: (
+      <RoleWrapper allowedRoles={["ADMIN"]}>
+        <BlogManager />
+      </RoleWrapper>
+    ),
   },
   {
     path: "/dashboard/order",
-    element: <OrderManager />,
+    element: (
+      <RoleWrapper allowedRoles={["ADMIN"]}>
+        <OrderManager />
+      </RoleWrapper>
+    ),
   },
   {
     path: "/dashboard/refund",
-    element: <RefundManager />,
+    element: (
+      <RoleWrapper allowedRoles={["ADMIN"]}>
+        <RefundManager />
+      </RoleWrapper>
+    ),
   },
 ];

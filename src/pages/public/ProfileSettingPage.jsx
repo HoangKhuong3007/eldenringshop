@@ -101,6 +101,20 @@ export const ProfileSettingPage = () => {
       });
       return;
     }
+    if (submitData.phone.length < 8) {
+      toast.error("Please input valid phone number", {
+        position: "top-center",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        style: { width: "400px" },
+      });
+      return;
+    }
     try {
       await mutation.mutateAsync(submitData);
     } catch (error) {
@@ -146,7 +160,7 @@ export const ProfileSettingPage = () => {
               type="text"
               defaultValue={user?.email}
               disabled
-              placeholder="hoangkhuong2k4@gmail.com"
+              placeholder=""
             />
             <small>You cannot change email address</small>
           </div>
@@ -157,7 +171,7 @@ export const ProfileSettingPage = () => {
               name="fullName"
               onChange={handleOnChange}
               defaultValue={submitData.fullName}
-              placeholder="Lon Khuong"
+              placeholder="Enter your name"
             />
             <small>You can change your name</small>
           </div>

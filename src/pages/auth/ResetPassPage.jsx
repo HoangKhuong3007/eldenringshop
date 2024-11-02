@@ -93,6 +93,20 @@ export const ResetPassPage = () => {
       });
       return;
     }
+    if (submitData.password.length < 8) {
+      toast.error("Password must be at least 8 characters long", {
+        position: "top-center",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        style: { width: "400px" },
+      });
+      return;
+    }
     try {
       await mutation.mutateAsync(submitData);
     } catch (error) {

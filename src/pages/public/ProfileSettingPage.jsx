@@ -18,6 +18,7 @@ export const ProfileSettingPage = () => {
     fullName: "",
     phone: "",
     address: "",
+    status: true,
   });
   // mutation
   const mutation = useMutation({

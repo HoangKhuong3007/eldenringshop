@@ -71,24 +71,25 @@ export const Navbar = () => {
         </Link>
         {user && token ? (
           <div className="my-profile">
-            {cartList?.length > 0 ? (
-              <>
-                <Link
-                  state={{ cartInfo: cartInfo }}
-                  className="cart-quantity"
-                  to="/cart"
-                >
-                  <i className="bx bxs-cart"></i>
-                  <p className="quantity">{totalQuantity()}</p>
-                </Link>
-              </>
-            ) : (
-              <>
-                <Link state={{ cartInfo: cartInfo }} to="/cart">
-                  <i className="bx bx-cart"></i>
-                </Link>
-              </>
-            )}
+            {user.role !== "ADMIN" &&
+              (cartList?.length > 0 ? (
+                <>
+                  <Link
+                    state={{ cartInfo: cartInfo }}
+                    className="cart-quantity"
+                    to="/cart"
+                  >
+                    <i className="bx bxs-cart"></i>
+                    <p className="quantity">{totalQuantity()}</p>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link state={{ cartInfo: cartInfo }} to="/cart">
+                    <i className="bx bx-cart"></i>
+                  </Link>
+                </>
+              ))}
 
             <Link to="/setting/profile">
               <div className="info">

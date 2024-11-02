@@ -21,7 +21,11 @@ import { PaymentCancel } from "../pages/public/PaymentCancel";
 import { PaymentError } from "../pages/public/PaymentError";
 import { NotAuthorizePage } from "../pages/public/NotAuthorizePage";
 // wrapper
-import { LoggedWrapper, GuestWrapper } from "./AuthorizeWrapper";
+import {
+  LoggedWrapper,
+  GuestWrapper,
+  NonAdminWrapper,
+} from "./AuthorizeWrapper";
 export const publicRoutes = [
   {
     path: "/",
@@ -85,27 +89,63 @@ export const publicRoutes = [
   },
   {
     path: "/cart",
-    element: <CartPage />,
+    element: (
+      <GuestWrapper>
+        <NonAdminWrapper>
+          <CartPage />
+        </NonAdminWrapper>
+      </GuestWrapper>
+    ),
   },
   {
     path: "/checkout",
-    element: <CheckoutPage />,
+    element: (
+      <GuestWrapper>
+        <NonAdminWrapper>
+          <CheckoutPage />
+        </NonAdminWrapper>
+      </GuestWrapper>
+    ),
   },
   {
     path: "/payment/success",
-    element: <PaymentSuccess />,
+    element: (
+      <GuestWrapper>
+        <NonAdminWrapper>
+          <PaymentSuccess />
+        </NonAdminWrapper>
+      </GuestWrapper>
+    ),
   },
   {
     path: "/payment/successbuy",
-    element: <PaymentBuySuccess />,
+    element: (
+      <GuestWrapper>
+        <NonAdminWrapper>
+          <PaymentSuccess />
+        </NonAdminWrapper>
+      </GuestWrapper>
+    ),
   },
   {
     path: "/payment/cancel",
-    element: <PaymentCancel />,
+    element: (
+      <GuestWrapper>
+        <NonAdminWrapper>
+          <PaymentCancel />
+        </NonAdminWrapper>
+      </GuestWrapper>
+    ),
   },
   {
     path: "/payment/error",
-    element: <PaymentError />,
+    element: (
+      <GuestWrapper>
+        <NonAdminWrapper>
+          <PaymentError />
+        </NonAdminWrapper>
+      </GuestWrapper>
+    ),
   },
   {
     path: "/buynow/:productId",

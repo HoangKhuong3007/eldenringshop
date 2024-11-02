@@ -99,8 +99,22 @@ export const ProductDetail = () => {
     };
   };
   const handleBuynow = (productId) => {
+    if (user.role === "ADMIN") {
+      toast.error("Admins are not allowed to purchase products", {
+        position: "top-center",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        style: { width: "400px" },
+      });
+      return;
+    }
     if (!selectedSize.sizeName) {
-      toast.error("Please choose product size.", {
+      toast.error("Please choose product size", {
         position: "top-center",
         autoClose: 1500,
         hideProgressBar: false,
@@ -116,8 +130,22 @@ export const ProductDetail = () => {
     navigate(`/buynow/${productId}`);
   };
   const handleAddToCart = debounce(async () => {
+    if (user.role === "ADMIN") {
+      toast.error("Admins are not allowed to add products to the cart", {
+        position: "top-center",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        style: { width: "400px" },
+      });
+      return;
+    }
     if (!submitData.sizeName) {
-      toast.error("Please choose product size.", {
+      toast.error("Please choose product size", {
         position: "top-center",
         autoClose: 1500,
         hideProgressBar: false,

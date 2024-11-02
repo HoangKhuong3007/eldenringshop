@@ -30,3 +30,14 @@ export const RoleWrapper = ({ children, allowedRoles }) => {
 
   return children;
 };
+
+export const NonAdminWrapper = ({ children }) => {
+  const token = localStorage.getItem("token");
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  if (!token || user?.role === "ADMIN") {
+    return <Navigate to="/" />;
+  }
+
+  return children;
+};

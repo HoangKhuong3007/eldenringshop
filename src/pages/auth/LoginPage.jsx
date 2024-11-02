@@ -44,8 +44,8 @@ export const LoginPage = () => {
           theme: "light",
           style: { width: "400px" },
         });
-      }
-      if (response?.code === "USER_INACTIVE") {
+        setIsLoadingPage(false);
+      } else if (response?.code === "USER_INACTIVE") {
         toast.error("Your account is Blocked now, please contact to admin!", {
           position: "top-center",
           autoClose: 1500,
@@ -160,8 +160,7 @@ export const LoginPage = () => {
           style: { width: "400px" },
         });
         setIsLoadingPage(false);
-      }
-      if (response?.code === "USER_INACTIVE") {
+      } else if (response?.code === "USER_INACTIVE") {
         toast.error("Your account is Blocked now, please contact to admin!", {
           position: "top-center",
           autoClose: 1500,

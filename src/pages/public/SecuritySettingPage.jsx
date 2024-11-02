@@ -150,73 +150,84 @@ export const SecuritySettingPage = () => {
     <div className="security-setting-container">
       <ToastContainer />
       <SettingNav />
-      <div className="security-setting">
-        <div className="header">
-          <strong>Security Setting</strong>
-          {isLoadingPage ? (
-            <>
-              <div className="loading">
-                <BounceLoader color="#23B870" size={25} />
-                <p>Saving changes</p>
+      {isOauth ? (
+        <>
+          <strong className="is-oauth">
+            Sorry, your account logged by Google so you don't have to change
+            your password
+          </strong>
+        </>
+      ) : (
+        <>
+          <div className="security-setting">
+            <div className="header">
+              <strong>Security Setting</strong>
+              {isLoadingPage ? (
+                <>
+                  <div className="loading">
+                    <BounceLoader color="#23B870" size={25} />
+                    <p>Saving changes</p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="saved">
+                    <i className="bx bx-check"></i>
+                    <p>Lastest updated</p>
+                  </div>
+                </>
+              )}
+            </div>
+            <form action="" onSubmit={handleOnSubmit} className="security-form">
+              <div className="input-item">
+                <label htmlFor="">Current password</label>
+                <input
+                  type="text"
+                  name="oldPassword"
+                  onChange={handleOnChange}
+                  placeholder="*********"
+                />
+                <small>
+                  You have to enter the current password before change password
+                </small>
               </div>
-            </>
-          ) : (
-            <>
-              <div className="saved">
-                <i className="bx bx-check"></i>
-                <p>Lastest updated</p>
+              <div className="input-item">
+                <label htmlFor="">New password</label>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="newPassword"
+                  onChange={handleOnChange}
+                  placeholder="Enter new password"
+                />
+                <small>Enter new password to change password</small>
               </div>
-            </>
-          )}
-        </div>
-        <form action="" onSubmit={handleOnSubmit} className="security-form">
-          <div className="input-item">
-            <label htmlFor="">Current password</label>
-            <input
-              type="text"
-              name="oldPassword"
-              onChange={handleOnChange}
-              placeholder="*********"
-            />
-            <small>
-              You have to enter the current password before change password
-            </small>
-          </div>
-          <div className="input-item">
-            <label htmlFor="">New password</label>
-            <input
-              type={showPassword ? "text" : "password"}
-              name="newPassword"
-              onChange={handleOnChange}
-              placeholder="Enter new password"
-            />
-            <small>Enter new password to change password</small>
-          </div>
-          <div className="input-item">
-            <label htmlFor="">Confirm new password</label>
-            <input
-              type={showPassword ? "text" : "password"}
-              name="repass"
-              onChange={handleOnChange}
-              placeholder="Confirm password again"
-            />
+              <div className="input-item">
+                <label htmlFor="">Confirm new password</label>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="repass"
+                  onChange={handleOnChange}
+                  placeholder="Confirm password again"
+                />
 
-            <small>Confirm new password again to complete changes</small>
+                <small>Confirm new password again to complete changes</small>
+              </div>
+              <p
+                style={{
+                  fontSize: "0.8rem",
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  width: "fit-content",
+                }}
+                onClick={togglePasswordVisibility}
+              >
+                {showPassword ? "Hide password" : "Show password"}
+              </p>
+              <button>Change password</button>
+            </form>
           </div>
-          <p
-            style={{
-              fontSize: "0.8rem",
-              textDecoration: "underline",
-              cursor: "pointer",
-              width: "fit-content",
-            }}
-            onClick={togglePasswordVisibility}
-          >
-            {showPassword ? "Hide password" : "Show password"}
-          </p>
-          <button>Change password</button>
-        </form>
-      </div>
+        </>
+      )}
     </div>
   );
 };

@@ -13,6 +13,8 @@ import * as ProductService from "../../../service/product/product";
 import * as CategoryService from "../../../service/category/category";
 import { ClipLoader } from "react-spinners";
 export const ShopList = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const token = localStorage.getItem("token");
   // param
   const { cateId } = useParams();
   // state
@@ -136,19 +138,39 @@ export const ShopList = () => {
                 </>
               ) : (
                 <>
-                  {filteredProducts?.map((product) => (
-                    <div key={product.productId} className="item">
-                      <img src={product.image} alt="" />
-                      <strong>{product.name}</strong>
-                      <strong>{formatPrice(product.price)}</strong>
-                      <Link
-                        state={{ productInfo: product }}
-                        to={`/productdetail/${product.productId}`}
-                      >
-                        Choose Size
-                      </Link>
-                    </div>
-                  ))}
+                  {!user && !token ? (
+                    <>
+                      {filteredProducts?.map((product) => (
+                        <div key={product.productId} className="item">
+                          <img src={product.image} alt="" />
+                          <strong>{product.name}</strong>
+                          <strong>{formatPrice(product.price)}</strong>
+                          <Link
+                            state={{ productInfo: product }}
+                            to={`/productdetail/${product.productId}`}
+                          >
+                            View Detail
+                          </Link>
+                        </div>
+                      ))}
+                    </>
+                  ) : (
+                    <>
+                      {filteredProducts?.map((product) => (
+                        <div key={product.productId} className="item">
+                          <img src={product.image} alt="" />
+                          <strong>{product.name}</strong>
+                          <strong>{formatPrice(product.price)}</strong>
+                          <Link
+                            state={{ productInfo: product }}
+                            to={`/productdetail/${product.productId}`}
+                          >
+                            Choose Size
+                          </Link>
+                        </div>
+                      ))}
+                    </>
+                  )}
                 </>
               )}
             </div>

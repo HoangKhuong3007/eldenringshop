@@ -15,6 +15,7 @@ import * as ProductService from "../../service/product/product";
 export const ProductDetail = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const userId = user?.userId;
+  const token = localStorage.getItem("token");
   const { productId } = useParams();
   // navigate
   const navigate = useNavigate();
@@ -166,39 +167,71 @@ export const ProductDetail = () => {
               Size
             </label>
             <div className="size-list">
-              {productInfo?.productVariants?.map((variant) => (
-                <div className="size-item" key={variant.sizeName}>
-                  <input
-                    type="radio"
-                    id={`size${variant.sizeName}`}
-                    name="sizeName"
-                    onChange={handleSizeChange}
-                    value={variant.sizeName}
-                    disabled={variant.quantity === 0}
-                  />
-                  <label
-                    className={variant.quantity === 0 && "out-of-stock"}
-                    htmlFor={`size${variant.sizeName}`}
-                  >
-                    Size {variant.sizeName}
-                  </label>
-                </div>
-              ))}
+              {!user && !token ? (
+                <>
+                  {productInfo?.productVariants?.map((variant) => (
+                    <div className="size-item" key={variant.sizeName}>
+                      <input
+                        type="radio"
+                        id={`size${variant.sizeName}`}
+                        name="sizeName"
+                        value={variant.sizeName}
+                        disabled
+                      />
+                      <label
+                        className="out-of-stock"
+                        htmlFor={`size${variant.sizeName}`}
+                      >
+                        Size {variant.sizeName}
+                      </label>
+                    </div>
+                  ))}
+                </>
+              ) : (
+                <>
+                  {productInfo?.productVariants?.map((variant) => (
+                    <div className="size-item" key={variant.sizeName}>
+                      <input
+                        type="radio"
+                        id={`size${variant.sizeName}`}
+                        name="sizeName"
+                        onChange={handleSizeChange}
+                        value={variant.sizeName}
+                        disabled={variant.quantity === 0}
+                      />
+                      <label
+                        className={variant.quantity === 0 && "out-of-stock"}
+                        htmlFor={`size${variant.sizeName}`}
+                      >
+                        Size {variant.sizeName}
+                      </label>
+                    </div>
+                  ))}
+                </>
+              )}
             </div>
           </div>
           <div className="buttons">
-            <button style={{ cursor: "pointer" }} onClick={handleAddToCart}>
-              Add To Cart
-            </button>
-            <Link
-              onClick={() => handleBuynow(productInfo?.productId)}
-              state={{
-                productInfo: productInfo,
-                selectedSize: selectedSize.sizeName,
-              }}
-            >
-              Buy Now
-            </Link>
+            {!user && !token ? (
+              <>
+                <Link to="/login">You have to Login to buy this product!</Link>
+              </>
+            ) : (
+              <>
+                <button style={{ cursor: "pointer" }} onClick={handleAddToCart}>
+                  Add To Cart
+                </button>
+                <Link
+                  onClick={() => handleBuynow(productInfo?.productId)}
+                  state={{
+                    productInfo: productInfo,
+                    selectedSize: selectedSize.sizeName,
+                  }}
+                >
+                  Buy Now
+                </Link>
+              </>
+            )}
           </div>
           <div className="note">
             <p>

@@ -169,7 +169,7 @@ export const BuynowPage = () => {
               name="fullname"
               defaultValue={user?.fullName || ""}
               onChange={handleOnChange}
-              placeholder="Lon Khuong"
+              placeholder="Enter your name"
             />
           </div>
           <div className="input-item">
@@ -180,7 +180,7 @@ export const BuynowPage = () => {
               disabled
               defaultValue={user?.email || ""}
               onChange={handleOnChange}
-              placeholder="hoangkhuong2k4@gmail.com"
+              placeholder="Enter your email"
             />
           </div>
           <div className="input-item">
@@ -190,7 +190,7 @@ export const BuynowPage = () => {
               name="address"
               defaultValue={user?.address || ""}
               onChange={handleOnChange}
-              placeholder="Vinhomes Grand Park"
+              placeholder="Enter your address"
             />
           </div>
           <div className="input-item">
@@ -200,7 +200,7 @@ export const BuynowPage = () => {
               name="phone"
               defaultValue={user?.phone || ""}
               onChange={handleOnChange}
-              placeholder="0123456789"
+              placeholder="Enter your phone"
             />
           </div>
         </form>

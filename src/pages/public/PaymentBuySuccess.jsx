@@ -13,14 +13,14 @@ export const PaymentBuySuccess = () => {
   const navigate = useNavigate();
   // state
   const [submitData, setSubmitData] = useState({
-    fullname: paymentInfo.fullname || "",
-    email: paymentInfo.email || "",
-    phone: paymentInfo.phone || "",
-    address: paymentInfo.address || "",
-    productId: paymentInfo.productId || "",
-    size: paymentInfo.size || "",
-    quantity: paymentInfo.quantity || "",
-    total: paymentInfo.total || "",
+    fullname: paymentInfo?.fullname || "",
+    email: paymentInfo?.email || "",
+    phone: paymentInfo?.phone || "",
+    address: paymentInfo?.address || "",
+    productId: paymentInfo?.productId || "",
+    size: paymentInfo?.size || "",
+    quantity: paymentInfo?.quantity || "",
+    total: paymentInfo?.total || "",
     paymentId,
   });
 

@@ -20,6 +20,7 @@ import { PaymentBuySuccess } from "../pages/public/PaymentBuySuccess";
 import { PaymentCancel } from "../pages/public/PaymentCancel";
 import { PaymentError } from "../pages/public/PaymentError";
 import { NotAuthorizePage } from "../pages/public/NotAuthorizePage";
+import { About } from "../pages/public/About";
 // wrapper
 import {
   LoggedWrapper,
@@ -122,7 +123,7 @@ export const publicRoutes = [
     element: (
       <GuestWrapper>
         <NonAdminWrapper>
-          <PaymentSuccess />
+          <PaymentBuySuccess />
         </NonAdminWrapper>
       </GuestWrapper>
     ),
@@ -158,6 +159,10 @@ export const publicRoutes = [
   {
     path: "/blogdetail/:blogId",
     element: <BlogDetailPage />,
+  },
+  {
+    path: "/about",
+    element: <About />,
   },
   {
     path: "/setting/profile",

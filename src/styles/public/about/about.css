@@ -28,8 +28,20 @@ a {
 @media only screen and (max-width: 1536px) {
   .about-container {
     width: 100vw;
-    height: 100vh;
     position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .about-container .about {
+    padding: 60px;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    justify-content: center;
+  }
+  .about-container .about .we-are-title {
+    font-family: "Lora", serif;
     display: flex;
     align-items: center;
     justify-content: center;

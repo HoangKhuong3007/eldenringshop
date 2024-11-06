@@ -10,6 +10,14 @@ export const About = () => {
   return (
     <div className="about-container">
       <Navbar />
+      <AdvanceNavbar />
+      <div className="about">
+        <div className="we-are-title">
+          <h1>WE ARE ELDEN RING</h1>
+          <div className="img_header"></div>
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 };

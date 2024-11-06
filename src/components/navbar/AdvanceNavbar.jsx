@@ -51,34 +51,28 @@ export const AdvanceNavbar = () => {
             </div>
             <div className="links">
               <NavLink
-                to="/shop"
+                to="/shop/category/3"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
-                All Products
-              </NavLink>
-              <NavLink
-                to="/shop/category/1"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                Necklet
+                Watches
               </NavLink>
               <NavLink
                 to="/shop/category/2"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
-                Hats
+                Ring
               </NavLink>
               <NavLink
-                to="/shop/category/3"
+                to="/shop/category/1"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
-                Rings
+                Bags
               </NavLink>
               <NavLink
                 to="/shop/category/4"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
-                Bags
+                Necklace
               </NavLink>
             </div>
           </div>

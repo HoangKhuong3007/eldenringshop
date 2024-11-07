@@ -29,7 +29,7 @@ export const getProductByCateId = async (cateId) => {
 };
 export const getProductShopByCateId = async (cateId) => {
   try {
-    const api = `http://localhost:8080/category//shop${cateId}`;
+    const api = `http://localhost:8080/category/shop/${cateId}`;
     const res = await axios.get(api, {
       headers: {
         "Content-Type": "application/json",

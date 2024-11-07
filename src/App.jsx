@@ -21,6 +21,18 @@ import blog1 from "./assets/blog1.jpg";
 import blog2 from "./assets/blog2.jpg";
 import blog3 from "./assets/blog3.jpg";
 import blog4 from "./assets/blog4.jpg";
+import product1 from "./assets/product1.jpg";
+import product2 from "./assets/product2.jpg";
+import product3 from "./assets/product3.jpg";
+import product4 from "./assets/product4.jpg";
+import product5 from "./assets/product5.jpg";
+import product6 from "./assets/product6.jpg";
+import product7 from "./assets/product7.jpg";
+import product8 from "./assets/product8.jpg";
+import product9 from "./assets/product9.jpg";
+import product10 from "./assets/product10.jpg";
+import product11 from "./assets/product11.jpg";
+import product12 from "./assets/product12.jpg";
 // import service
 import * as AccountService from "./service/account/account";
 import * as CartService from "./service/cart/cart";
@@ -138,7 +150,7 @@ export const App = () => {
         </div>
         <div className="category">
           <div className="category-list">
-            <LazyLoadImage src={product} alt="" effect="opacity" />
+            <LazyLoadImage src={product1} alt="" effect="opacity" />
 
             <Link to="/shop/category/3">
               <strong>Watches</strong>
@@ -147,9 +159,9 @@ export const App = () => {
                 <i className="bx bx-right-top-arrow-circle"></i>
               </div>
             </Link>
-            <LazyLoadImage src={product} alt="" effect="opacity" />
+            <LazyLoadImage src={product2} alt="" effect="opacity" />
 
-            <LazyLoadImage src={product} alt="" effect="opacity" />
+            <LazyLoadImage src={product3} alt="" effect="opacity" />
           </div>
           <div className="category-list">
             <Link to="/shop/category/1">
@@ -159,17 +171,18 @@ export const App = () => {
                 <i className="bx bx-right-top-arrow-circle"></i>
               </div>
             </Link>
-            <LazyLoadImage src={product} alt="" effect="opacity" />
+            <LazyLoadImage src={product4} alt="" effect="opacity" />
 
-            <LazyLoadImage src={product} alt="" effect="opacity" />
+            <LazyLoadImage src={product5} alt="" effect="opacity" />
 
-            <LazyLoadImage src={product} alt="" effect="opacity" />
+            <LazyLoadImage src={product6} alt="" effect="opacity" />
           </div>
           <div className="category-list">
-            <LazyLoadImage src={product} alt="" effect="opacity" />
+            <LazyLoadImage src={product7} alt="" effect="opacity" />
 
-            <LazyLoadImage src={product} alt="" effect="opacity" />
+            <LazyLoadImage src={product8} alt="" effect="opacity" />
 
+            <LazyLoadImage src={product9} alt="" effect="opacity" />
             <Link to="/shop/category/2">
               <strong>Rings</strong>
               <div>
@@ -177,15 +190,11 @@ export const App = () => {
                 <i className="bx bx-right-top-arrow-circle"></i>
               </div>
             </Link>
-            <LazyLoadImage src={product} alt="" effect="opacity" />
           </div>
           <div className="category-list">
-            <LazyLoadImage src={product} alt="" effect="opacity" />
+            <LazyLoadImage src={product10} alt="" effect="opacity" />
 
-            <LazyLoadImage src={product} alt="" effect="opacity" />
-
-            <LazyLoadImage src={product} alt="" effect="opacity" />
-
+            <LazyLoadImage src={product11} alt="" effect="opacity" />
             <Link to="/shop/category/4">
               <strong>Necklace</strong>
               <div>
@@ -193,6 +202,8 @@ export const App = () => {
                 <i className="bx bx-right-top-arrow-circle"></i>
               </div>
             </Link>
+
+            <LazyLoadImage src={product12} alt="" effect="opacity" />
           </div>
         </div>
         <div className="newsletter">

@@ -91,7 +91,7 @@ export const ProfileSettingPage = () => {
     if (
       submitData.phone.length < 8 ||
       submitData.phone.length > 11 ||
-      !/^\d+$/.test(submitData.phone)
+      !/^0\d+$/.test(submitData.phone)
     ) {
       toast.error("Please input valid phone number", {
         position: "top-center",

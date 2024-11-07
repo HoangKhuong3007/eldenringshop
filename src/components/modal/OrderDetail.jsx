@@ -227,7 +227,7 @@ export const OrderDetail = () => {
                 <tr>
                   <th>Product</th>
                   <th>Amount</th>
-                  <th>Qty</th>
+                  <th>Quantity</th>
                   <th>Total amount</th>
                 </tr>
               </thead>

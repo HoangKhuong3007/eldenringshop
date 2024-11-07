@@ -34,7 +34,7 @@ export const ShopList = () => {
     queryKey: ["products", cateId],
     queryFn: () =>
       cateId
-        ? CategoryService.getProductByCateId(cateId)
+        ? CategoryService.getProductShopByCateId(cateId)
         : ProductService.getAllShop(),
     refetchOnWindowFocus: false,
   });

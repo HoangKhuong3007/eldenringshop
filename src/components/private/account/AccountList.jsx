@@ -70,7 +70,7 @@ export const AccountList = () => {
         <div className="section-1">
           <div className="utils-header">
             <strong>Account list</strong>
-            <p>total {accountList?.length} users</p>
+            <p>total {accountList?.length} accounts</p>
           </div>
           <div className="buttons">
             <div className="add-btn" onClick={handleToggleAddAccountModal}>

@@ -115,9 +115,25 @@ export const AddAccountModal = () => {
       });
       return;
     }
-    if (submitData.password.length < 8) {
-      toast.error("Password must be at least 8 characters long", {
-        position: "top-right",
+    if (submitData.password.length < 8 || /\s/.test(submitData.password)) {
+      toast.error(
+        "Password must be at least 8 characters long and must not contain spaces",
+        {
+          position: "top-right",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }
+      );
+      return;
+    }
+    if (submitData.fullName.trim() === "") {
+      toast.error("Full name cannot be only spaces", {
+        position: "top-center",
         autoClose: 1500,
         hideProgressBar: false,
         closeOnClick: true,
@@ -125,6 +141,7 @@ export const AddAccountModal = () => {
         draggable: true,
         progress: undefined,
         theme: "light",
+        style: { width: "400px" },
       });
       return;
     }

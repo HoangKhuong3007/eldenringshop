@@ -88,8 +88,12 @@ export const ProfileSettingPage = () => {
       });
       return;
     }
-    if (submitData.phone.length > 10) {
-      toast.error("Phone number too long, please input valid phone number", {
+    if (
+      submitData.phone.length < 8 ||
+      submitData.phone.length > 11 ||
+      !/^\d+$/.test(submitData.phone)
+    ) {
+      toast.error("Please input valid phone number", {
         position: "top-center",
         autoClose: 1500,
         hideProgressBar: false,
@@ -102,8 +106,22 @@ export const ProfileSettingPage = () => {
       });
       return;
     }
-    if (submitData.phone.length < 8) {
-      toast.error("Please input valid phone number", {
+    if (submitData.fullName.trim() === "") {
+      toast.error("Full name cannot be only spaces", {
+        position: "top-center",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        style: { width: "400px" },
+      });
+      return;
+    }
+    if (submitData.address.trim() === "") {
+      toast.error("Full name cannot be only spaces", {
         position: "top-center",
         autoClose: 1500,
         hideProgressBar: false,

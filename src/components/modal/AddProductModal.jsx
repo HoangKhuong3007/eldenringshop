@@ -172,6 +172,34 @@ export const AddProductModal = () => {
       });
       return;
     }
+    if (submitData.name.trim() === "") {
+      toast.error("Name cannot be empty", {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        style: { width: "400px" },
+      });
+      return;
+    }
+    if (submitData.description.trim() === "") {
+      toast.error("Description cannot be empty", {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        style: { width: "400px" },
+      });
+      return;
+    }
     try {
       await mutation.mutateAsync(submitData);
     } catch (error) {

@@ -93,9 +93,9 @@ export const ProductList = () => {
             <p>{filteredProducts?.length || 0} items</p>
           </div>
           <div className="buttons">
-            <div className="add-btn">
+            <div className="add-btn" onClick={handleToggleAddProductModal}>
               <i className="bx bx-plus"></i>
-              <p onClick={handleToggleAddProductModal}>Add products</p>
+              <p>Add products</p>
             </div>
           </div>
         </div>

@@ -111,18 +111,21 @@ export const SecuritySettingPage = () => {
       });
       return;
     }
-    if (submitData.newPassword.length < 8) {
-      toast.error("Password must be at least 8 characters long", {
-        position: "top-center",
-        autoClose: 1500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        style: { width: "400px" },
-      });
+    if (submitData.newPassword.length < 8 || /\s/.test(submitData.password)) {
+      toast.error(
+        "Password must be at least 8 characters long and must not contain spaces",
+        {
+          position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          style: { width: "400px" },
+        }
+      );
       return;
     }
     if (submitData.newPassword !== submitData.repass) {

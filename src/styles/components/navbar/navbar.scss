@@ -9,34 +9,48 @@
         position: fixed;
         width: 100vw;
         height: 100vh;
-        background: rgba(0, 0, 0, .5);
+        background: rgba(0, 0, 0, 0.5);
         z-index: 9;
         padding: 0 60px;
         font-family: $main-font;
-
-        .open {
-            top: 0;
+        transition: opacity 0.8s, visibility 0.8s;
+    
+        &.open {
             opacity: 1;
+            visibility: visible;
         }
-
-        .close {
+    
+        &.close {
             opacity: 0;
-            top: -500px;
+            visibility: hidden;
         }
-
+    
         .advance-navbar {
             z-index: 10;
             position: absolute;
             margin-top: 105px;
             width: calc(100% - 120px);
-            background: rgba(0, 0, 0, .7);
+            background: rgba(0, 0, 0, 0.7);
             border-radius: 15px;
             display: flex;
             flex-direction: column;
             padding: 60px 40px;
             row-gap: 40px;
-            transition: .8s;
-
+            top: 0;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.8s, transform 0.8s;
+    
+            &.open {
+                opacity: 1;
+                transform: translateY(0);
+            }
+    
+            &.close {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+    
             .bxs-up-arrow {
                 position: absolute;
                 color: white;
@@ -48,38 +62,38 @@
                 left: 50%;
                 cursor: pointer;
             }
-
+    
             .header {
                 strong {
                     color: white;
                 }
             }
-
+    
             .menu-list {
                 display: flex;
                 column-gap: 150px;
-
+    
                 .list {
                     display: flex;
                     flex-direction: column;
                     row-gap: 40px;
-
+    
                     .list-header {
                         span {
-                            color: rgba(255, 255, 255, .7);
+                            color: rgba(255, 255, 255, 0.7);
                             font-size: 0.85rem;
                         }
                     }
-
+    
                     .links {
                         display: flex;
                         flex-direction: column;
                         row-gap: 35px;
-
+    
                         .active {
-                            border-color: rgba(255, 255, 255, .6);
+                            border-color: rgba(255, 255, 255, 0.6);
                         }
-
+    
                         a {
                             width: fit-content;
                             color: white;
@@ -88,9 +102,9 @@
                             padding-bottom: 3px;
                             border-bottom: 1px solid transparent;
                             cursor: pointer;
-                            transition: .4s;
+                            transition: border-color 0.4s;
                         }
-
+    
                         a:hover {
                             border-color: white;
                         }

@@ -52,7 +52,7 @@ export const PaymentSuccess = () => {
         <p>
           Eldenring would like to thank you for purchasing from us, your order
           is currently awaiting approval for shipping. To check your invoice,
-          please check your email or My Order section
+          please check My Orders section
         </p>
         <Link to="/" onClick={handleReturn}>
           Return to homepage

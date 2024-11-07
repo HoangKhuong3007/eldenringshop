@@ -95,8 +95,26 @@ export const CheckoutPage = () => {
       });
       return;
     }
-    if (submitData.phone.length > 10) {
-      toast.error("Phone number too long, please input valid phone number", {
+    if (submitData.fullName.trim() === "") {
+      toast.error("Full name cannot be only spaces", {
+        position: "top-center",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        style: { width: "400px" },
+      });
+      return;
+    }
+    if (
+      submitData.phone.length < 8 ||
+      submitData.phone.length > 11 ||
+      !/^\d+$/.test(submitData.phone)
+    ) {
+      toast.error("Please input valid phone number", {
         position: "top-center",
         autoClose: 1500,
         hideProgressBar: false,
@@ -165,7 +183,7 @@ export const CheckoutPage = () => {
               name="fullName"
               onChange={handleOnChange}
               defaultValue={user?.fullName || ""}
-              placeholder="Lon Khuong"
+              placeholder="Enter your name"
             />
           </div>
           <div className="input-item">
@@ -176,7 +194,7 @@ export const CheckoutPage = () => {
               disabled
               defaultValue={user?.email || ""}
               name="email"
-              placeholder="hoangkhuong2k4@gmail.com"
+              placeholder="Enter your email"
             />
           </div>
           <div className="input-item">

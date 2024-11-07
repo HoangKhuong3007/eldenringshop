@@ -73,6 +73,7 @@ export const App = () => {
     }
   };
   useEffect(() => {
+    window.scrollTo(0, 0);
     handleAuth();
   }, []);
   const formatPrice = (price) =>

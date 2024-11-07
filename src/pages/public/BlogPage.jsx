@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 // import styles
 import "../../styles/public/blog/blog.css";
@@ -9,6 +9,9 @@ import { Footer } from "../../components/footer/Footer";
 import { BlogList } from "../../components/public/blog/BlogList";
 
 export const BlogPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="blog-container">
       <Navbar />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Carousel from "react-multi-carousel";
@@ -35,6 +35,9 @@ const responsive = {
   },
 };
 export const ShopPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="shop-container">
       <Navbar />

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { ToastContainer, toast } from "react-toastify";
@@ -13,6 +13,9 @@ import { Footer } from "../../components/footer/Footer";
 import * as CartService from "../../service/cart/cart";
 import * as ProductService from "../../service/product/product";
 export const ProductDetail = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const user = JSON.parse(localStorage.getItem("user"));
   const userId = user?.userId;
   const token = localStorage.getItem("token");

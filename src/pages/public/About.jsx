@@ -1,7 +1,9 @@
+import React, { useEffect } from "react";
 import "../../styles/public/about/about.css";
 import { Navbar } from "../../components/navbar/Navbar";
 import { AdvanceNavbar } from "../../components/navbar/AdvanceNavbar";
 import { Footer } from "../../components/footer/Footer";
+
 // import assets
 import about1 from "../../assets/about1.jpg";
 import about2 from "../../assets/about2.jpg";
@@ -18,6 +20,9 @@ import about12 from "../../assets/about12.jpg";
 import about13 from "../../assets/about13.jpg";
 import about14 from "../../assets/about14.jpg";
 export const About = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="about-container">
       <Navbar />

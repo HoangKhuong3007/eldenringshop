@@ -134,7 +134,9 @@ export const ResetPassPage = () => {
       </div>
       <div className="reset">
         <div className="header">
-          <img src={logo} alt="" />
+          <Link to="/">
+            <img src={logo} alt="" />
+          </Link>
           <strong>Reset Your Password</strong>
         </div>
         <form action="" onSubmit={handleOnSubmit} className="reset-form">
